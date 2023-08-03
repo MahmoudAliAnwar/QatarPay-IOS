@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_upload_card_add_payment.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

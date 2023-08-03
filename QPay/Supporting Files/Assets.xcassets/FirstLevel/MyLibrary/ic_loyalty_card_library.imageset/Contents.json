@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_loyalty_card_library.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

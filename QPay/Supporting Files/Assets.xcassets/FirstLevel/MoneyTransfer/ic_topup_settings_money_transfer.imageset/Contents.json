@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_topup_settings_money_transfer.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

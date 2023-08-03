@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="sf-ui-display-regular.otf">
+            <string>SFUIDisplay-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="StockDetailsRowValueCollectionViewCell" id="gTV-IL-0wX" customClass="StockDetailsRowValueCollectionViewCell" customModule="Qatar_Pay" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="459" height="126"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="459" height="126"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jTK-XY-anE">
+                        <rect key="frame" x="0.0" y="0.0" width="459" height="126"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vMZ-H3-HpT">
+                                <rect key="frame" x="0.0" y="0.0" width="459" height="126"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="L90-9E-Vbf">
+                                        <rect key="frame" x="0.0" y="53" width="459" height="20"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="d4t-vM-ASc">
+                                                <rect key="frame" x="0.0" y="0.0" width="459" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="CgB-1M-ZgG"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="14"/>
+                                                <color key="textColor" name="label_dark_gray"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="vMZ-H3-HpT" secondAttribute="trailing" id="VBo-fu-yoj"/>
+                            <constraint firstAttribute="bottom" secondItem="vMZ-H3-HpT" secondAttribute="bottom" id="avE-hZ-VnN"/>
+                            <constraint firstItem="vMZ-H3-HpT" firstAttribute="leading" secondItem="jTK-XY-anE" secondAttribute="leading" id="h7j-lq-Bsb"/>
+                            <constraint firstItem="vMZ-H3-HpT" firstAttribute="top" secondItem="jTK-XY-anE" secondAttribute="top" id="keu-qd-0dw"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="jTK-XY-anE" secondAttribute="bottom" id="2yz-m2-rcy"/>
+                <constraint firstAttribute="trailing" secondItem="jTK-XY-anE" secondAttribute="trailing" id="Yph-QL-vMQ"/>
+                <constraint firstItem="jTK-XY-anE" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="u70-IR-udv"/>
+                <constraint firstItem="jTK-XY-anE" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="zq7-M0-zzF"/>
+            </constraints>
+            <size key="customSize" width="459" height="126"/>
+            <point key="canvasLocation" x="434.05797101449281" y="152.00892857142856"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="label_dark_gray">
+            <color red="0.1803921568627451" green="0.1803921568627451" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

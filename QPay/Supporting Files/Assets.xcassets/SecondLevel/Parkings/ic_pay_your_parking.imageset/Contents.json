@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_pay_your_parking.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

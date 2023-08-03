@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_notifications_my_book.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_star_pay_trip.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

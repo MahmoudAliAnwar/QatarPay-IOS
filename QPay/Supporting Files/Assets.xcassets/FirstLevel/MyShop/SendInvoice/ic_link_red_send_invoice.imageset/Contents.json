@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_link_red_send_invoice.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_delivery_adv_my_book.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

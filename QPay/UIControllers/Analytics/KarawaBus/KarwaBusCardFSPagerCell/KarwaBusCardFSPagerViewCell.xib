@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KarwaBusCardFSPagerViewCell" customModule="Qatar_Pay" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="KarwaBusCardFSPagerViewCell" customModule="Qatar_Pay" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="561" height="357"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XR3-56-SdH">
+                    <rect key="frame" x="0.0" y="0.0" width="561" height="357"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8Sf-kB-gT9">
+                            <rect key="frame" x="0.0" y="0.0" width="561" height="357"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qVk-EI-D1W" customClass="ImageViewDesign" customModule="Qatar_Pay" customModuleProvider="target">
+                                    <rect key="frame" x="8" y="8" width="545" height="341"/>
+                                </imageView>
+                            </subviews>
+                            <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="8Sf-kB-gT9" firstAttribute="leading" secondItem="XR3-56-SdH" secondAttribute="leading" id="0OI-ZK-UCu"/>
+                        <constraint firstAttribute="trailing" secondItem="8Sf-kB-gT9" secondAttribute="trailing" id="8Pv-sE-y9V"/>
+                        <constraint firstItem="8Sf-kB-gT9" firstAttribute="top" secondItem="XR3-56-SdH" secondAttribute="top" id="sgK-OL-KOq"/>
+                        <constraint firstAttribute="bottom" secondItem="8Sf-kB-gT9" secondAttribute="bottom" id="t0l-uw-SG9"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="XR3-56-SdH" secondAttribute="bottom" id="ZiJ-jp-PZc"/>
+                <constraint firstItem="XR3-56-SdH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bgu-26-XB4"/>
+                <constraint firstAttribute="trailing" secondItem="XR3-56-SdH" secondAttribute="trailing" id="lZ2-Tu-ypU"/>
+                <constraint firstItem="XR3-56-SdH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="tjX-h0-WYh"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="cardImageViewDesign" destination="qVk-EI-D1W" id="oHa-mE-TsY"/>
+            </connections>
+            <point key="canvasLocation" x="244.20289855072465" y="-52.566964285714285"/>
+        </view>
+    </objects>
+</document>

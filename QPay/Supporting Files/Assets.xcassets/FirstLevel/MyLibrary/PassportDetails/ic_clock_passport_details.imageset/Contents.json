@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_clock_passport_details.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

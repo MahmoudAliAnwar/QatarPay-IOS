@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_local_yellow_qatar_tabs.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

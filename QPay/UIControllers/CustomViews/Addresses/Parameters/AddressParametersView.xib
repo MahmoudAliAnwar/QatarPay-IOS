@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="sf-ui-display-regular.otf">
+            <string>SFUIDisplay-Regular</string>
+        </array>
+        <array key="sf-ui-display-semibold.otf">
+            <string>SFUIDisplay-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddressParametersView" customModule="Qatar_Pay" customModuleProvider="target">
+            <connections>
+                <outlet property="addressNameLabel" destination="mS6-hG-edv" id="6Q1-PT-zOQ"/>
+                <outlet property="buildingNumberLabel" destination="3Mj-SS-O4S" id="tes-Gp-OZ9"/>
+                <outlet property="setAsDefaultButton" destination="pf2-uE-HMd" id="nUY-8w-bDw"/>
+                <outlet property="shareButton" destination="4EA-xo-2JN" id="Ptd-DE-Pps"/>
+                <outlet property="streetNameLabel" destination="1UV-Pw-xyn" id="MJ6-ut-lhX"/>
+                <outlet property="streetNumberLabel" destination="62r-11-nhd" id="D5c-qc-MlI"/>
+                <outlet property="zoneLabel" destination="mvR-ro-ItC" id="epT-yJ-yQn"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="602" height="225"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0LX-Ks-DMm">
+                    <rect key="frame" x="0.0" y="0.0" width="602" height="225"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fF0-rg-kwE">
+                            <rect key="frame" x="0.0" y="84.5" width="602" height="56"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rxJ-qi-Spm">
+                                    <rect key="frame" x="0.0" y="0.0" width="602" height="56"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Kkm-yL-wCK">
+                                            <rect key="frame" x="0.0" y="0.0" width="301" height="56"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mS6-hG-edv">
+                                                    <rect key="frame" x="0.0" y="0.0" width="301" height="28"/>
+                                                    <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1UV-Pw-xyn">
+                                                    <rect key="frame" x="0.0" y="28" width="301" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="28" id="blf-TW-Sr0"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iqL-Wc-5R7">
+                                            <rect key="frame" x="301" y="0.0" width="301" height="56"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="JlV-jh-CWn">
+                                                    <rect key="frame" x="0.0" y="0.0" width="301" height="56"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pf2-uE-HMd">
+                                                            <rect key="frame" x="0.0" y="0.0" width="301" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="08b-53-PCL"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="12"/>
+                                                            <state key="normal" title="Set as Default"/>
+                                                            <connections>
+                                                                <action selector="setAsDefaultAction:" destination="-1" eventType="touchUpInside" id="LWG-2l-dqg"/>
+                                                            </connections>
+                                                        </button>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="79F-1c-gPy">
+                                                            <rect key="frame" x="0.0" y="34" width="301" height="22"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4EA-xo-2JN">
+                                                                    <rect key="frame" x="139.5" y="0.0" width="22" height="22"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="4EA-xo-2JN" secondAttribute="height" multiplier="1:1" id="IUm-Ys-5iX"/>
+                                                                    </constraints>
+                                                                    <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                                                    <state key="normal" image="ic_share_my_shops"/>
+                                                                    <connections>
+                                                                        <action selector="shareAction:" destination="-1" eventType="touchUpInside" id="seP-pM-iUV"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="22" id="LEF-f1-soJ"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                </stackView>
+                                <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="zKU-s8-6jj">
+                                    <rect key="frame" x="0.0" y="0.0" width="602" height="0.0"/>
+                                    <subviews>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Mj-SS-O4S">
+                                            <rect key="frame" x="0.0" y="0.0" width="602" height="0.0"/>
+                                            <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62r-11-nhd">
+                                            <rect key="frame" x="0.0" y="0.0" width="602" height="0.0"/>
+                                            <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvR-ro-ItC">
+                                            <rect key="frame" x="0.0" y="0.0" width="602" height="0.0"/>
+                                            <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="0LX-Ks-DMm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="0kN-Cb-krP"/>
+                <constraint firstAttribute="bottom" secondItem="0LX-Ks-DMm" secondAttribute="bottom" id="1BD-k9-0U2"/>
+                <constraint firstItem="0LX-Ks-DMm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="1wI-t6-24i"/>
+                <constraint firstAttribute="trailing" secondItem="0LX-Ks-DMm" secondAttribute="trailing" id="XtN-0g-Hgm"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="273.91304347826087" y="-96.763392857142847"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_share_my_shops" width="40" height="43"/>
+    </resources>
+</document>

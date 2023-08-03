@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_scan_blue_barcode_parkings.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

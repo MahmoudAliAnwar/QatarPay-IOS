@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_international_photo_topup_estore.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

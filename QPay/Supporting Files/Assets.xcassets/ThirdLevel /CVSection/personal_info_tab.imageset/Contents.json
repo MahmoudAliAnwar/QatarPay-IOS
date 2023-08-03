@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "personal_info_tab.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

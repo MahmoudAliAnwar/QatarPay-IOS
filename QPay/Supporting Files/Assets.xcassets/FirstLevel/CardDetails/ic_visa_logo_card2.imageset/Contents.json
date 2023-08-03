@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_visa_logo_card.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

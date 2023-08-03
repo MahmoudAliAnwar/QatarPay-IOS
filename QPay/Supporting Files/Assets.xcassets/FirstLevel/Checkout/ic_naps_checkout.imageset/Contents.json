@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_naps_checkout.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

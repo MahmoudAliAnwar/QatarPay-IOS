@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "pay_qparkin_bg_im.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

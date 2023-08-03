@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "other_parking_services_bg_im.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

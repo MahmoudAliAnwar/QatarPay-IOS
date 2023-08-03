@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_arrow_right_kahramaa.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

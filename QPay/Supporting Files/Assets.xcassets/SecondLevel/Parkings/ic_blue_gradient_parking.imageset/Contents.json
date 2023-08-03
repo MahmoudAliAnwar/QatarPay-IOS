@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_blue_gradient_parking.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

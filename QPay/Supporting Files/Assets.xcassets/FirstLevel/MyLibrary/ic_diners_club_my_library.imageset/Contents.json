@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_diners_club_my_library.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

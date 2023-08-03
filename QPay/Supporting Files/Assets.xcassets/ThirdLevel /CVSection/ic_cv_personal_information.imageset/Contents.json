@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_cv_personal_information.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

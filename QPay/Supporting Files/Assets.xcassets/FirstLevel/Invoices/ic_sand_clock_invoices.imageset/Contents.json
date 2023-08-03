@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_sand_clock_invoices.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

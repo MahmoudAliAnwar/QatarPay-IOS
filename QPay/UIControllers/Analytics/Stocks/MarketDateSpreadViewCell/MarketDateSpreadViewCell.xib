@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="109"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lvg-i5-l3H">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="109"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rtK-O9-DcX">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="109"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Yur-qE-ewm">
+                                    <rect key="frame" x="0.0" y="29.5" width="414" height="50"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGY-dc-Vod">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="rtK-O9-DcX" firstAttribute="top" secondItem="Lvg-i5-l3H" secondAttribute="top" id="G0K-OS-J0c"/>
+                        <constraint firstItem="rtK-O9-DcX" firstAttribute="leading" secondItem="Lvg-i5-l3H" secondAttribute="leading" id="M9V-vm-VyY"/>
+                        <constraint firstAttribute="trailing" secondItem="rtK-O9-DcX" secondAttribute="trailing" id="Xhv-b4-gC1"/>
+                        <constraint firstAttribute="bottom" secondItem="rtK-O9-DcX" secondAttribute="bottom" id="m5A-cy-crt"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Lvg-i5-l3H" secondAttribute="trailing" id="0qG-Gc-fYw"/>
+                <constraint firstItem="Lvg-i5-l3H" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="B6e-bd-SYY"/>
+                <constraint firstAttribute="bottom" secondItem="Lvg-i5-l3H" secondAttribute="bottom" id="Cga-pg-yYV"/>
+                <constraint firstItem="Lvg-i5-l3H" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="hCf-Ws-V8u"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="137.68115942028987" y="395.42410714285711"/>
+        </view>
+    </objects>
+</document>

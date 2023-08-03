@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "qparkin_circle_imv.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

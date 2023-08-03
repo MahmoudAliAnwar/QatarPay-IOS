@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_cv_work_experience.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

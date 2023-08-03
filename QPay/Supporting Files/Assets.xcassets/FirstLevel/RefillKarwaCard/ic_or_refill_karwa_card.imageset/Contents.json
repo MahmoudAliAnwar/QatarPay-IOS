@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_or_refill_karwa_card.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

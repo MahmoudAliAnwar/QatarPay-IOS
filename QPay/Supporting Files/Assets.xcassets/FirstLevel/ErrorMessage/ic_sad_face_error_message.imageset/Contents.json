@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_sad_face_error_message.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "bbg_btn_my_shop_add_item.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

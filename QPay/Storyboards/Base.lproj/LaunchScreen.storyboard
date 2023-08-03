@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FGg-bz-sxx">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="bAS-sq-hZP">
+            <objects>
+                <viewController id="FGg-bz-sxx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="U8q-6Z-jk5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_splash" translatesAutoresizingMaskIntoConstraints="NO" id="aNm-kV-f4u">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="ic_logo_splash1" translatesAutoresizingMaskIntoConstraints="NO" id="UUE-QR-KV9">
+                                <rect key="frame" x="72.5" y="292" width="269" height="312"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="UUE-QR-KV9" secondAttribute="height" multiplier="25:29" id="tyo-wn-tk2"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_smart_city_splash" translatesAutoresizingMaskIntoConstraints="NO" id="Mq9-bY-rkm">
+                                <rect key="frame" x="62" y="68" width="290" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Mq9-bY-rkm" secondAttribute="height" multiplier="533:50" id="P7h-bY-9sJ"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Mwu-79-FOt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Mq9-bY-rkm" firstAttribute="width" secondItem="U8q-6Z-jk5" secondAttribute="width" multiplier="0.7" id="09r-BE-Dp6"/>
+                            <constraint firstItem="Mwu-79-FOt" firstAttribute="trailing" secondItem="aNm-kV-f4u" secondAttribute="trailing" id="5l8-0x-Srw"/>
+                            <constraint firstItem="UUE-QR-KV9" firstAttribute="centerY" secondItem="U8q-6Z-jk5" secondAttribute="centerY" id="ATV-Gh-r1X"/>
+                            <constraint firstItem="Mq9-bY-rkm" firstAttribute="top" secondItem="Mwu-79-FOt" secondAttribute="top" constant="20" id="FvE-C0-qXm"/>
+                            <constraint firstItem="UUE-QR-KV9" firstAttribute="width" secondItem="U8q-6Z-jk5" secondAttribute="width" multiplier="0.65" id="JZq-kl-Zxg"/>
+                            <constraint firstItem="aNm-kV-f4u" firstAttribute="leading" secondItem="U8q-6Z-jk5" secondAttribute="leading" id="UHl-ZT-vpi"/>
+                            <constraint firstItem="UUE-QR-KV9" firstAttribute="centerX" secondItem="U8q-6Z-jk5" secondAttribute="centerX" id="Whd-E8-NpW"/>
+                            <constraint firstAttribute="bottom" secondItem="aNm-kV-f4u" secondAttribute="bottom" id="Wsj-a8-PD3"/>
+                            <constraint firstItem="Mq9-bY-rkm" firstAttribute="centerX" secondItem="U8q-6Z-jk5" secondAttribute="centerX" id="lI0-2g-mhr"/>
+                            <constraint firstItem="aNm-kV-f4u" firstAttribute="top" secondItem="U8q-6Z-jk5" secondAttribute="top" id="tbE-td-4ek"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Czp-Q4-rlp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="16" y="330"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bg_splash" width="720" height="1600"/>
+        <image name="ic_logo_splash1" width="523" height="503"/>
+        <image name="ic_smart_city_splash" width="533" height="50"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

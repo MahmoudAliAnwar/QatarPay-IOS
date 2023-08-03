@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="sf-ui-display-bold.otf">
+            <string>SFUIDisplay-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GiftDenominationHeaderReusableView" customModule="Qatar_Pay" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="GiftDenominationHeaderReusableView" customModule="Qatar_Pay" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="552" height="105"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLy-9x-mgy">
+                    <rect key="frame" x="0.0" y="0.0" width="552" height="105"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ft5-Nc-KbQ">
+                            <rect key="frame" x="20" y="8" width="524" height="89"/>
+                            <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="16"/>
+                            <color key="textColor" name="label_dark_gray"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="20" bottom="8" trailing="8"/>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="wLy-9x-mgy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="HSQ-5R-VcN"/>
+                <constraint firstAttribute="trailing" secondItem="wLy-9x-mgy" secondAttribute="trailing" id="P6C-5e-e3j"/>
+                <constraint firstItem="wLy-9x-mgy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="erQ-r1-1eL"/>
+                <constraint firstAttribute="bottom" secondItem="wLy-9x-mgy" secondAttribute="bottom" id="vUE-hu-LDX"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="label" destination="Ft5-Nc-KbQ" id="hSN-1A-egb"/>
+            </connections>
+            <point key="canvasLocation" x="237.68115942028987" y="392.74553571428572"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="label_dark_gray">
+            <color red="0.1803921568627451" green="0.1803921568627451" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

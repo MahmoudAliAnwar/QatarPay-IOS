@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_show_password.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

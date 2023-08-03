@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gotham Pro Medium.ttf">
+            <string>GothamPro-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShippingAddressViewController" customModule="Qatar_Pay" customModuleProvider="target">
+            <connections>
+                <outlet property="addressesTableView" destination="dJf-Dx-KAo" id="mHD-6s-jS6"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5PZ-3k-2Qe">
+                    <rect key="frame" x="0.0" y="44" width="414" height="63.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQn-VJ-vHa">
+                            <rect key="frame" x="164" y="20" width="86.5" height="23.5"/>
+                            <fontDescription key="fontDescription" name="GothamPro-Medium" family="Gotham Pro" pointSize="20"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0n-VZ-g6J">
+                            <rect key="frame" x="20" y="20" width="24" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="JOY-V2-cpX"/>
+                                <constraint firstAttribute="width" constant="24" id="bA2-4c-t8O"/>
+                            </constraints>
+                            <state key="normal" image="Back"/>
+                            <connections>
+                                <action selector="back:" destination="-1" eventType="touchUpInside" id="jUX-o6-0RK"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" name="MainColor"/>
+                    <constraints>
+                        <constraint firstItem="UQn-VJ-vHa" firstAttribute="centerX" secondItem="5PZ-3k-2Qe" secondAttribute="centerX" id="BGw-wO-B3G"/>
+                        <constraint firstItem="h0n-VZ-g6J" firstAttribute="centerY" secondItem="UQn-VJ-vHa" secondAttribute="centerY" id="OzC-xP-Xh3"/>
+                        <constraint firstItem="h0n-VZ-g6J" firstAttribute="leading" secondItem="5PZ-3k-2Qe" secondAttribute="leading" constant="20" id="XoI-xZ-oMa"/>
+                        <constraint firstItem="UQn-VJ-vHa" firstAttribute="top" secondItem="5PZ-3k-2Qe" secondAttribute="top" constant="20" id="skf-eY-3im"/>
+                        <constraint firstAttribute="bottom" secondItem="UQn-VJ-vHa" secondAttribute="bottom" constant="20" id="yk8-9C-0fe"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q9V-kX-2Wu">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                    <color key="backgroundColor" name="MainColor"/>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dJf-Dx-KAo">
+                    <rect key="frame" x="20" y="166.5" width="374" height="611.5"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shippig Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ke0-9c-FIq">
+                    <rect key="frame" x="148" y="127.5" width="118" height="19"/>
+                    <fontDescription key="fontDescription" name="GothamPro-Medium" family="Gotham Pro" pointSize="16"/>
+                    <color key="textColor" name="TextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hzw-E1-MBE">
+                    <rect key="frame" x="40" y="798" width="334" height="44"/>
+                    <color key="backgroundColor" name="MainColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="c1u-mM-laL"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GothamPro-Medium" family="Gotham Pro" pointSize="16"/>
+                    <state key="normal" title="Continue to Payment">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="22"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="continueToPayment:" destination="-1" eventType="touchUpInside" id="iGt-Tc-u5T"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Hzw-E1-MBE" firstAttribute="top" secondItem="dJf-Dx-KAo" secondAttribute="bottom" constant="20" id="09Q-Nh-aAP"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dJf-Dx-KAo" secondAttribute="trailing" constant="20" id="1LL-HP-Rhv"/>
+                <constraint firstItem="Hzw-E1-MBE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="2Lm-vs-KpC"/>
+                <constraint firstItem="dJf-Dx-KAo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="3Yw-92-IjB"/>
+                <constraint firstItem="Q9V-kX-2Wu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7Fy-Pf-d5X"/>
+                <constraint firstItem="Ke0-9c-FIq" firstAttribute="top" secondItem="5PZ-3k-2Qe" secondAttribute="bottom" constant="20" id="80s-jO-3Zo"/>
+                <constraint firstItem="dJf-Dx-KAo" firstAttribute="top" secondItem="Ke0-9c-FIq" secondAttribute="bottom" constant="20" id="Rhg-iZ-TbJ"/>
+                <constraint firstItem="Ke0-9c-FIq" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="eB7-u5-KSS"/>
+                <constraint firstItem="Q9V-kX-2Wu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="g8m-nF-VLV"/>
+                <constraint firstItem="5PZ-3k-2Qe" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="gBe-vr-bzV"/>
+                <constraint firstItem="5PZ-3k-2Qe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="gSj-1Y-0HQ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Hzw-E1-MBE" secondAttribute="trailing" constant="40" id="gs2-gv-7eh"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Hzw-E1-MBE" secondAttribute="bottom" constant="20" id="gtD-fZ-tG0"/>
+                <constraint firstAttribute="trailing" secondItem="5PZ-3k-2Qe" secondAttribute="trailing" id="iNn-Gh-YJf"/>
+                <constraint firstItem="5PZ-3k-2Qe" firstAttribute="top" secondItem="Q9V-kX-2Wu" secondAttribute="bottom" id="jRX-3x-avl"/>
+                <constraint firstAttribute="trailing" secondItem="Q9V-kX-2Wu" secondAttribute="trailing" id="mmp-Kg-OWp"/>
+            </constraints>
+            <point key="canvasLocation" x="1036" y="102"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Back" width="65" height="64"/>
+        <namedColor name="MainColor">
+            <color red="0.53299999237060547" green="0.12200000137090683" blue="0.16500000655651093" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextColor">
+            <color red="0.12200000137090683" green="0.12200000137090683" blue="0.12200000137090683" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

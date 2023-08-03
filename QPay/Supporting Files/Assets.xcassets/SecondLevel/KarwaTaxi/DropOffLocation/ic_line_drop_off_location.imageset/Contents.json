@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_line_drop_off_location.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

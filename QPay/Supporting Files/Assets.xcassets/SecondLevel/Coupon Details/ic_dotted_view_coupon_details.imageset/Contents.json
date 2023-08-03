@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_dotted_view_coupon_details.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

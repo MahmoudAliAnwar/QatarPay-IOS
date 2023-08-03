@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_flags_international_topup.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

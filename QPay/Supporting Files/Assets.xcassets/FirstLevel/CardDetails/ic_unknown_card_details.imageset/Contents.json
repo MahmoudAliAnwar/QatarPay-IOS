@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_unknown_card_details.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_arrow_fill_down_transfer.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

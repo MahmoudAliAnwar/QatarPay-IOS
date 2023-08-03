@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_square_blue_parking.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_mobile_contact_us.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

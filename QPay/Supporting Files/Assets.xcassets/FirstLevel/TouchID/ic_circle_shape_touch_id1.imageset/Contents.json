@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_circle_shape_touch_id1.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

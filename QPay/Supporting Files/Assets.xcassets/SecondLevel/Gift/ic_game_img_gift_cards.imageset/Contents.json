@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_game_img_gift_cards.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

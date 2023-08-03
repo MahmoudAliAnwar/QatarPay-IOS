@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_invoice_my_shop.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

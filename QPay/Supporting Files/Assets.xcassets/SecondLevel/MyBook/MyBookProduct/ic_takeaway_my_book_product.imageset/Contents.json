@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_takeaway_my_book_product.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

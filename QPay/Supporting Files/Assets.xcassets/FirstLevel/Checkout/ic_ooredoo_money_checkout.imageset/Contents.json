@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_ooredoo_money_checkout.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>Qatar Pay</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(MARKETING_VERSION)</string>
+	<key>CFBundleVersion</key>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Qatar Pay uses the camera for various functions, including taking Profile Pictures and Scanning QR Codes .</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>We want to use your faceID to continue</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>allow app to use current location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>allow app to use your location</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We want to use your photo library</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>TheSans-bold.otf</string>
+		<string>TheSans-plain.ttf</string>
+		<string>GeosansLight.ttf</string>
+		<string>CreditCard.ttf</string>
+		<string>GothamPro.otf</string>
+		<string>Gotham Pro Medium.ttf</string>
+		<string>Gotham Pro Bold.ttf</string>
+		<string>MODENINE.TTF</string>
+		<string>Gotham-XLightItalic.otf</string>
+		<string>Gotham-XLight.otf</string>
+		<string>Gotham-UltraItalic.otf</string>
+		<string>Gotham-ThinItalic.otf</string>
+		<string>Gotham-BookItalic.otf</string>
+		<string>Gotham-Book.otf</string>
+		<string>Gotham-Bold.otf</string>
+		<string>Gotham-Thin.otf</string>
+		<string>Gotham-Bold.otf</string>
+		<string>Gotham-Light.otf</string>
+		<string>Gotham-Black.otf</string>
+		<string>Gotham-Medium.otf</string>
+		<string>sf-ui-display-regular.otf</string>
+		<string>sf-ui-display-ultralight.otf</string>
+		<string>sf-ui-display-semibold.otf</string>
+		<string>sf-ui-display-thin.otf</string>
+		<string>sf-ui-display-medium.otf</string>
+		<string>sf-ui-display-light.otf</string>
+		<string>sf-ui-display-heavy.otf</string>
+		<string>sf-ui-display-bold.otf</string>
+		<string>sf-ui-display-black.otf</string>
+		<string>Barlow-Black.ttf</string>
+		<string>Barlow-BlackItalic.ttf</string>
+		<string>Barlow-Bold.ttf</string>
+		<string>Barlow-BoldItalic.ttf</string>
+		<string>Barlow-ExtraBold.ttf</string>
+		<string>Barlow-ExtraBoldItalic.ttf</string>
+		<string>Barlow-ExtraLight.ttf</string>
+		<string>Barlow-ExtraLightItalic.ttf</string>
+		<string>Barlow-Italic.ttf</string>
+		<string>Barlow-Light.ttf</string>
+		<string>Barlow-LightItalic.ttf</string>
+		<string>Barlow-Medium.ttf</string>
+		<string>Barlow-MediumItalic.ttf</string>
+		<string>Barlow-Regular.ttf</string>
+		<string>Barlow-SemiBold.ttf</string>
+		<string>Barlow-SemiBoldItalic.ttf</string>
+		<string>Barlow-Thin.ttf</string>
+		<string>Barlow-ThinItalic.ttf</string>
+		<string>Inversionz</string>
+		<string>Inversionz-Italic</string>
+		<string>Inversionz-Unboxed-Italic</string>
+		<string>Inversionz-Unboxed</string>
+		<string>Antonio-Regular.ttf</string>
+		<string>Antonio-Medium.ttf</string>
+		<string>Antonio-Bold.ttf</string>
+		<string>Antonio-Light.ttf</string>
+	</array>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+		<key>UISceneConfigurations</key>
+		<dict>
+			<key>UIWindowSceneSessionRoleApplication</key>
+			<array>
+				<dict>
+					<key>UISceneConfigurationName</key>
+					<string>Default Configuration</string>
+					<key>UISceneDelegateClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
+					<key>UISceneStoryboardFile</key>
+					<string>Auth</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>remote-notification</string>
+	</array>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Auth</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
+</dict>
+</plist>

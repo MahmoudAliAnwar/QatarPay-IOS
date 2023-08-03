@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_red_clock_my_library.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
