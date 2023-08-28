@@ -99,9 +99,10 @@ extension UIImage {
                stock_mystocks                  = Images.stock_mystocks.image,
                stock_news                      = Images.stock_news.image,
                credit_inactive                 = Images.credit_inactive.image,
-               qatar_avatar_ic                 = Images.qatar_avatar_ic.image 
-    
-    
+               qatar_avatar_ic                 = Images.qatar_avatar_ic.image,
+               bg_add_phone_bills              = Images.bg_add_phone_bills.image,
+               bg_add_kahramaa_bills           = Images.bg_add_kahramaa_bills.image,
+               bg_qatar_cool                   = Images.bg_qatar_cool.image
     
     
     

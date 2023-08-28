@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 /// Put dummy data to app fields...
-let isForDeveloping = true
+let isForDeveloping = false
 
 /// Set BASE_URL to live
 let isLiveApp: Bool = true

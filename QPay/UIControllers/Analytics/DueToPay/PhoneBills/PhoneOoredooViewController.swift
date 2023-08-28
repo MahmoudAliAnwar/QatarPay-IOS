@@ -369,10 +369,14 @@ extension PhoneOoredooViewController {
             
             let list = response?._list ?? []
             self.groups = list.filter({ $0._numbers.isNotEmpty })
+ 
+//            self.totalBillsLabel.text = "\(response?._grandTotal.formatNumber() ?? "")"
             
-            self.totalBillsLabel.text = "\(response?._grandTotal.formatNumber() ?? "")"
+            let allTotal = self.groups.reduce(0) { res, group in
+                res  + group._total
+            }
             
-            //            self.totalBillsLabel.text = "\(self.getTotalGroup(list: self.groups))"
+            self.totalBillsLabel.text = "\(allTotal.formatNumber())"
             
             let count = self.groups.compactMap({ $0._numbers.count })
             self.startPhonesCount = count.reduce(0, +)

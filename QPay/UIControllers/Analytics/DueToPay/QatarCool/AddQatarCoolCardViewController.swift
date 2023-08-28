@@ -129,6 +129,12 @@ extension AddQatarCoolCardViewController {
             }
         }
     }
+    
+    @IBAction func editDeleteGroupAction(_ sender: UIButton) {
+        let vc = self.getStoryboardView(QatarCoolEditDeleteGroupViewController.self)
+        vc.groups = self.groups
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 // MARK: - REQUESTS DELEGATE

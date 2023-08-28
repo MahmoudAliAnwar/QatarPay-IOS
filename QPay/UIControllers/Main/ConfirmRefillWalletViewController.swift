@@ -51,7 +51,10 @@ extension ConfirmRefillWalletViewController {
     }
     
     func fetchData() {
-        guard let resp = self.object else { return }
+        guard let resp = self.object else {
+            self.showSnackMessage("Something went wrong")
+            return
+        }
         
         let service = resp.serviceCharge ?? 0.0
         self.setServiceChargeLabel(resp._baseAmount, charge: resp._serviceCharge)
@@ -75,11 +78,11 @@ extension ConfirmRefillWalletViewController {
         
         var url: URL?
         
-        if let urlString = refill.paymentLink?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-            url = URL(string: urlString)
-        }
+//        if let urlString = refill.validationURL?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+//            url = URL(string: urlString)
+//        }
         
-        if let urlString = refill.validationURL?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+        if let urlString = refill.paymentLink?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
             url = URL(string: urlString)
         }
         
@@ -87,7 +90,6 @@ extension ConfirmRefillWalletViewController {
             self.showSnackMessage("Missing URL")
             return
         }
-        
         self.openWebView(with: url)
     }
 }

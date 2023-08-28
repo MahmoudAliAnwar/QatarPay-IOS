@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -45,7 +44,7 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LLq-dP-F5j" customClass="ButtonDesign" customModule="Qatar_Pay" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="70" height="30"/>
-                                                                <color key="backgroundColor" name="green"/>
+                                                                <color key="backgroundColor" red="0.53725490196078429" green="0.67843137254901964" blue="0.054901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="70" id="QfT-nB-hHE"/>
                                                                 </constraints>
@@ -161,6 +160,7 @@
             <connections>
                 <outlet property="cityLabel" destination="xO1-Jx-Yei" id="ATf-Pm-kVR"/>
                 <outlet property="countryLabel" destination="Mea-mC-ox4" id="wIv-rF-H0B"/>
+                <outlet property="defaultBtn" destination="LLq-dP-F5j" id="TND-jE-vdD"/>
                 <outlet property="firstLabel" destination="f6O-dh-4qn" id="9ue-XX-x1i"/>
                 <outlet property="secondLabel" destination="yYS-zw-Mlb" id="Ups-yT-TBr"/>
             </connections>
@@ -169,9 +169,6 @@
     </objects>
     <resources>
         <image name="ic_edit_personal_info" width="69" height="69"/>
-        <namedColor name="green">
-            <color red="0.53700000047683716" green="0.67799997329711914" blue="0.054999999701976776" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

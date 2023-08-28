@@ -353,7 +353,14 @@ extension PhoneVodafoneViewController {
             
             let count = self.groups.compactMap({ $0._numbers.count })
             self.startPhonesCount = count.reduce(0, +)
-            self.totalBillsLabel.text = "\(response?._grandTotal.formatNumber() ?? "")"
+//            self.totalBillsLabel.text = "\(response?._grandTotal.formatNumber() ?? "")"
+            
+            let allTotal = self.groups.reduce(0) { res, group in
+                res  + group._total
+            }
+            
+            self.totalBillsLabel.text = "\(allTotal.formatNumber())"
+            
             self.setIsEnablePaymentButton(false)
             self.phoneHeaderView.setIsItemSelected(false)
             

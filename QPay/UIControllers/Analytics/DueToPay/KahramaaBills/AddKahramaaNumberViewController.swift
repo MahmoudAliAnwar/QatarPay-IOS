@@ -129,6 +129,13 @@ extension AddKahramaaNumberViewController {
             }
         }
     }
+    
+    
+    @IBAction func editDeleteGroupAction(_ sender: UIButton) {
+        let vc = self.getStoryboardView(KahrmaEditDeleteGroupViewController.self)
+        vc.groups = self.groups
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 // MARK: - REQUESTS DELEGATE

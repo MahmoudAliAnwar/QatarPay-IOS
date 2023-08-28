@@ -124,7 +124,10 @@ enum Images: String {
          stock_mystocks                    = "stock_mystocks",
          stock_news                        = "stock_news",
          credit_inactive                   = "credit_inactive",
-         qatar_avatar_ic                   = "qatar_avatar_ic"
+         qatar_avatar_ic                   = "qatar_avatar_ic",
+         bg_add_phone_bills                = "bg_add_phone_bills",
+         bg_add_kahramaa_bills             = "bg_add_kahramaa_bills",
+         bg_qatar_cool                     = "bg_qatar_cool"
     
     
     // System Images...

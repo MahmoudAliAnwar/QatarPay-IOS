@@ -7,20 +7,38 @@
 //
 
 import UIKit
+import PassKit
 
 class CheckoutViewController: MainController {
     
     @IBOutlet weak var channelsCollectionView : UICollectionView!
+    
     @IBOutlet weak var savedCardsTableView    : UITableView!
+    
     @IBOutlet weak var savedCardsStackView    : UIStackView!
+    
     @IBOutlet weak var deductWalletStackView  : UIStackView!
-        
+    
     var amount   : Double?
     var data     : [Any]?
     var channels = [Channel]()
     
     private var savedCards = [TokenizedCard]()
     private var amountQR   : Double?
+    
+    private var paymentRequest : PKPaymentRequest = {
+        
+        let request =  PKPaymentRequest()
+        request.merchantIdentifier = "merchant.crosspayonline.com"
+        
+        request.supportedNetworks    = [ .masterCard , .visa , .vPay ]
+        request.currencyCode         = "QAR"
+        request.countryCode          =  "QA"
+        request.supportedCountries   = ["QA" ]
+        request.merchantCapabilities = .capability3DS
+        request.paymentSummaryItems  = [PKPaymentSummaryItem(label: "", amount: 10)]
+        return request
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +64,10 @@ class CheckoutViewController: MainController {
         self.dispatchGroup.enter()
         self.requestProxy.requestService()?.getTokenizedCardDetails( weakify { strong, cardList in
             strong.dispatchGroup.leave()
-            guard let list    = cardList else { return }
+            guard let list    = cardList else {
+                self.showSnackMessage("Something went wrong")
+                return
+            }
             strong.savedCards = list
             strong.savedCardsTableView.reloadData()
         })
@@ -152,20 +173,55 @@ extension CheckoutViewController: UICollectionViewDelegate, UICollectionViewData
             self.showErrorMessage("Something went wrong")
             return
         }
-        
         self.showLoadingView(self)
         
+        //Tokenized Payment ID = 3
         if object._id == 3 {
             self.requestProxy.requestService()?.getProcessTokenizedPayment(amount: amount, cardID: 0, { response in
                 self.hideLoadingView()
-                guard let resp = response else { return }
+                guard let resp = response else {
+                    self.showSnackMessage("Something went wrong")
+                    return
+                }
                 self.pushToConfirm(resp)
+                
             })
             
+            // Apple Pay ID = 4
+        } else if object._id == 4 {
+            self.hideLoadingView()
+//            let paymentNetworks = [PKPaymentNetwork.amex, .discover, .masterCard, .visa]
+//            let paymentItem = PKPaymentSummaryItem.init(label: "Ipone", amount: 2000)
+//
+//            if PKPaymentAuthorizationViewController.canMakePayments(usingNetworks: paymentNetworks ){
+//
+//                let request = PKPaymentRequest()
+//                request.currencyCode = "USD" // 1
+//                request.countryCode = "US" // 2
+//                request.merchantIdentifier = "merchant.crosspayonline.com"
+//                request.merchantCapabilities = PKMerchantCapability.capability3DS // 4
+//                request.supportedNetworks = paymentNetworks  //5
+//                request.paymentSummaryItems = [paymentItem]  //6
+//
+//                guard let paymentVC = PKPaymentAuthorizationViewController(paymentRequest: request) else {
+//                    displayDefaultAlert(title: "Error", message: "Unable to present Apple Pay authorization.")
+//                    return
+//                }
+//                paymentVC.delegate = self
+//                self.present(paymentVC, animated: true, completion: nil)
+//
+//            } else {
+//                displayDefaultAlert(title: "Error", message: "Unable to make Apple Pay transaction.")
+//            }
+            
+            // Other
         } else {
             self.requestProxy.requestService()?.getRefillCharge(amount, channelID: object._id, weakify { strong, response in
                 self.hideLoadingView()
-                guard let resp = response else { return }
+                guard let resp = response else {
+                    self.showSnackMessage("Something went wrong, please try again later")
+                    return
+                }
                 self.pushToConfirm(resp)
             })
         }
@@ -374,11 +430,36 @@ extension CheckoutViewController {
             return
         }
         self.requestProxy.requestService()?.transferQRCodePayment(pinCode: code, qrData: qrData, sessionID: sessionID, uuid: uuid) { (status, response) in
-            guard status else { return }
+            guard status else {
+                return
+            }
             DispatchQueue.main.asyncAfter(deadline: .now() + loadingViewDismissDelay) {
                 //                self.closeView(true, data: response?.message ?? "Transfer Confirmed Successfully")
             }
         }
     }
     
+}
+
+// MARK: -  PAY WITH APPLE
+
+extension CheckoutViewController : PKPaymentAuthorizationViewControllerDelegate {
+    
+    func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
+        controller.dismiss(animated: true)
+    }
+    
+    func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
+        print(payment.token)
+        completion(PKPaymentAuthorizationResult(status: .success, errors: nil))
+    }
+}
+
+extension CheckoutViewController {
+    func displayDefaultAlert(title: String?, message: String?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+    }
 }

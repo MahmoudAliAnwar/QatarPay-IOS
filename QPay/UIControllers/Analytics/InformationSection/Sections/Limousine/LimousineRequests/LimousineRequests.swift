@@ -73,11 +73,9 @@ class LimousineRequests: BaseInfoRequests {
         self.requestProxy.requestService()?.addLimousineToMyList(id: itemId, { (response) in
             guard let resp = response else {
                 completion(.failure(ErrorType.Exception("add to fava response")))
-                print("error add")
                 return
             }
             guard resp._success else {
-                print(resp._success)
                 completion(.failure(ErrorType.Exception("resp._success")))
                 return
             }

@@ -20,8 +20,12 @@ class AddEditJobViewController: ViewController {
     
     @IBOutlet weak var startDateTextField   : UITextField!
     
+    @IBOutlet weak var startDateLabel       : UILabel!
+    
     @IBOutlet weak var endDateTextField     : UITextField!
     
+    @IBOutlet weak var endDateLabel         : UILabel!
+
     @IBOutlet weak var countryTextField     : UITextField!
     
     @IBOutlet weak var cityTextField        : UITextField!
@@ -35,7 +39,7 @@ class AddEditJobViewController: ViewController {
     
     private let startDatePicker    = UIDatePicker()
     private let endDatePicker      = UIDatePicker()
-    private let dateFormat         = "MM-yyyy"
+    private let dateFormat         = ServerDateFormat.Server2
     private var dateType: DateType = .startDate
     
     enum ActionType {
@@ -103,8 +107,12 @@ extension AddEditJobViewController {
                 self.jobTitleTextField.text     = job._jobTitle
                 self.countryTextField.text      = job._country
                 self.cityTextField.text         = job._city
-                if let jobDate = job._jobStartDate.convertFormatStringToDate("yyyy-MM-dd'T'HH:mm:ss.SSSZ") {
-                    self.startDateTextField.text = "\(jobDate.formatDate("MM-yyyy"))"
+                
+                if  let date = job._jobStartDate.server2StringToDate(){
+                    self.startDateLabel.text = "\(date.formatDate("MMMM yyyy"))"
+                    self.startDateTextField.text = date.formatDate(self.dateFormat.rawValue)
+                    self.startDateTextField.placeholder  = ""
+
                 }
             }
             break
@@ -116,10 +124,16 @@ extension AddEditJobViewController {
                 self.countryTextField.text      = job._country
                 self.cityTextField.text         = job._city
                 
-                if let jobStartDate = job._jobStartdate.convertFormatStringToDate("yyyy-MM-dd'T'HH:mm:ss.SSSZ"),
-                   let jobEndDate = job._previousEnddate.convertFormatStringToDate("yyyy-MM-dd'T'HH:mm:ss.SSSZ") {
-                    self.startDateTextField.text = "\(jobStartDate.formatDate("MM-yyyy"))"
-                    self.endDateTextField.text = "\(jobEndDate.formatDate("MM-yyyy"))"
+                if let jobStartDate = job._jobStartdate.server2StringToDate(),
+                   let jobEndDate   = job._previousEnddate.server2StringToDate() {
+                    self.startDateLabel.text = "\(jobStartDate.formatDate("MMMM yyyy"))"
+                    self.endDateLabel.text   = "\(jobEndDate.formatDate("MMMM yyyy"))"
+                    
+                    self.startDateTextField.text = jobStartDate.formatDate(self.dateFormat.rawValue)
+                    self.endDateTextField.text   = jobEndDate.formatDate(self.dateFormat.rawValue)
+                    
+                    self.startDateTextField.placeholder  = ""
+                    self.endDateTextField.placeholder    = ""
                 }
             }
             break
@@ -137,17 +151,15 @@ extension AddEditJobViewController {
     @IBAction func backAction(_ sender : UIButton){
         self.navigationController?.popViewController(animated: true)
     }
-    
-    // TODO:  JOB
 
     @IBAction func doneAction(_ sender : UIButton){
         
         guard let companyName = self.companyNameTextField.text, companyName.isNotEmpty,
               let jobTitle = self.jobTitleTextField.text, jobTitle.isNotEmpty,
-              let startDate = self.startDateTextField.text, startDate.isNotEmpty,
-//              let endDate = self.endDateTextField.text,
+              let startDate = self.startDateTextField.text,
               let country = self.countryTextField.text, country.isNotEmpty,
               let city = self.cityTextField.text, city.isNotEmpty else {
+            self.showSnackMessage("Enter All Data")
             return
         }
         
@@ -159,8 +171,8 @@ extension AddEditJobViewController {
                 myJob.jobStartDate = startDate
                 myJob.country = country
                 myJob.city = city
-                
                 guard let index = self.userProfile.cv?._currentJobList.firstIndex(where: { $0._id == myJob.id }) else {
+                    self.showSnackMessage("Not found current job id")
                     return
                 }
                 
@@ -168,7 +180,11 @@ extension AddEditJobViewController {
                 guard let cv = self.userProfile.cv else { return }
                 
                 self.requestProxy.requestService()?.addUpdateCV(cv: cv, { response in
-                    guard let resp = response else { return }
+                    guard let resp = response else {
+                        self.showSnackMessage("Something went wrong")
+                        return
+                    }
+                    
                     DispatchQueue.main.asyncAfter(deadline: .now() + loadingViewDismissDelay) {
                         self.showSuccessMessage(resp._message)
                         self.delegate?.didTap(self, on: .editCurrentJob(myJob))
@@ -176,6 +192,10 @@ extension AddEditJobViewController {
                 })
                 
             } else {
+                guard  startDate.isNotEmpty else {
+                    self.showSnackMessage("Enter All Data")
+                    return
+                }
                 var newJob = CurrentJob()
                 newJob.companyName  = companyName
                 newJob.jobTitle     = jobTitle
@@ -183,13 +203,11 @@ extension AddEditJobViewController {
                 newJob.country      = country
                 newJob.city         = city
                 newJob.experience   = ""
-//                print("newJob =>\(newJob)")
                 
                 self.userProfile.cv?.currentJobList?.append(newJob)
                 guard let cv = self.userProfile.cv else { return }
-//                print("CV => \(cv)")
+                
                 self.requestProxy.requestService()?.addUpdateCV(cv: cv, { baseResponse in
-                    
                     guard let resp = baseResponse else {
                         self.showSnackMessage("Something went wrong, please try again later")
                         return
@@ -199,34 +217,38 @@ extension AddEditJobViewController {
                         self.delegate?.didTap(self, on: .addCurrentJob(newJob))
                     }
                 })
-                
-//                self.requestProxy.requestService()?.addUpdateCV(cv: cv, { response in
-//                    guard let resp = response else { return }
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + loadingViewDismissDelay) {
-//                        self.showSuccessMessage(resp._message)
-//                        self.delegate?.didTap(self, on: .addCurrentJob(newJob))
-//                    }
-//                })
             }
             break
             
         case .previousJob:
+            guard let endDate = self.endDateTextField.text else {
+                 return
+            }
+            
             if var myJob = previousJob {
                 myJob.companyName = companyName
                 myJob.jobtitle = jobTitle
-                myJob.jobStartdate = startDate
+                myJob.jobStartdate    = startDate
+                myJob.previousEnddate = endDate
                 myJob.country = country
                 myJob.city = city
                 
                 guard let index = self.userProfile.cv?._previousJobList.firstIndex(where: { $0._id == myJob.id }) else {
+                    self.showSnackMessage("Not found previous job id")
                     return
                 }
                 
                 self.userProfile.cv?.previousJobList?[index] = myJob
-                guard let cv = self.userProfile.cv else { return }
+                guard let cv = self.userProfile.cv else {
+                    self.showSnackMessage("Something went wrong")
+                    return
+                }
                 
                 self.requestProxy.requestService()?.addUpdateCV(cv: cv, { response in
-                    guard let resp = response else { return }
+                    guard let resp = response else {
+                        self.showSnackMessage("Something went wrong")
+                        return
+                    }
                     DispatchQueue.main.asyncAfter(deadline: .now() + loadingViewDismissDelay) {
                         self.showSuccessMessage(resp._message)
                         self.delegate?.didTap(self, on: .editPreviousJob(myJob))
@@ -234,19 +256,27 @@ extension AddEditJobViewController {
                 })
                 
             } else {
+                guard  startDate.isNotEmpty , endDate.isNotEmpty else {
+                    self.showSnackMessage("Enter All Data")
+                    return
+                }
+                
                 var newJob = PreviousJob()
-                newJob.companyName  = companyName
-                newJob.jobtitle     = jobTitle
-                newJob.jobStartdate = startDate
-                newJob.country      = country
-                newJob.city         = city
-                newJob.experience   = ""
+                newJob.companyName     = companyName
+                newJob.jobtitle        = jobTitle
+                newJob.jobStartdate    = startDate
+                newJob.previousEnddate = endDate
+                newJob.country         = country
+                newJob.city            = city
+                newJob.experience      = ""
                 
                 self.userProfile.cv?.previousJobList?.append(newJob)
-                guard let cv = self.userProfile.cv else { return }
+                guard let cv = self.userProfile.cv else {
+                    self.showSnackMessage("Something went wrong, please try again later")
+                    return
+                }
                 
                 self.requestProxy.requestService()?.addUpdateCV(cv: cv, { baseResponse in
-                    
                     guard let resp = baseResponse else {
                         self.showSnackMessage("Something went wrong, please try again later")
                         return
@@ -331,12 +361,16 @@ extension AddEditJobViewController {
         
         switch self.dateType {
         case .startDate:
-            let formattedDate = self.startDatePicker.date.formatDate(self.dateFormat)
+            let formattedDate = self.startDatePicker.date.formatDate(self.dateFormat.rawValue)
             self.startDateTextField.text = formattedDate
+            self.startDateLabel.text     = "\(self.startDatePicker.date.formatDate("MMMM yyyy"))"
+            break
             
         case .endDate:
-            let formattedDate = self.endDatePicker.date.formatDate(self.dateFormat)
+            let formattedDate = self.endDatePicker.date.formatDate(self.dateFormat.rawValue)
             self.endDateTextField.text = formattedDate
+            self.endDateLabel.text     = "\(self.endDatePicker.date.formatDate("MMMM yyyy"))"
+            break
         }
     }
     

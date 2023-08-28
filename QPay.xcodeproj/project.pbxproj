@@ -382,6 +382,8 @@
 		1774B8262A77B1BA0083D3E5 /* EditDeleteGroupTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774B8242A77B1BA0083D3E5 /* EditDeleteGroupTableCell.swift */; };
 		1774B8272A77B1BA0083D3E5 /* EditDeleteGroupTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1774B8252A77B1BA0083D3E5 /* EditDeleteGroupTableCell.xib */; };
 		1774B82D2A7937E70083D3E5 /* EditGroupNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774B82C2A7937E70083D3E5 /* EditGroupNameViewController.swift */; };
+		1774B83A2A7A79FE0083D3E5 /* KahrmaEditDeleteGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774B8392A7A79FE0083D3E5 /* KahrmaEditDeleteGroupViewController.swift */; };
+		1774B83C2A7A7F350083D3E5 /* QatarCoolEditDeleteGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774B83B2A7A7F350083D3E5 /* QatarCoolEditDeleteGroupViewController.swift */; };
 		1777191B2A07A6B400B560AC /* ShowCVDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1777191A2A07A6B400B560AC /* ShowCVDetailsViewController.swift */; };
 		177785BA275E25CC00F89E64 /* UpdateGenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177785B9275E25CC00F89E64 /* UpdateGenderViewController.swift */; };
 		177785BD275E3F6D00F89E64 /* PersonalInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177785BC275E3F6D00F89E64 /* PersonalInfoTableViewCell.swift */; };
@@ -1360,6 +1362,8 @@
 		1774B8242A77B1BA0083D3E5 /* EditDeleteGroupTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDeleteGroupTableCell.swift; sourceTree = "<group>"; };
 		1774B8252A77B1BA0083D3E5 /* EditDeleteGroupTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditDeleteGroupTableCell.xib; sourceTree = "<group>"; };
 		1774B82C2A7937E70083D3E5 /* EditGroupNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupNameViewController.swift; sourceTree = "<group>"; };
+		1774B8392A7A79FE0083D3E5 /* KahrmaEditDeleteGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KahrmaEditDeleteGroupViewController.swift; sourceTree = "<group>"; };
+		1774B83B2A7A7F350083D3E5 /* QatarCoolEditDeleteGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QatarCoolEditDeleteGroupViewController.swift; sourceTree = "<group>"; };
 		1777191A2A07A6B400B560AC /* ShowCVDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCVDetailsViewController.swift; sourceTree = "<group>"; };
 		177785B9275E25CC00F89E64 /* UpdateGenderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateGenderViewController.swift; sourceTree = "<group>"; };
 		177785BC275E3F6D00F89E64 /* PersonalInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoTableViewCell.swift; sourceTree = "<group>"; };
@@ -2062,6 +2066,7 @@
 			children = (
 				1708460C2A6D471A00DBB61D /* KahrmaBillViewController */,
 				1708460D2A6D473D00DBB61D /* KahrmaBillTableView */,
+				1774B8392A7A79FE0083D3E5 /* KahrmaEditDeleteGroupViewController.swift */,
 			);
 			path = KahrmaBillSection;
 			sourceTree = "<group>";
@@ -2096,6 +2101,7 @@
 			isa = PBXGroup;
 			children = (
 				170846222A6D591B00DBB61D /* QatarCoolViewController */,
+				1774B83B2A7A7F350083D3E5 /* QatarCoolEditDeleteGroupViewController.swift */,
 			);
 			path = QatarCoolSection;
 			sourceTree = "<group>";
@@ -2138,6 +2144,7 @@
 		170CFA7E2A52E2A400BEECE7 /* PhoneBillSection */ = {
 			isa = PBXGroup;
 			children = (
+				1774B82B2A7937AC0083D3E5 /* PhoneEditDeleteGroup */,
 				170CFA802A52E2EE00BEECE7 /* PhoneBillsViewController */,
 				170CFA782A52CD5F00BEECE7 /* PhoneBillsTableView */,
 			);
@@ -3495,13 +3502,13 @@
 			path = EditDeleteGroupCell;
 			sourceTree = "<group>";
 		};
-		1774B82B2A7937AC0083D3E5 /* EditDeleteGroup */ = {
+		1774B82B2A7937AC0083D3E5 /* PhoneEditDeleteGroup */ = {
 			isa = PBXGroup;
 			children = (
 				1774B8212A77B0760083D3E5 /* EditDeleteGroupViewController.swift */,
 				1774B82C2A7937E70083D3E5 /* EditGroupNameViewController.swift */,
 			);
-			path = EditDeleteGroup;
+			path = PhoneEditDeleteGroup;
 			sourceTree = "<group>";
 		};
 		177719182A078AAA00B560AC /* CV */ = {
@@ -3595,7 +3602,6 @@
 				26B2B0A624DBB38B00972504 /* PhoneBills */,
 				174F2857279C06620061D077 /* KahramaaBills */,
 				2665A17324DB4E7F0000AA01 /* QatarCool */,
-				1774B82B2A7937AC0083D3E5 /* EditDeleteGroup */,
 			);
 			path = DueToPay;
 			sourceTree = "<group>";
@@ -6415,6 +6421,7 @@
 				26D2B8AC25138FF000B785D5 /* Shop.swift in Sources */,
 				179160052674C42200310EB1 /* CustomShadow.swift in Sources */,
 				26756562255D2A900045707A /* LibraryCard.swift in Sources */,
+				1774B83A2A7A79FE0083D3E5 /* KahrmaEditDeleteGroupViewController.swift in Sources */,
 				1730C96A25D292BA00BC6CB7 /* MyBookCategoryCollectionViewCell.swift in Sources */,
 				26D59EA724E80BDE00663C41 /* PaymentURL.swift in Sources */,
 				2617145824AF473800C779DD /* UserProfile.swift in Sources */,
@@ -6612,6 +6619,7 @@
 				267C02DF24BC723800B393EF /* Helpers.swift in Sources */,
 				1732428E2769DB6C00F49CB7 /* CouponsViewController.swift in Sources */,
 				26AA2072256567DC00E1D535 /* TimeIntervalExtension.swift in Sources */,
+				1774B83C2A7A7F350083D3E5 /* QatarCoolEditDeleteGroupViewController.swift in Sources */,
 				26CFA21A251C89BE0077E63A /* OoredooAccountViewController.swift in Sources */,
 				1745B41D27746B5000A7366E /* PaymentSceneModels.swift in Sources */,
 				26A2924524E7EE3B005391E1 /* ConfirmPaymentRequestViewController.swift in Sources */,
@@ -7106,7 +7114,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5.37;
+				MARKETING_VERSION = 1.5.38;
 				PRODUCT_BUNDLE_IDENTIFIER = com.QMobile.QPayPro;
 				PRODUCT_NAME = "Qatar Pay";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -7137,7 +7145,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5.37;
+				MARKETING_VERSION = 1.5.38;
 				PRODUCT_BUNDLE_IDENTIFIER = com.QMobile.QPayPro;
 				PRODUCT_NAME = "Qatar Pay";
 				PROVISIONING_PROFILE_SPECIFIER = "";

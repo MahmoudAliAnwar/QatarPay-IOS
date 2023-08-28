@@ -1015,21 +1015,68 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="baz-lb-b9u">
                                                                         <rect key="frame" x="0.0" y="0.33333333333331439" width="362" height="116.33333333333333"/>
                                                                         <subviews>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lW4-QX-xLV">
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JK6-QJ-4Uu">
                                                                                 <rect key="frame" x="100" y="0.0" width="162" height="55.333333333333336"/>
-                                                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.02" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits"/>
-                                                                            </textField>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="End Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W9m-mh-U2z">
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYZ-d1-7Zp">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="162" height="55.333333333333336"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lW4-QX-xLV">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="162" height="55.333333333333336"/>
+                                                                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.02" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                        <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                        <textInputTraits key="textInputTraits"/>
+                                                                                    </textField>
+                                                                                </subviews>
+                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="bottom" secondItem="pYZ-d1-7Zp" secondAttribute="bottom" id="3Yu-eA-UDW"/>
+                                                                                    <constraint firstItem="pYZ-d1-7Zp" firstAttribute="top" secondItem="JK6-QJ-4Uu" secondAttribute="top" id="72I-R8-5Ny"/>
+                                                                                    <constraint firstAttribute="bottom" secondItem="lW4-QX-xLV" secondAttribute="bottom" id="SCy-go-Rlr"/>
+                                                                                    <constraint firstItem="lW4-QX-xLV" firstAttribute="top" secondItem="JK6-QJ-4Uu" secondAttribute="top" id="WYG-ro-TI8"/>
+                                                                                    <constraint firstItem="lW4-QX-xLV" firstAttribute="leading" secondItem="JK6-QJ-4Uu" secondAttribute="leading" id="bWa-wX-oPC"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="lW4-QX-xLV" secondAttribute="trailing" id="bjt-be-6hk"/>
+                                                                                    <constraint firstItem="pYZ-d1-7Zp" firstAttribute="leading" secondItem="JK6-QJ-4Uu" secondAttribute="leading" id="eRz-4D-too"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="pYZ-d1-7Zp" secondAttribute="trailing" id="hZh-Gy-0At"/>
+                                                                                </constraints>
+                                                                            </view>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NsI-Wg-WUI">
                                                                                 <rect key="frame" x="100" y="61.333333333333371" width="162" height="55"/>
-                                                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.02" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits"/>
-                                                                            </textField>
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56F-L5-8Ui">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="162" height="55"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="End Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W9m-mh-U2z">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="162" height="55"/>
+                                                                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.02" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                        <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                        <textInputTraits key="textInputTraits"/>
+                                                                                    </textField>
+                                                                                </subviews>
+                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <constraints>
+                                                                                    <constraint firstItem="W9m-mh-U2z" firstAttribute="leading" secondItem="NsI-Wg-WUI" secondAttribute="leading" id="4ez-f5-Yqd"/>
+                                                                                    <constraint firstAttribute="bottom" secondItem="56F-L5-8Ui" secondAttribute="bottom" id="Hvb-ei-ThF"/>
+                                                                                    <constraint firstItem="56F-L5-8Ui" firstAttribute="leading" secondItem="NsI-Wg-WUI" secondAttribute="leading" id="JGv-7V-Iuq"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="56F-L5-8Ui" secondAttribute="trailing" id="QVN-P1-eDl"/>
+                                                                                    <constraint firstAttribute="bottom" secondItem="W9m-mh-U2z" secondAttribute="bottom" id="dch-jp-VIO"/>
+                                                                                    <constraint firstItem="W9m-mh-U2z" firstAttribute="top" secondItem="NsI-Wg-WUI" secondAttribute="top" id="jmb-tH-s6E"/>
+                                                                                    <constraint firstItem="56F-L5-8Ui" firstAttribute="top" secondItem="NsI-Wg-WUI" secondAttribute="top" id="moU-Wv-wdo"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="W9m-mh-U2z" secondAttribute="trailing" id="yPv-Pa-ml9"/>
+                                                                                </constraints>
+                                                                            </view>
                                                                         </subviews>
+                                                                        <constraints>
+                                                                            <constraint firstItem="NsI-Wg-WUI" firstAttribute="height" secondItem="JK6-QJ-4Uu" secondAttribute="height" id="PQr-gD-baF"/>
+                                                                        </constraints>
                                                                         <directionalEdgeInsets key="directionalLayoutMargins" top="0.0" leading="100" bottom="0.0" trailing="100"/>
                                                                     </stackView>
                                                                 </subviews>
@@ -1123,10 +1170,9 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="JCU-5F-hbs" firstAttribute="height" secondItem="K5W-V4-EYR" secondAttribute="height" id="7wL-1y-AqE"/>
-                                            <constraint firstItem="W9m-mh-U2z" firstAttribute="height" secondItem="ZhS-Gn-4LC" secondAttribute="height" multiplier="1.2" id="Ova-dx-Mvp"/>
                                             <constraint firstItem="tc9-6I-6Oq" firstAttribute="height" secondItem="ZhS-Gn-4LC" secondAttribute="height" id="Pot-hM-6Gk"/>
+                                            <constraint firstItem="JK6-QJ-4Uu" firstAttribute="height" secondItem="ZhS-Gn-4LC" secondAttribute="height" multiplier="1.2" id="UnB-f5-Ops"/>
                                             <constraint firstItem="cKP-0U-4G9" firstAttribute="height" secondItem="ZhS-Gn-4LC" secondAttribute="height" id="cRo-rS-Zir"/>
-                                            <constraint firstItem="lW4-QX-xLV" firstAttribute="height" secondItem="ZhS-Gn-4LC" secondAttribute="height" multiplier="1.2" id="cho-sr-dSb"/>
                                             <constraint firstItem="mAe-Ht-3nW" firstAttribute="height" secondItem="K5W-V4-EYR" secondAttribute="height" id="kif-M1-tlc"/>
                                             <constraint firstItem="aC7-CO-a0X" firstAttribute="height" secondItem="ZhS-Gn-4LC" secondAttribute="height" id="wlT-yG-oMM"/>
                                             <constraint firstItem="Jnc-Jl-Jy7" firstAttribute="height" secondItem="K5W-V4-EYR" secondAttribute="height" id="zv4-jK-AEd"/>
@@ -1154,8 +1200,10 @@
                         <outlet property="companyNameTextField" destination="ZhS-Gn-4LC" id="rdx-zc-cix"/>
                         <outlet property="countryTextField" destination="tc9-6I-6Oq" id="DTE-EB-MSF"/>
                         <outlet property="deleteButton" destination="INJ-yr-vD2" id="W27-HU-aUE"/>
+                        <outlet property="endDateLabel" destination="56F-L5-8Ui" id="6E5-8g-TjC"/>
                         <outlet property="endDateTextField" destination="W9m-mh-U2z" id="mrK-gi-yhf"/>
                         <outlet property="jobTitleTextField" destination="aC7-CO-a0X" id="qR3-iS-ghR"/>
+                        <outlet property="startDateLabel" destination="pYZ-d1-7Zp" id="HVK-zB-Dd9"/>
                         <outlet property="startDateTextField" destination="lW4-QX-xLV" id="d73-u7-AbD"/>
                     </connections>
                 </viewController>
@@ -1373,21 +1421,68 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="b7g-Lx-VqG">
                                                                         <rect key="frame" x="0.0" y="0.33333333333331439" width="362" height="116.33333333333333"/>
                                                                         <subviews>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B1f-Vq-UFJ">
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mNX-1e-0S7">
                                                                                 <rect key="frame" x="100" y="0.0" width="162" height="55.333333333333336"/>
-                                                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.02" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits"/>
-                                                                            </textField>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="End Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QLv-nW-wpq">
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTG-4g-plr">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="162" height="55.333333333333336"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B1f-Vq-UFJ">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="162" height="55.333333333333336"/>
+                                                                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.02" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                        <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                        <textInputTraits key="textInputTraits"/>
+                                                                                    </textField>
+                                                                                </subviews>
+                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <constraints>
+                                                                                    <constraint firstItem="LTG-4g-plr" firstAttribute="leading" secondItem="mNX-1e-0S7" secondAttribute="leading" id="DPU-uq-Ej3"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="B1f-Vq-UFJ" secondAttribute="trailing" id="XuG-F8-Jq1"/>
+                                                                                    <constraint firstItem="B1f-Vq-UFJ" firstAttribute="leading" secondItem="mNX-1e-0S7" secondAttribute="leading" id="fxf-iE-6SB"/>
+                                                                                    <constraint firstItem="LTG-4g-plr" firstAttribute="top" secondItem="mNX-1e-0S7" secondAttribute="top" id="nrM-u6-IYa"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="LTG-4g-plr" secondAttribute="trailing" id="pWL-5S-4DX"/>
+                                                                                    <constraint firstItem="B1f-Vq-UFJ" firstAttribute="top" secondItem="mNX-1e-0S7" secondAttribute="top" id="rbW-cj-f4w"/>
+                                                                                    <constraint firstAttribute="bottom" secondItem="LTG-4g-plr" secondAttribute="bottom" id="zN0-Id-wkJ"/>
+                                                                                    <constraint firstAttribute="bottom" secondItem="B1f-Vq-UFJ" secondAttribute="bottom" id="zwq-hG-Mcy"/>
+                                                                                </constraints>
+                                                                            </view>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3pQ-jA-Val">
                                                                                 <rect key="frame" x="100" y="61.333333333333371" width="162" height="55"/>
-                                                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.02" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits"/>
-                                                                            </textField>
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9UQ-Bm-QsD">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="162" height="55"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="End Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QLv-nW-wpq">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="162" height="55"/>
+                                                                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.02" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                        <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                        <textInputTraits key="textInputTraits"/>
+                                                                                    </textField>
+                                                                                </subviews>
+                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="bottom" secondItem="QLv-nW-wpq" secondAttribute="bottom" id="5fa-GK-ROC"/>
+                                                                                    <constraint firstAttribute="bottom" secondItem="9UQ-Bm-QsD" secondAttribute="bottom" id="JDz-aE-7XY"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="QLv-nW-wpq" secondAttribute="trailing" id="TQB-hp-789"/>
+                                                                                    <constraint firstItem="9UQ-Bm-QsD" firstAttribute="leading" secondItem="3pQ-jA-Val" secondAttribute="leading" id="U6M-AY-ow6"/>
+                                                                                    <constraint firstItem="QLv-nW-wpq" firstAttribute="top" secondItem="3pQ-jA-Val" secondAttribute="top" id="igp-aS-h2U"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="9UQ-Bm-QsD" secondAttribute="trailing" id="lG8-gq-G4r"/>
+                                                                                    <constraint firstItem="QLv-nW-wpq" firstAttribute="leading" secondItem="3pQ-jA-Val" secondAttribute="leading" id="oKn-Mg-vn6"/>
+                                                                                    <constraint firstItem="9UQ-Bm-QsD" firstAttribute="top" secondItem="3pQ-jA-Val" secondAttribute="top" id="tbj-Su-3sp"/>
+                                                                                </constraints>
+                                                                            </view>
                                                                         </subviews>
+                                                                        <constraints>
+                                                                            <constraint firstItem="3pQ-jA-Val" firstAttribute="height" secondItem="mNX-1e-0S7" secondAttribute="height" id="MhA-w5-old"/>
+                                                                        </constraints>
                                                                         <directionalEdgeInsets key="directionalLayoutMargins" top="0.0" leading="100" bottom="0.0" trailing="100"/>
                                                                     </stackView>
                                                                 </subviews>
@@ -1480,14 +1575,13 @@
                                             </view>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="QLv-nW-wpq" firstAttribute="height" secondItem="ls9-p0-aS1" secondAttribute="height" multiplier="1.2" id="9fQ-hL-XRI"/>
                                             <constraint firstItem="GNo-bo-2Pf" firstAttribute="height" secondItem="SbH-zd-nMS" secondAttribute="height" id="C9n-h2-bmV"/>
                                             <constraint firstItem="gsH-3H-Uqy" firstAttribute="height" secondItem="ls9-p0-aS1" secondAttribute="height" id="KbP-ib-baB"/>
+                                            <constraint firstItem="mNX-1e-0S7" firstAttribute="height" secondItem="ls9-p0-aS1" secondAttribute="height" multiplier="1.2" id="RgE-aS-oTl"/>
                                             <constraint firstItem="lm1-bI-tmb" firstAttribute="height" secondItem="ls9-p0-aS1" secondAttribute="height" id="ZNP-LX-MAA"/>
                                             <constraint firstItem="eWr-Zl-6TZ" firstAttribute="height" secondItem="SbH-zd-nMS" secondAttribute="height" id="dmK-gv-1ER"/>
                                             <constraint firstItem="U7f-Wa-1Yf" firstAttribute="height" secondItem="SbH-zd-nMS" secondAttribute="height" id="hfL-iQ-Qmt"/>
                                             <constraint firstItem="sWy-to-sBY" firstAttribute="height" secondItem="ls9-p0-aS1" secondAttribute="height" id="utB-ze-alA"/>
-                                            <constraint firstItem="B1f-Vq-UFJ" firstAttribute="height" secondItem="ls9-p0-aS1" secondAttribute="height" multiplier="1.2" id="vbe-A2-gQA"/>
                                         </constraints>
                                         <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="14" bottom="8" trailing="14"/>
                                     </stackView>
@@ -1512,7 +1606,9 @@
                         <outlet property="countryTextField" destination="lm1-bI-tmb" id="9dZ-E7-tmX"/>
                         <outlet property="degreeTextField" destination="gsH-3H-Uqy" id="xNh-Bz-4Vu"/>
                         <outlet property="deleteButton" destination="pBV-Fz-3Bv" id="5e0-u7-nOn"/>
+                        <outlet property="endDateLabel" destination="9UQ-Bm-QsD" id="7GF-ic-krU"/>
                         <outlet property="endDateTextField" destination="QLv-nW-wpq" id="Qq6-ln-tfl"/>
+                        <outlet property="startDateLabel" destination="LTG-4g-plr" id="fls-tv-Xgd"/>
                         <outlet property="startDateTextField" destination="B1f-Vq-UFJ" id="zoi-ud-gug"/>
                         <outlet property="universityNameTextField" destination="ls9-p0-aS1" id="ze7-v2-UHP"/>
                     </connections>

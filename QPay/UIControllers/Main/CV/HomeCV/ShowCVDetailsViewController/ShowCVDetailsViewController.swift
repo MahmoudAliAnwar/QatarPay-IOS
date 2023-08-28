@@ -52,9 +52,9 @@ class ShowCVDetailsViewController: ViewController {
     
     @IBOutlet weak var graduateLabel       : UILabel!
     
-    @IBOutlet weak var icLockPublicButton        : UIButton!
+    @IBOutlet weak var icLockPublicButton  : UIButton!
     
-    @IBOutlet weak var icLockPrivateButton: UIButton!
+    @IBOutlet weak var icLockPrivateButton : UIButton!
     
     @IBOutlet weak var editSkillsStackView : UIStackView!
     
@@ -62,9 +62,9 @@ class ShowCVDetailsViewController: ViewController {
     
     @IBOutlet weak var searchCVButton: ButtonDesign!
     
-    var cv: CV?
+    var cv     : CV?
     var status : Status = .myCV
-        
+    
     enum Status {
         case myCV
         case searchCV
@@ -72,8 +72,8 @@ class ShowCVDetailsViewController: ViewController {
         var isMyCV : Bool {
             get {
                 switch self {
-                case .myCV      : return true
-                case .searchCV  : return false
+                case .myCV     : return true
+                case .searchCV : return false
                 }
             }
         }
@@ -94,11 +94,19 @@ class ShowCVDetailsViewController: ViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         switch status {
         case .myCV:
-            guard let user = self.userProfile.getUser() else { return }
+            guard let user = self.userProfile.getUser() else {
+                self.showSnackMessage("Something went wrong")
+                return
+            }
+            
             self.requestProxy.requestService()?.getCVList(phoneNumber: user._mobileNumber, { (response) in
-                guard let resp = response , let cv = resp._list.first else { return }
+                guard let resp = response , let cv = resp._list.first else {
+                    self.showSnackMessage("Something went wrong")
+                    return
+                }
                 self.cv = cv
                 self.setData()
                 self.userProfile.cv = cv
@@ -113,7 +121,6 @@ class ShowCVDetailsViewController: ViewController {
 extension ShowCVDetailsViewController {
     
     func setupView() {
-        self.requestProxy.requestService()?.delegate = self
     }
     
     func localized() {
@@ -171,42 +178,42 @@ extension ShowCVDetailsViewController {
     }
 }
 
-// MARK: - Requests Delegate
-extension ShowCVDetailsViewController: RequestsDelegate {
-    
-    func requestStarted(request: RequestType) {
-        if request == .getCVList {
-            showLoadingView(self)
-        }
-    }
-    
-    func requestFinished(request: RequestType, result: ResponseResult) {
-        self.hideLoadingView()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + loadingViewDismissDelay) {
-            
-            switch result {
-            case .Success(_):
-                break
-            case .Failure(let errorType):
-                switch errorType {
-                case .Exception(let exc):
-                    if showUserExceptions {
-                        self.showErrorMessage(exc)
-                    }
-                    break
-                case .AlamofireError(let err):
-                    if showAlamofireErrors {
-                        self.showSnackMessage(err.localizedDescription)
-                    }
-                    break
-                case .Runtime(_):
-                    break
-                }
-            }
-        }
-    }
-}
+//// MARK: - Requests Delegate
+//extension ShowCVDetailsViewController: RequestsDelegate {
+//
+//    func requestStarted(request: RequestType) {
+//        if request == .getCVList {
+//            showLoadingView(self)
+//        }
+//    }
+//
+//    func requestFinished(request: RequestType, result: ResponseResult) {
+//        self.hideLoadingView()
+//
+//        DispatchQueue.main.asyncAfter(deadline: .now() + loadingViewDismissDelay) {
+//
+//            switch result {
+//            case .Success(_):
+//                break
+//            case .Failure(let errorType):
+//                switch errorType {
+//                case .Exception(let exc):
+//                    if showUserExceptions {
+//                        self.showErrorMessage(exc)
+//                    }
+//                    break
+//                case .AlamofireError(let err):
+//                    if showAlamofireErrors {
+//                        self.showSnackMessage(err.localizedDescription)
+//                    }
+//                    break
+//                case .Runtime(_):
+//                    break
+//                }
+//            }
+//        }
+//    }
+//}
 
 // MARK: - CUSTOM FUNC
 

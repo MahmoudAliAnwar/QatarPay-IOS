@@ -69,13 +69,22 @@ class EditPersonalResumeViewController: ViewController {
         
         self.requestProxy.requestService()?.delegate = self
         
-        guard let cv = self.userProfile.cv else { return }
+        guard let cv = self.userProfile.cv else {
+            self.showSnackMessage("Something went wrong")
+            return
+        }
+        
+        self.showLoadingView(self)
         self.nameTextField.text         = cv._name
         self.publicCheckBox.isChecked   = cv._privacyStatus == Status._public.rawValue
         self.privateCheckBox.isChecked  = cv._privacyStatus == Status._private.rawValue
 
         cv._profilePicture.getImageFromURLString { status, image in
-            guard status else { return }
+            self.hideLoadingView()
+            guard status else {
+                self.showSnackMessage("Something went wrong")
+                return
+            }
             self.imageView.image = image
         }
     }
@@ -146,7 +155,6 @@ extension EditPersonalResumeViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    // FIXME: EDIT
     @IBAction func doneAction(_ sender : UIButton){
         guard var cv = self.userProfile.cv else {
             return
@@ -161,14 +169,20 @@ extension EditPersonalResumeViewController {
         
         self.status = self.publicCheckBox.isChecked ? ._public : ._private
         cv.privacyStatus = status.rawValue
+        cv.profilePicId = imageID
         
-//        self.requestProxy.requestService()?.addUpdateCV(cv: cv, profilePicId: imageID, { response in
-//            guard let resp = response else { return }
-//            DispatchQueue.main.asyncAfter(deadline: .now() + loadingViewDismissDelay) {
-//                self.showSuccessMessage(resp._message)
-//                self.userProfile.cv = cv
-//            }
-//        })
+        self.requestProxy.requestService()?.addUpdateCV(cv: cv , { baseResponse in
+            
+            guard let resp = baseResponse else {
+                self.showSnackMessage("Something went wrong")
+                return
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + loadingViewDismissDelay) {
+                self.showSuccessMessage(resp._message)
+                self.userProfile.cv = cv
+            }
+        })
     }
     
     @IBAction func changeImage(_ sender : UIButton) {
@@ -297,22 +311,24 @@ extension EditPersonalResumeViewController :PositionDataTableCellDelegate {
 extension EditPersonalResumeViewController: AddPositionHeaderViewDelegate {
     
     func didTapAddPosition(_ view: AddPositionHeaderView) {
-        // TODO: ADD REGUST ADD AND EDIT
         switch view {
         case self.currentJobHeaderView:
             let vc = self.getStoryboardView(AddEditJobViewController.self)
             vc.jobType = .currentJob
+            vc.delegate = self
             self.navigationController?.pushViewController(vc, animated: true)
             break
             
         case self.previousJobHeaderView:
             let vc = self.getStoryboardView(AddEditJobViewController.self)
             vc.jobType = .previousJob
+            vc.delegate = self
             self.navigationController?.pushViewController(vc, animated: true)
             break
             
         case self.educationHeaderView:
             let vc = self.getStoryboardView(AddEditEducationViewController.self)
+            vc.delegate = self
             self.navigationController?.pushViewController(vc, animated: true)
             break
             
@@ -327,7 +343,11 @@ extension EditPersonalResumeViewController: AddPositionHeaderViewDelegate {
 extension EditPersonalResumeViewController: AddEditEducationViewControllerDelegate {
     
     func didTap(_ cotroller: AddEditEducationViewController, on action: AddEditEducationViewController.ActionType) {
-        
+        switch action {
+        case .delete, .edit(_), .add(_) :
+            self.educationTableView.reloadData()
+            break
+        }
     }
 }
 

@@ -20,13 +20,17 @@ class AddEditEducationViewController: ViewController  {
     
     @IBOutlet weak var startDateTextField      : UITextField!
     
+    @IBOutlet weak var startDateLabel          : UILabel!
+    
     @IBOutlet weak var endDateTextField        : UITextField!
+    
+    @IBOutlet weak var endDateLabel            : UILabel!
     
     @IBOutlet weak var countryTextField        : UITextField!
     
     @IBOutlet weak var cityTextField           : UITextField!
     
-    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var deleteButton            : UIButton!
     
     var education : Education?
     
@@ -34,7 +38,7 @@ class AddEditEducationViewController: ViewController  {
     
     private let startDatePicker = UIDatePicker()
     private let endDatePicker   = UIDatePicker()
-    private let dateFormat = "MM-yyyy"
+    private let dateFormat = ServerDateFormat.Server2
     private var dateType: DateType = .startDate
     
     enum DateType : CaseIterable {
@@ -43,8 +47,9 @@ class AddEditEducationViewController: ViewController  {
     }
     
     enum ActionType {
-        case delete(id: Int)
+        case delete
         case edit(Education)
+        case add(Education)
     }
     
     override func viewDidLoad() {
@@ -76,15 +81,24 @@ extension AddEditEducationViewController {
     
     func setupData() {
         
-        guard let data = self.education else { return }
+        guard let data = self.education else {
+             return
+        }
         self.universityNameTextField.text  = data._educationUniversity
         self.degreeTextField.text          = data._degree
         
-        if let startDate = data._startdate.convertFormatStringToDate(ServerDateFormat.Server1.rawValue) {
-            self.startDateTextField.text = "\(startDate.formatDate("MMM yyyy"))"
+        if let startDate = data._startdate.server2StringToDate() ,
+           let endDate  = data._enddate.server2StringToDate() {
+            self.startDateLabel.text = "\(startDate.formatDate("MMMM yyyy"))"
+            self.endDateLabel.text   = "\(endDate.formatDate("MMMM yyyy"))"
+            
+            self.startDateTextField.text = startDate.formatDate(self.dateFormat.rawValue)
+            self.endDateTextField.text   = endDate.formatDate(self.dateFormat.rawValue)
+            
+            self.startDateTextField.placeholder  = ""
+            self.endDateTextField.placeholder    = ""
         }
         
-        self.endDateTextField.text      = data._enddate
         self.countryTextField.text      = data._country
         self.cityTextField.text         = data._city
     }
@@ -103,22 +117,26 @@ extension AddEditEducationViewController {
     
     @IBAction func doneAction(_ sender : UIButton){
         guard let educationUniversity = self.universityNameTextField.text, educationUniversity.isNotEmpty,
-              let degree = self.degreeTextField.text, degree.isNotEmpty,
+              let degree    = self.degreeTextField.text, degree.isNotEmpty,
               let startDate = self.startDateTextField.text, startDate.isNotEmpty,
-              let endDate = self.endDateTextField.text, endDate.isNotEmpty,
-              let country = self.countryTextField.text, country.isNotEmpty,
-              let city = self.cityTextField.text, city.isNotEmpty else {
+              let endDate   = self.endDateTextField.text, endDate.isNotEmpty,
+              let country   = self.countryTextField.text, country.isNotEmpty,
+              let city      = self.cityTextField.text, city.isNotEmpty else {
+            self.showSnackMessage("Enter All Data")
             return
         }
+        
         if var myEducation = education {
             myEducation.educationUniversity = educationUniversity
-            myEducation.educationDegree = degree
-            myEducation.educationStartDate = startDate
-            myEducation.educationEndDate = endDate
-            myEducation.educationCountry = country
-            myEducation.educationCity = city
+            myEducation.educationDegree     = degree
+            myEducation.educationStartDate  = startDate
+            myEducation.educationEndDate    = endDate
+            myEducation.educationCountry    = country
+            myEducation.educationCity       = city
             
+            self.deleteButton.isHidden = true
             guard let index = self.userProfile.cv?._educationList.firstIndex(where: { $0._id == myEducation.id }) else {
+                self.showSnackMessage("Not found education id")
                 return
             }
             
@@ -126,9 +144,14 @@ extension AddEditEducationViewController {
             guard let cv = self.userProfile.cv else { return }
             
             self.requestProxy.requestService()?.addUpdateCV(cv: cv, { response in
-                guard let resp = response else { return }
+                guard let resp = response else {
+                    self.showSnackMessage("Something went wrong, please try again later")
+                    return
+                }
+                
                 DispatchQueue.main.asyncAfter(deadline: .now() + loadingViewDismissDelay) {
                     self.showSuccessMessage(resp._message)
+                    self.delegate?.didTap(self, on: .edit(myEducation))
                 }
             })
             
@@ -142,8 +165,9 @@ extension AddEditEducationViewController {
             myEducation.educationCity = city
         
             self.userProfile.cv?.educationList?.append(myEducation)
-            guard let cv = self.userProfile.cv else { return }
-            
+            guard let cv = self.userProfile.cv else {
+                return
+            }
             self.requestProxy.requestService()?.addUpdateCV(cv: cv, { baseResponse in
                 
                 guard let resp = baseResponse else {
@@ -152,6 +176,7 @@ extension AddEditEducationViewController {
                 }
                 DispatchQueue.main.asyncAfter(deadline: .now() + loadingViewDismissDelay) {
                     self.showSuccessMessage(resp._message)
+                    self.delegate?.didTap(self, on: .add(myEducation))
                 }
             })
         }
@@ -165,6 +190,7 @@ extension AddEditEducationViewController {
                 self.showSnackMessage("ERROR" , messageStatus: .Error)
             }
             self.showSnackMessage(resp._message, messageStatus: .Success)
+            self.delegate?.didTap(self, on: .delete)
             
             self.navigationController?.popViewController(animated: true)
         })
@@ -210,12 +236,16 @@ extension AddEditEducationViewController {
         
         switch self.dateType {
         case .startDate:
-            let formattedDate = self.startDatePicker.date.formatDate(self.dateFormat)
+            let formattedDate = self.startDatePicker.date.formatDate(self.dateFormat.rawValue)
             self.startDateTextField.text = formattedDate
-            
+            self.startDateLabel.text     = "\(self.startDatePicker.date.formatDate("MMMM yyyy"))"
+            break
+
         case .endDate:
-            let formattedDate = self.endDatePicker.date.formatDate(self.dateFormat)
+            let formattedDate = self.endDatePicker.date.formatDate(self.dateFormat.rawValue)
             self.endDateTextField.text = formattedDate
+            self.endDateLabel.text     = "\(self.endDatePicker.date.formatDate("MMMM yyyy"))"
+            break
         }
     }
     
@@ -229,7 +259,8 @@ extension AddEditEducationViewController {
 extension AddEditEducationViewController: RequestsDelegate {
     
     func requestStarted(request: RequestType) {
-        if request == .deleteEducation {
+        if request == .deleteEducation ||
+           request == .addUpdateCV {
             showLoadingView(self)
         }
     }

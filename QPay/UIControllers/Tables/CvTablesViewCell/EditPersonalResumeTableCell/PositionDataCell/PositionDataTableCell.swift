@@ -22,6 +22,9 @@ class PositionDataTableCell: UITableViewCell {
     @IBOutlet private weak var cityLabel: UILabel!
     
     @IBOutlet private weak var countryLabel: UILabel!
+
+    @IBOutlet private weak var defaultBtn : UIButton!
+    
     
     weak var delegate : PositionDataTableCellDelegate?
     
@@ -41,6 +44,8 @@ class PositionDataTableCell: UITableViewCell {
         let cityLabel    : String
         let startDate    : String
         let endDate      : String
+        let isJobDefault : Bool
+    
     }
     
     var object: Data? {
@@ -50,6 +55,7 @@ class PositionDataTableCell: UITableViewCell {
             self.secondLabel.text  = data.secondLabel
             self.countryLabel.text = data.countryLabel
             self.cityLabel.text    = data.cityLabel
+            self.defaultBtn.backgroundColor = data.isJobDefault ? UIColor(named: "green") : .gray
         }
     }
     
@@ -84,7 +90,8 @@ class PositionDataTableCellAdapter {
                                           countryLabel : currentJob._country,
                                           cityLabel    : currentJob._city,
                                           startDate    : currentJob._jobStartDate,
-                                          endDate      : ""
+                                          endDate      : "",
+                                          isJobDefault : currentJob._isJobDefault
         )
     }
     
@@ -95,7 +102,8 @@ class PositionDataTableCellAdapter {
                                           countryLabel : previousJob._country,
                                           cityLabel    : previousJob._city,
                                           startDate    : previousJob._jobStartdate,
-                                          endDate      : previousJob._previousEnddate
+                                          endDate      : previousJob._previousEnddate,
+                                          isJobDefault: previousJob._isJobDefault
         )
     }
     
@@ -106,7 +114,8 @@ class PositionDataTableCellAdapter {
                                           countryLabel : education._country,
                                           cityLabel    : education._city,
                                           startDate    : education._startdate,
-                                          endDate      : education._enddate
+                                          endDate      : education._enddate,
+                                          isJobDefault :  education._isDefault
         )
     }
 }

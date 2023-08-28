@@ -8,12 +8,10 @@
 
 import UIKit
 
-class EditDeleteGroupViewController: UIViewController {
+class EditDeleteGroupViewController: ViewController {
     
     @IBOutlet weak var tableView       : UITableView!
-    @IBOutlet weak var headerImageView : UIImageView!
-    
-    
+        
     var groups = [Group]()
     var operatorType: AddPhoneBillsCardViewController.OperatorTypes?
     
@@ -94,19 +92,59 @@ extension EditDeleteGroupViewController {
     
 }
 
+
+// MARK: - Edit Delete Group Table Cell Delegate
+
 extension EditDeleteGroupViewController : EditDeleteGroupTableCellDelegate {
     
     func didTapDeleteGroup(_ cell: EditDeleteGroupTableCell, for group: Group) {
-        print("")
+        
+        guard let operatorID = self.operatorType?.rawValue else {
+            self.showSnackMessage("Something went wrong")
+            return
+        }
+        
+        let alert = UIAlertController(title: "", message: "Do you want Delete this group ?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .destructive , handler: { _ in
+            self.showLoadingView(self)
+            self.requestProxy.requestService()?.removePhoneGroup(operatorID: operatorID, groupID: group._id, { baseResponse in
+                self.hideLoadingView()
+                guard let resp = baseResponse else {
+                    self.showSnackMessage("Something went wrong")
+                    return
+                }
+
+                guard resp._success else {
+                    self.showErrorMessage(resp._message)
+                    return
+                }
+                self.showSuccessMessage(resp._message)
+                self.groups.removeAll(where: { $0._id == group._id })
+                self.tableView.reloadData()
+
+            })
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        self.present(alert, animated: true)
     }
     
     func didTapEditGroup(_ cell: EditDeleteGroupTableCell, for group: Group) {
         let vc    = self.getStoryboardView(EditGroupNameViewController.self)
+        vc.groupBillType = .phoneBill
         vc.operatorType = self.operatorType
         vc.group = group
         vc.updateViewDelegate = EditGroupNameViewController() as?  UpdateViewElement
+        vc.delegate = self
         self.present(vc, animated: true)
     }
-    
-    
+}
+
+extension EditDeleteGroupViewController : EditGroupNameViewControllerDelegate {
+    func endEditGroupName( for group: Group, name: String) {
+        if let i  = self.groups.firstIndex(where: { $0._id == group._id }) {
+            groups[i].name = name
+            self.tableView.reloadData()
+        }
+    }
 }
