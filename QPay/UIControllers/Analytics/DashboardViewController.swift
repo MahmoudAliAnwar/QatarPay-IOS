@@ -27,9 +27,22 @@ class DashboardViewController: MainController {
     @IBOutlet weak var outStandingLabel: UILabel!
     
     @IBOutlet weak var dashboardTableView: UITableView!
+    @IBOutlet weak var holderStackView: UIStackView!
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet var collectionOfViews: [UIView]!{
+        didSet{
+            collectionOfViews.forEach({
+                $0.layer.cornerRadius = $0.width / 2
+                $0.clipsToBounds = true
+            })
+        }
+    }
+    @IBOutlet weak var widthOfYAxisConstrain: NSLayoutConstraint!
     
     var serviceCategories = [ServiceCategory]()
     var chart: DashboardChart?
+    var range: Range!
     
     private enum BillType: String {
         case Phone = "Phone Bills"
@@ -37,7 +50,7 @@ class DashboardViewController: MainController {
         case Kahrama = "Kahrama"
     }
     
-    private enum Range {
+     enum Range {
         case Daily
         case Weekly
         case Monthly
@@ -50,6 +63,7 @@ class DashboardViewController: MainController {
         localized()
         setupData()
         fetchData()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,6 +82,7 @@ extension DashboardViewController {
         self.dashboardTableView.delegate = self
         
         self.changeStatusBarBG(color: .clear)
+        self.collectionView.registerNib(XAxisViewCell.self)
     }
     
     func localized() {
@@ -77,9 +92,47 @@ extension DashboardViewController {
         self.profileRequest()
         self.dashboardChartRequest()
         self.dashboardDataRequest()
+        self.dispatchGroup.notify(queue: .main) {
+            self.hideLoadingView()
+            self.setChartDataDaily()
+            self.dashboardTableView.reloadData()
+        }
+
     }
     
     func fetchData() {
+    }
+    
+    func getNameShowInXAxisView(index: Int) -> String?  {
+        switch range{
+        case .Daily:
+            return self.chart?.dailyData?[index].day
+        case .Weekly:
+            return self.chart?.weeklyData?[index].week
+        case .Monthly:
+            guard  let month = self.chart?.monthlyData?[index].month else {return nil}
+            let start = month.index(month.startIndex, offsetBy: 0)
+            let end = month.index(month.startIndex, offsetBy: 2)
+            let range = start...end
+            return String(month[range])
+       
+        case .none:
+            return nil
+        }
+        
+    }
+    func getNumberOfCell() -> Int {
+        switch range{
+        case .Daily:
+            return self.chart?.dailyData?.count ?? 0
+        case .Weekly:
+            return self.chart?.weeklyData?.count ?? 0
+        case .Monthly:
+            return self.chart?.monthlyData?.count ?? 0
+        case .none:
+            return 0
+        }
+        
     }
 }
 
@@ -136,6 +189,44 @@ extension DashboardViewController {
     }
 }
 
+// MARK: - CollectionViewDataSoucre and Delegate
+
+extension DashboardViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return getNumberOfCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueCell(XAxisViewCell.self, for: indexPath)
+        
+        cell.config(title: getNameShowInXAxisView(index: indexPath.item))
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let collectionSize = collectionView.height
+        var minsWidth: CGFloat!
+        switch range  {
+        case .Daily:
+            minsWidth = 60
+        case .Weekly:
+            minsWidth = 0
+        case .Monthly:
+            minsWidth = 80
+            
+        case .none:
+            break
+        }
+        let collectionWidth = self.collectionView.width - minsWidth
+        return CGSize(width: (collectionWidth / CGFloat(getNumberOfCell())), height: collectionSize)
+      
+        
+    }
+}
+
+
+
 // MARK: - TABLE VIEW DELEGATE
 
 extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
@@ -151,8 +242,14 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
 
         let object = self.serviceCategories[indexPath.row]
         
-        let bgImage: UIImage = indexPath.row == 0 ? .bg_analytics_blue : .bg_analytics_red
-        cell.setupData(object, bg: bgImage, title: object.categoryName ?? "")
+    
+        switch indexPath.row {
+        case 0:
+            cell.setupData(object, backgroundImage: "servicebg_head" , leftViewColor: UIColor(hexString: "#020C18"), title: object.categoryName ?? "")
+        default:
+            cell.setupData(object,  backgroundImage: "service_bar", leftViewColor: UIColor(hexString: "#400125"), title: object.categoryName ?? "")
+        }
+       
         
         return cell
     }
@@ -475,9 +572,6 @@ extension DashboardViewController {
             self.chart = chart
         })
         
-        self.dispatchGroup.notify(queue: .main) {
-            self.setChartDataDaily()
-        }
     }
     
     private func profileRequest() {
@@ -537,45 +631,50 @@ extension DashboardViewController {
             
         }) // End Request
         
-        self.dispatchGroup.notify(queue: .main) {
-            self.hideLoadingView()
-            self.dashboardTableView.reloadData()
-        }
     }
     
     private func setChartView() {
         self.chartView.rightAxis.enabled = false
+        self.chartView.legend.enabled = false
+        self.chartView.xAxis.enabled = false
         self.chartView.backgroundColor = .clear
         self.chartView.doubleTapToZoomEnabled = false
         self.chartView.animate(yAxisDuration: 2, easingOption: .easeInOutBounce)
         
-        let legend = self.chartView.legend
-        legend.textColor = .white
-        legend.wordWrapEnabled = false
-        legend.font = UIFont.systemFont(ofSize: 9)
+//        let legend = self.chartView.legend
+//        legend.textColor = .white
+//        legend.wordWrapEnabled = false
+//        legend.font = UIFont.systemFont(ofSize: 12)
+//        
         
         let yAxis = self.chartView.leftAxis
         yAxis.labelFont = .systemFont(ofSize: 10)
-        yAxis.setLabelCount(9, force: false)
-        yAxis.labelTextColor = .mYellow
+        yAxis.setLabelCount(11, force: true)
+        yAxis.labelTextColor =  .mYellow
         yAxis.axisLineColor = .clear
         yAxis.labelPosition = .outsideChart
         yAxis.drawGridLinesEnabled = false
         yAxis.valueFormatter = CustomYAxisLabelFormatter()
+        yAxis.spaceBottom = 2
+        yAxis.axisMinimum = 0
         
-        let xAxis = self.chartView.xAxis
-        xAxis.labelFont = .boldSystemFont(ofSize: 9)
-        xAxis.labelTextColor = .mYellow
-        xAxis.axisLineColor = .clear
-        xAxis.labelPosition = .bottom
-        xAxis.drawGridLinesEnabled = false
+       
+        
+//        
+//        let xAxis = self.chartView.xAxis
+//        xAxis.labelFont = .boldSystemFont(ofSize: 8)
+//        xAxis.labelTextColor = .white
+//        xAxis.axisLineColor = .clear
+//        xAxis.labelPosition = .bottom
+//        xAxis.drawGridLinesEnabled = false
+        
         
         self.chartView.delegate = self
     }
     
     private func setChartDataDaily() {
         self.setChartDataRange(.Daily)
-        
+        self.range = .Daily
         guard let dailyData = self.chart?.dailyData else { return }
         
         let xAxis = self.chartView.xAxis
@@ -609,7 +708,7 @@ extension DashboardViewController {
     
     private func setChartDataWeekly() {
         self.setChartDataRange(.Weekly)
-        
+        self.range = .Weekly
         guard let weeklyData = self.chart?.weeklyData else { return }
         
         let xAxis = self.chartView.xAxis
@@ -641,7 +740,7 @@ extension DashboardViewController {
     
     private func setChartDataMonthly() {
         self.setChartDataRange(.Monthly)
-        
+        self.range = .Monthly
         guard let monthlyData = self.chart?.monthlyData else { return }
         
         let xAxis = self.chartView.xAxis
@@ -674,7 +773,7 @@ extension DashboardViewController {
     private func setChartDataSetStyle(_ set: LineChartDataSet, dataService: ChartDataService) -> LineChartDataSet {
         
         set.mode = .cubicBezier
-        set.fill = ColorFill(cgColor: UIColor.white.cgColor)
+        set.fill = ColorFill(cgColor: UIColor.clear.cgColor)
         set.fillAlpha = 0.3
         set.form = .circle
         set.formSize = 5
@@ -682,6 +781,7 @@ extension DashboardViewController {
         set.drawCirclesEnabled = false
         set.lineWidth = 2
         set.highlightEnabled = false
+        
         
         switch dataService {
         case .Shopping:
@@ -704,6 +804,9 @@ extension DashboardViewController {
         let data = LineChartData(dataSets: dataSets)
         data.setDrawValues(false)
         self.chartView.data = data
+        self.holderStackView.isHidden = false
+        self.widthOfYAxisConstrain.constant = self.chartView.leftAxis.requiredSize().width
+        self.collectionView.reloadData()
     }
 }
 

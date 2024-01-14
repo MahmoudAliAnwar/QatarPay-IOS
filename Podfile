@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '12.0'
 
 target 'QPay' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -16,7 +16,7 @@ target 'QPay' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Messaging'
   pod 'PayCardsRecognizer', '1.1.7'
-  pod 'Instructions', '2.0.0'
+  pod 'Instructions', '2.3.0'
   pod 'QKMRZScanner', '2.1.2'
   pod 'BarcodeScanner', '4.1.3'
 #  pod 'CardIO', '5.4.1'
@@ -47,3 +47,14 @@ target 'QPay' do
   pod 'SkyFloatingLabelTextField'
   
 end
+
+post_install do |installer|
+      installer.pods_project.targets.each do |target|
+          target.build_configurations.each do |config|
+          xcconfig_path = config.base_configuration_reference.real_path
+          xcconfig = File.read(xcconfig_path)
+          xcconfig_mod = xcconfig.gsub(/DT_TOOLCHAIN_DIR/, "TOOLCHAIN_DIR")
+          File.open(xcconfig_path, "w") { |file| file << xcconfig_mod }
+          end
+      end
+  end

@@ -16,6 +16,9 @@ class DashboardTableViewCell: UITableViewCell {
     
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var holderView: UIView!
+    @IBOutlet weak var leftView: UIView!
+  
     
     @IBOutlet weak var servicesCollectionView: UICollectionView!
     
@@ -46,10 +49,11 @@ class DashboardTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    public func setupData(_ serviceCategory: ServiceCategory, bg: UIImage, title: String) {
+    public func setupData(_ serviceCategory: ServiceCategory, backgroundImage: String, leftViewColor: UIColor, title: String) {
         
         self.titleLabel.text = title
-        self.backgroundImageView.image = bg
+        self.backgroundImageView.image = UIImage(named: backgroundImage)
+        self.leftView.backgroundColor = leftViewColor
         
         if let services = serviceCategory.services {
             self.services = services

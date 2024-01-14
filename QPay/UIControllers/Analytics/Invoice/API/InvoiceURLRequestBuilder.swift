@@ -35,7 +35,7 @@ extension InvoiceURLRequestBuilder {
     
     var baseURL: URL {
         get {
-            return URL(string: "https://members.noqoodypay.com/v2/")!
+            return URL(string: "https://noq-qrc-memportbe.azurewebsites.net/")!
 //            return URL(string: "https://noqoodypay.com/sdk/")!
         }
     }

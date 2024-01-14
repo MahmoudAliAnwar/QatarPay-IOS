@@ -16,19 +16,19 @@ enum Day: Int {
     var description: String {
         switch self {
         case .Saturday:
-            return "Sat"
+            return "Saturday"
         case .Sunday:
-            return "Sun"
+            return "Sunday"
         case .Monday:
-            return "Mon"
+            return "Monday"
         case .Tuesday:
-            return "Tue"
+            return "Tuesday"
         case .Wednesday:
-            return "Wed"
+            return "Wednesday"
         case .Thursday:
-            return "Thu"
+            return "Thursday"
         case .Friday:
-            return "Fri"
+            return "Friday"
         }
     }
 }

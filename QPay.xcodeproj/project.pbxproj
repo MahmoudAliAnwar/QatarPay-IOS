@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14A0CCBF2B50FDAD007D15CE /* XAxisViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A0CCBD2B50FDAD007D15CE /* XAxisViewCell.swift */; };
+		14A0CCC02B50FDAD007D15CE /* XAxisViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14A0CCBE2B50FDAD007D15CE /* XAxisViewCell.xib */; };
+		14F6975C2B4BC9870057B501 /* NSUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F6975B2B4BC9860057B501 /* NSUIView.swift */; };
 		17005FB62A36F96B00929EB4 /* QaterSchoolTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17005FB52A36F96B00929EB4 /* QaterSchoolTab.swift */; };
 		17005FB82A36FA1F00929EB4 /* QaterSchoolItmeDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17005FB72A36FA1F00929EB4 /* QaterSchoolItmeDetails.swift */; };
 		17005FBD2A37086300929EB4 /* QaterSchoolsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17005FBC2A37086300929EB4 /* QaterSchoolsConfig.swift */; };
@@ -969,6 +972,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		14A0CCBD2B50FDAD007D15CE /* XAxisViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XAxisViewCell.swift; sourceTree = "<group>"; };
+		14A0CCBE2B50FDAD007D15CE /* XAxisViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XAxisViewCell.xib; sourceTree = "<group>"; };
+		14F6975B2B4BC9860057B501 /* NSUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSUIView.swift; sourceTree = "<group>"; };
 		17005FB52A36F96B00929EB4 /* QaterSchoolTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QaterSchoolTab.swift; sourceTree = "<group>"; };
 		17005FB72A36FA1F00929EB4 /* QaterSchoolItmeDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QaterSchoolItmeDetails.swift; sourceTree = "<group>"; };
 		17005FBC2A37086300929EB4 /* QaterSchoolsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QaterSchoolsConfig.swift; sourceTree = "<group>"; };
@@ -1967,6 +1973,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14A0CCBC2B50FD44007D15CE /* XAxisViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				14A0CCBD2B50FDAD007D15CE /* XAxisViewCell.swift */,
+				14A0CCBE2B50FDAD007D15CE /* XAxisViewCell.xib */,
+			);
+			path = XAxisViewCell;
+			sourceTree = "<group>";
+		};
 		17005FB42A36F94A00929EB4 /* QaterSchool */ = {
 			isa = PBXGroup;
 			children = (
@@ -4997,6 +5012,7 @@
 				174B9887267F412500D9D719 /* CGPointExtension.swift */,
 				174B9886267F412400D9D719 /* CIImageExtension.swift */,
 				17F3883C267BDF4300DAA12E /* NSObjectExtension.swift */,
+				14F6975B2B4BC9860057B501 /* NSUIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -5142,6 +5158,7 @@
 		2630030D24DC347E008EC459 /* DashboardCells */ = {
 			isa = PBXGroup;
 			children = (
+				14A0CCBC2B50FD44007D15CE /* XAxisViewCell */,
 				26F1547424E52F8500EAD779 /* ServiceCell */,
 				26F1547524E52FA100EAD779 /* DashboardTableViewCell.swift */,
 			);
@@ -5843,7 +5860,7 @@
 				2680AE6124ACBB3900931130 /* Resources */,
 				097C0613F75AB43C325E33E5 /* [CP] Embed Pods Frameworks */,
 				178C310C25A4584400207467 /* ShellScript */,
-				57B4EEC6308F26EB63B77FAF /* [CP] Copy Pods Resources */,
+				F9D4FDE0FAD6DEB71D653873 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -5938,6 +5955,7 @@
 				174C6E9425CEAED900337A34 /* Gotham-Book.otf in Resources */,
 				262469CB253AD71C001E33F9 /* MyLibrary.storyboard in Resources */,
 				1745B43B27746B5000A7366E /* CategoryCollectionViewCell.xib in Resources */,
+				14A0CCC02B50FDAD007D15CE /* XAxisViewCell.xib in Resources */,
 				265846A624B48BF2003C673C /* GothamPro.otf in Resources */,
 				17FF44652A0FA99600766EC7 /* PositionDataTableCell.xib in Resources */,
 				176EC5012A235A1500F5E77D /* ImageCollectionViewCell.xib in Resources */,
@@ -6113,7 +6131,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		57B4EEC6308F26EB63B77FAF /* [CP] Copy Pods Resources */ = {
+		F9D4FDE0FAD6DEB71D653873 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -6715,6 +6733,7 @@
 				1743063F2A69488200A44456 /* CalendarPopup.swift in Sources */,
 				26F1547224E52F7C00EAD779 /* ServiceCollectionViewCell.swift in Sources */,
 				26B2B0A824DBB3AE00972504 /* AddPhoneBillsCardViewController.swift in Sources */,
+				14F6975C2B4BC9870057B501 /* NSUIView.swift in Sources */,
 				2685AFF724D867A50084C592 /* UpdatePhotoViewController.swift in Sources */,
 				17D09FF52A30842800F7BA96 /* CatelogueImages.swift in Sources */,
 				265CB21824BB682C0011931F /* Handlers.swift in Sources */,
@@ -6904,6 +6923,7 @@
 				1719FA6327E1E435000EDAC6 /* SubscriptionFeeViewController.swift in Sources */,
 				2666558E24B114110062EE17 /* TransactionTableViewCell.swift in Sources */,
 				179E429826316B6800EC9CFD /* TopupCountry.swift in Sources */,
+				14A0CCBF2B50FDAD007D15CE /* XAxisViewCell.swift in Sources */,
 				26ADB949254EAF1F00C23A0A /* IDCard.swift in Sources */,
 				26A21AC924BD11F9001043A1 /* StringExtension.swift in Sources */,
 				262469CD253AD990001E33F9 /* AddBankAccountViewController.swift in Sources */,
@@ -7104,7 +7124,7 @@
 				CODE_SIGN_ENTITLEMENTS = "QPay/Qatar Pay.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = EJV3Q736AM;
 				INFOPLIST_FILE = "QPay/Supporting Files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Qatar Pay - Pro";
@@ -7114,7 +7134,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5.38;
+				MARKETING_VERSION = 1.5.39;
 				PRODUCT_BUNDLE_IDENTIFIER = com.QMobile.QPayPro;
 				PRODUCT_NAME = "Qatar Pay";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -7135,7 +7155,7 @@
 				CODE_SIGN_ENTITLEMENTS = "QPay/Qatar Pay.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = EJV3Q736AM;
 				INFOPLIST_FILE = "QPay/Supporting Files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Qatar Pay - Pro";
@@ -7145,7 +7165,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5.38;
+				MARKETING_VERSION = 1.5.39;
 				PRODUCT_BUNDLE_IDENTIFIER = com.QMobile.QPayPro;
 				PRODUCT_NAME = "Qatar Pay";
 				PROVISIONING_PROFILE_SPECIFIER = "";
