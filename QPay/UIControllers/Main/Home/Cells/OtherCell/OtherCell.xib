@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="CreditCard.ttf">
+            <string>CreditCard</string>
+        </array>
+        <array key="MODENINE.TTF">
+            <string>ModeNine</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="OtherCell" customModule="Qatar_Pay" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="434" height="287"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="434" height="287"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ADa-Pa-pR3">
+                        <rect key="frame" x="0.0" y="0.0" width="434" height="287"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="g2K-R7-Mda">
+                                <rect key="frame" x="0.0" y="0.0" width="434" height="287"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="maroon card" translatesAutoresizingMaskIntoConstraints="NO" id="QgA-3r-FHe">
+                                        <rect key="frame" x="11" y="0.0" width="412" height="287"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dTb-mn-iOo">
+                                <rect key="frame" x="31" y="20" width="372" height="247"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LbR-7v-O14">
+                                        <rect key="frame" x="0.0" y="0.0" width="78.333333333333329" height="247"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gED-e6-f0Q">
+                                                <rect key="frame" x="0.0" y="82" width="78.333333333333329" height="165"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EJa-JR-Qun">
+                                                        <rect key="frame" x="0.0" y="0.0" width="78.333333333333329" height="60"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card" translatesAutoresizingMaskIntoConstraints="NO" id="t06-ge-nZs">
+                                                                <rect key="frame" x="0.0" y="20" width="50" height="40"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="Kd0-wS-Itz"/>
+                                                                    <constraint firstAttribute="width" constant="50" id="xuP-iq-nfL"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="t06-ge-nZs" secondAttribute="bottom" id="kPY-XB-2cY"/>
+                                                            <constraint firstItem="t06-ge-nZs" firstAttribute="leading" secondItem="EJa-JR-Qun" secondAttribute="leading" id="wx1-jx-A6c"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="S3O-zD-6hp">
+                                                        <rect key="frame" x="0.0" y="80" width="78.333333333333329" height="85"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.90000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="vcw-fk-tvS">
+                                                                <rect key="frame" x="0.0" y="0.0" width="78.333333333333329" height="20.666666666666668"/>
+                                                                <fontDescription key="fontDescription" name="CreditCard" family="Credit Card" pointSize="16"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.90000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="sLl-IJ-Lfm">
+                                                                <rect key="frame" x="0.0" y="69" width="78.333333333333329" height="16"/>
+                                                                <fontDescription key="fontDescription" name="ModeNine" family="ModeNine" pointSize="16"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="gED-e6-f0Q" secondAttribute="bottom" id="NrF-Hq-7iu"/>
+                                            <constraint firstAttribute="trailing" secondItem="gED-e6-f0Q" secondAttribute="trailing" id="qHz-l0-nBV"/>
+                                            <constraint firstItem="gED-e6-f0Q" firstAttribute="leading" secondItem="LbR-7v-O14" secondAttribute="leading" id="taF-8b-9gA"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1Wp-AN-gQK">
+                                        <rect key="frame" x="312" y="0.0" width="60" height="247"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noqoody-com-logo-final-2024" translatesAutoresizingMaskIntoConstraints="NO" id="8Ti-Kv-Bta">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="UyW-uO-F3P"/>
+                                                    <constraint firstAttribute="height" constant="60" id="WMm-jd-fCH"/>
+                                                </constraints>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="onc-bF-j5s">
+                                                <rect key="frame" x="0.0" y="60" width="60" height="187"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oqC-lB-rCB">
+                                                        <rect key="frame" x="0.0" y="141.66666666666666" width="60" height="45.333333333333343"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJl-YT-FRy">
+                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="18.333333333333332"/>
+                                                                <fontDescription key="fontDescription" name="CreditCard" family="Credit Card" pointSize="14"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_visa_logo_card" translatesAutoresizingMaskIntoConstraints="NO" id="IgA-au-lx8">
+                                                                <rect key="frame" x="0.0" y="28.333333333333343" width="60" height="17"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="IgA-au-lx8" secondAttribute="height" multiplier="35:10" id="lFT-ao-uLg"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dTb-mn-iOo" firstAttribute="bottom" secondItem="QgA-3r-FHe" secondAttribute="bottom" constant="-20" id="0Yd-Lf-TGL"/>
+                            <constraint firstItem="dTb-mn-iOo" firstAttribute="top" secondItem="QgA-3r-FHe" secondAttribute="top" constant="20" id="1wP-c6-Yka"/>
+                            <constraint firstAttribute="trailing" secondItem="g2K-R7-Mda" secondAttribute="trailing" id="5bl-l5-4HJ"/>
+                            <constraint firstItem="dTb-mn-iOo" firstAttribute="leading" secondItem="QgA-3r-FHe" secondAttribute="leading" constant="20" id="62P-b8-Qug"/>
+                            <constraint firstItem="dTb-mn-iOo" firstAttribute="trailing" secondItem="QgA-3r-FHe" secondAttribute="trailing" constant="-20" id="QXj-EH-qMk"/>
+                            <constraint firstItem="g2K-R7-Mda" firstAttribute="leading" secondItem="ADa-Pa-pR3" secondAttribute="leading" id="Xof-Ki-hql"/>
+                            <constraint firstAttribute="bottom" secondItem="g2K-R7-Mda" secondAttribute="bottom" id="mh5-6f-7xN"/>
+                            <constraint firstItem="g2K-R7-Mda" firstAttribute="top" secondItem="ADa-Pa-pR3" secondAttribute="top" id="x77-J8-9mJ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="ADa-Pa-pR3" secondAttribute="trailing" id="0bk-Hu-IfS"/>
+                <constraint firstItem="QgA-3r-FHe" firstAttribute="width" secondItem="ZTg-uK-7eu" secondAttribute="width" multiplier="0.95" id="N8l-pM-cOG"/>
+                <constraint firstAttribute="bottom" secondItem="ADa-Pa-pR3" secondAttribute="bottom" id="Rz3-Ub-gGy"/>
+                <constraint firstItem="gED-e6-f0Q" firstAttribute="height" secondItem="ZTg-uK-7eu" secondAttribute="height" multiplier="0.85" id="TG8-rt-X07"/>
+                <constraint firstItem="ADa-Pa-pR3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="UJU-Db-qvW"/>
+                <constraint firstItem="ADa-Pa-pR3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="qtk-Qr-jJf"/>
+            </constraints>
+            <size key="customSize" width="434" height="287"/>
+            <connections>
+                <outlet property="cardCodeLabel" destination="vcw-fk-tvS" id="eTa-sd-F6F"/>
+                <outlet property="cardExpiryLabel" destination="iJl-YT-FRy" id="ezQ-pc-m5M"/>
+                <outlet property="cardImageView" destination="QgA-3r-FHe" id="4SZ-bH-bFY"/>
+                <outlet property="cardTypeImageView" destination="IgA-au-lx8" id="d0K-rl-TKc"/>
+                <outlet property="cardUserNameLabel" destination="sLl-IJ-Lfm" id="DxU-cm-X2L"/>
+            </connections>
+            <point key="canvasLocation" x="329.7709923664122" y="103.16901408450705"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="card" width="155" height="141"/>
+        <image name="ic_visa_logo_card" width="100" height="31"/>
+        <image name="maroon card" width="1027" height="633"/>
+        <image name="noqoody-com-logo-final-2024" width="169" height="142"/>
+    </resources>
+</document>

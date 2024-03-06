@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -11,6 +11,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="MODENINE.TTF">
+            <string>ModeNine</string>
+        </array>
         <array key="sf-ui-display-bold.otf">
             <string>SFUIDisplay-Bold</string>
         </array>
@@ -295,6 +298,7 @@
                                                                                             <constraint firstAttribute="trailing" secondItem="PlQ-Kk-kKX" secondAttribute="trailing" id="9XL-mw-URd"/>
                                                                                             <constraint firstAttribute="bottom" secondItem="PlQ-Kk-kKX" secondAttribute="bottom" id="Cdw-Jz-2w2"/>
                                                                                             <constraint firstAttribute="bottom" secondItem="R77-Ga-CSN" secondAttribute="bottom" id="DoZ-fL-GCx"/>
+                                                                                            <constraint firstAttribute="width" secondItem="5Yo-ly-cDz" secondAttribute="height" multiplier="1:1" id="QC8-PW-3dH"/>
                                                                                             <constraint firstAttribute="trailing" secondItem="R77-Ga-CSN" secondAttribute="trailing" id="aYU-aw-R24"/>
                                                                                             <constraint firstItem="PlQ-Kk-kKX" firstAttribute="leading" secondItem="5Yo-ly-cDz" secondAttribute="leading" id="hBo-aq-HSd"/>
                                                                                             <constraint firstItem="PlQ-Kk-kKX" firstAttribute="top" secondItem="5Yo-ly-cDz" secondAttribute="top" id="i58-H8-70X"/>
@@ -303,9 +307,6 @@
                                                                                         </constraints>
                                                                                     </view>
                                                                                 </subviews>
-                                                                                <constraints>
-                                                                                    <constraint firstItem="5Yo-ly-cDz" firstAttribute="width" secondItem="5Yo-ly-cDz" secondAttribute="height" multiplier="1:1" id="QC8-PW-3dH"/>
-                                                                                </constraints>
                                                                             </stackView>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uIe-1L-Tka">
                                                                                 <rect key="frame" x="16" y="74" width="346" height="14"/>
@@ -1904,6 +1905,9 @@ Balance</string>
                                                                     </view>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CHd-vk-LeB">
                                                                         <rect key="frame" x="253" y="0.0" width="161" height="40"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" secondItem="CHd-vk-LeB" secondAttribute="height" multiplier="205:51" id="zof-4p-yhK"/>
+                                                                        </constraints>
                                                                         <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="16"/>
                                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <state key="normal" title="Add Number" backgroundImage="ic_add_kahramaa">
@@ -1915,9 +1919,6 @@ Balance</string>
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
-                                                                <constraints>
-                                                                    <constraint firstItem="CHd-vk-LeB" firstAttribute="width" secondItem="CHd-vk-LeB" secondAttribute="height" multiplier="205:51" id="zof-4p-yhK"/>
-                                                                </constraints>
                                                             </stackView>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Qck-px-CVK">
                                                                 <rect key="frame" x="0.0" y="54" width="414" height="440"/>
@@ -2426,6 +2427,7 @@ PAYMENT</string>
                                                                                         </subviews>
                                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <constraints>
+                                                                                            <constraint firstAttribute="width" secondItem="enx-rZ-VzL" secondAttribute="height" multiplier="1:1" id="0dp-Pl-F3D"/>
                                                                                             <constraint firstItem="m6w-ZL-vFe" firstAttribute="leading" secondItem="enx-rZ-VzL" secondAttribute="leading" id="6cz-ay-kTO"/>
                                                                                             <constraint firstAttribute="bottom" secondItem="0xB-mg-EA6" secondAttribute="bottom" id="7nK-P0-RVg"/>
                                                                                             <constraint firstItem="m6w-ZL-vFe" firstAttribute="top" secondItem="enx-rZ-VzL" secondAttribute="top" id="AcC-mX-wgO"/>
@@ -2437,9 +2439,6 @@ PAYMENT</string>
                                                                                         </constraints>
                                                                                     </view>
                                                                                 </subviews>
-                                                                                <constraints>
-                                                                                    <constraint firstItem="enx-rZ-VzL" firstAttribute="width" secondItem="enx-rZ-VzL" secondAttribute="height" multiplier="1:1" id="0dp-Pl-F3D"/>
-                                                                                </constraints>
                                                                             </stackView>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4zp-Vb-kFK">
                                                                                 <rect key="frame" x="16" y="74" width="346" height="14"/>
@@ -3827,9 +3826,9 @@ Balance</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_pay_on_go_phone" translatesAutoresizingMaskIntoConstraints="NO" id="alh-dY-3f3">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="313.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="493"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zMq-L9-9Cj">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="zMq-L9-9Cj">
                                 <rect key="frame" x="0.0" y="48" width="414" height="814"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOj-oY-zL1">
@@ -3864,16 +3863,34 @@ Balance</string>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="R1J-7g-DWc">
-                                        <rect key="frame" x="0.0" y="80" width="414" height="210.5"/>
+                                        <rect key="frame" x="0.0" y="85" width="414" height="385"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7nK-aG-Sx2">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="140.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7nK-aG-Sx2">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="305"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="uMi-7r-DJR">
-                                                        <rect key="frame" x="10" y="0.0" width="394" height="48"/>
+                                                        <rect key="frame" x="10" y="0.0" width="394" height="40"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Balance Amount " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ws-D5-Z61">
-                                                                <rect key="frame" x="0.0" y="0.0" width="394" height="20"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sai-PN-7EN">
+                                                                <rect key="frame" x="0.0" y="0.0" width="394" height="18"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="18" id="Ap6-23-JP7"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEg-tu-jwB">
+                                                                <rect key="frame" x="0.0" y="24" width="394" height="16"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="16" id="9Pd-yO-iWa"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Balance Amount " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ws-D5-Z61">
+                                                                <rect key="frame" x="0.0" y="40" width="394" height="20"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="20" id="awf-m4-d8u"/>
                                                                 </constraints>
@@ -3881,8 +3898,8 @@ Balance</string>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Noqs 0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5iP-Vn-qu1">
-                                                                <rect key="frame" x="0.0" y="26" width="394" height="22"/>
+                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Noqs 0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5iP-Vn-qu1">
+                                                                <rect key="frame" x="0.0" y="40" width="394" height="22"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="22" id="Kp3-ZN-85F"/>
                                                                 </constraints>
@@ -3892,60 +3909,134 @@ Balance</string>
                                                             </label>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="f3M-2l-ImF">
-                                                        <rect key="frame" x="10" y="58" width="394" height="82.5"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Uds-Wx-HnD">
+                                                        <rect key="frame" x="10" y="60" width="394" height="245"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="eH6-ZD-jhV">
-                                                                <rect key="frame" x="0.0" y="23.5" width="262.5" height="36"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="QRA-yc-VTw">
+                                                                <rect key="frame" x="0.0" y="0.0" width="394" height="137.5"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sai-PN-7EN">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="262.5" height="18"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="height" constant="18" id="Ap6-23-JP7"/>
-                                                                        </constraints>
-                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVe-lT-JbW">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="184" height="20.5"/>
+                                                                        <attributedString key="attributedText">
+                                                                            <fragment content="Amount Information:-">
+                                                                                <attributes>
+                                                                                    <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    <font key="NSFont" size="18" name="Arial-BoldMT"/>
+                                                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                    <integer key="NSUnderline" value="1"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                        </attributedString>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEg-tu-jwB">
-                                                                        <rect key="frame" x="0.0" y="20" width="262.5" height="16"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="height" constant="16" id="9Pd-yO-iWa"/>
-                                                                        </constraints>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="f3M-2l-ImF">
+                                                                        <rect key="frame" x="0.0" y="25.5" width="186" height="112"/>
+                                                                        <subviews>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="eH6-ZD-jhV">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="115.5" height="112"/>
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ServiceNo." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZyH-lk-6Oe">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="115.5" height="17"/>
+                                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cust.No." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFb-Zm-lwh">
+                                                                                        <rect key="frame" x="0.0" y="19" width="115.5" height="17"/>
+                                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cust.Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNu-ne-Wst">
+                                                                                        <rect key="frame" x="0.0" y="38" width="115.5" height="17"/>
+                                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Balance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12Z-p0-02K">
+                                                                                        <rect key="frame" x="0.0" y="57" width="115.5" height="17"/>
+                                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unbilled Balance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3y-PY-HqF">
+                                                                                        <rect key="frame" x="0.0" y="76" width="115.5" height="17"/>
+                                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Due" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9RV-oD-4dD">
+                                                                                        <rect key="frame" x="0.0" y="95" width="115.5" height="17"/>
+                                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                </subviews>
+                                                                            </stackView>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="j35-fw-POC">
+                                                                                <rect key="frame" x="125.5" y="0.0" width="60.5" height="112"/>
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":  2345" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOX-ZH-H5c">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="60.5" height="17"/>
+                                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=": 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6L-qE-dJl">
+                                                                                        <rect key="frame" x="0.0" y="19" width="60.5" height="17"/>
+                                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=": name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFm-bP-4v4">
+                                                                                        <rect key="frame" x="0.0" y="38" width="60.5" height="17"/>
+                                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":bal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8k2-M1-j9U">
+                                                                                        <rect key="frame" x="0.0" y="57" width="60.5" height="17"/>
+                                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="unbilled" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kzx-rc-p3m">
+                                                                                        <rect key="frame" x="0.0" y="76" width="60.5" height="17"/>
+                                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="payment" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cb2-6Z-o4X">
+                                                                                        <rect key="frame" x="0.0" y="95" width="60.5" height="17"/>
+                                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                </subviews>
+                                                                            </stackView>
+                                                                        </subviews>
+                                                                    </stackView>
                                                                 </subviews>
                                                             </stackView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QAR 0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQj-n1-jzS">
-                                                                <rect key="frame" x="262.5" y="33" width="131.5" height="17"/>
-                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
                                                         </subviews>
-                                                        <constraints>
-                                                            <constraint firstItem="NQj-n1-jzS" firstAttribute="width" secondItem="eH6-ZD-jhV" secondAttribute="width" multiplier="0.5" id="ldx-4I-uIo"/>
-                                                        </constraints>
                                                     </stackView>
                                                 </subviews>
                                                 <directionalEdgeInsets key="directionalLayoutMargins" top="0.0" leading="10" bottom="0.0" trailing="10"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ewJ-2Y-coF">
-                                                <rect key="frame" x="0.0" y="160.5" width="414" height="50"/>
+                                                <rect key="frame" x="0.0" y="325" width="414" height="60"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="hUe-Rr-DIe">
-                                                        <rect key="frame" x="62" y="0.0" width="290" height="50"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hUe-Rr-DIe">
+                                                        <rect key="frame" x="57" y="0.0" width="300" height="60"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gpw-fI-iBu" customClass="ButtonDesign" customModule="Qatar_Pay" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                                <color key="backgroundColor" red="0.29019607843137252" green="0.0078431372549019607" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="gpw-fI-iBu" secondAttribute="height" multiplier="1:1" id="OvZ-Iz-jbE"/>
                                                                 </constraints>
                                                                 <inset key="imageEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
-                                                                <state key="normal" image="ic_edit_addresses"/>
+                                                                <state key="normal" backgroundImage="edit_bill"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
@@ -3954,11 +4045,11 @@ Balance</string>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pNl-17-vQG" customClass="ButtonDesign" customModule="Qatar_Pay" customModuleProvider="target">
-                                                                <rect key="frame" x="80" y="0.0" width="50" height="50"/>
-                                                                <color key="backgroundColor" red="0.29019607843137252" green="0.0078431372549019607" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <rect key="frame" x="80" y="0.0" width="60" height="60"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                                                <state key="normal" image="deleteIcon"/>
+                                                                <state key="normal" backgroundImage="delete_bill"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
@@ -3967,13 +4058,11 @@ Balance</string>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQm-HE-INJ" customClass="ButtonDesign" customModule="Qatar_Pay" customModuleProvider="target">
-                                                                <rect key="frame" x="160" y="0.0" width="50" height="50"/>
-                                                                <color key="backgroundColor" red="0.29019607843137252" green="0.0078431372549019607" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <rect key="frame" x="160" y="0.0" width="60" height="60"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                                                <state key="normal">
-                                                                    <imageReference key="image" image="calendar" catalog="system" symbolScale="large"/>
-                                                                </state>
+                                                                <state key="normal" backgroundImage="calendar_bill"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
@@ -3982,13 +4071,11 @@ Balance</string>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yd-19-lgJ" customClass="ButtonDesign" customModule="Qatar_Pay" customModuleProvider="target">
-                                                                <rect key="frame" x="240" y="0.0" width="50" height="50"/>
-                                                                <color key="backgroundColor" red="0.29019607843137252" green="0.0078431372549019607" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <rect key="frame" x="240" y="0.0" width="60" height="60"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                                                <state key="normal">
-                                                                    <imageReference key="image" image="timer.circle" catalog="system" symbolScale="large"/>
-                                                                </state>
+                                                                <state key="normal" backgroundImage="history_bill"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
@@ -3998,7 +4085,7 @@ Balance</string>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="50" id="z3z-Q5-C9X"/>
+                                                            <constraint firstAttribute="height" constant="60" id="z3z-Q5-C9X"/>
                                                         </constraints>
                                                     </stackView>
                                                 </subviews>
@@ -4006,25 +4093,33 @@ Balance</string>
                                         </subviews>
                                     </stackView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2t-iU-vFG">
-                                        <rect key="frame" x="0.0" y="310.5" width="414" height="503.5"/>
+                                        <rect key="frame" x="0.0" y="495" width="414" height="319"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Hyw-An-C8V">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="503.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Hyw-An-C8V">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="229"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="sWm-XO-p9B">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="sWm-XO-p9B">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mode of Payment " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3c-Tv-pi7">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3c-Tv-pi7">
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="25"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="25" id="K6L-IZ-kL9"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <attributedString key="attributedText">
+                                                                    <fragment content="Payment Options">
+                                                                        <attributes>
+                                                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <font key="NSFont" metaFont="system" size="20"/>
+                                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                            <integer key="NSUnderline" value="1"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                </attributedString>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sYb-Wh-JQ1">
-                                                                <rect key="frame" x="0.0" y="45" width="414" height="20"/>
+                                                                <rect key="frame" x="0.0" y="65" width="414" height="20"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="DdK-Lb-9lb">
                                                                         <rect key="frame" x="73" y="0.0" width="268" height="20"/>
@@ -4040,6 +4135,18 @@ Balance</string>
                                                                                         </constraints>
                                                                                         <userDefinedRuntimeAttributes>
                                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isChecked" value="YES"/>
+                                                                                            <userDefinedRuntimeAttribute type="color" keyPath="checkmarkColor">
+                                                                                                <color key="value" red="0.47253614659999998" green="0.15768164400000001" blue="0.12546595930000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="color" keyPath="uncheckedBorderColor">
+                                                                                                <color key="value" red="0.40388399359999999" green="0.40000206230000002" blue="0.39999991660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="color" keyPath="checkedBorderColor">
+                                                                                                <color key="value" red="0.4823529411764706" green="0.15686274509803921" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                                                <real key="value" value="1"/>
+                                                                                            </userDefinedRuntimeAttribute>
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </view>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Amount " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMR-B6-4ag">
@@ -4061,6 +4168,18 @@ Balance</string>
                                                                                         </constraints>
                                                                                         <userDefinedRuntimeAttributes>
                                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isChecked" value="NO"/>
+                                                                                            <userDefinedRuntimeAttribute type="color" keyPath="checkmarkColor">
+                                                                                                <color key="value" red="0.47253614659999998" green="0.15768164400000001" blue="0.12546595930000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="color" keyPath="uncheckedBorderColor">
+                                                                                                <color key="value" red="0.40388399359999999" green="0.40000206230000002" blue="0.39999991660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="color" keyPath="checkedBorderColor">
+                                                                                                <color key="value" red="0.48428308959999999" green="0.15749362110000001" blue="0.14115601780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                                                <real key="value" value="1"/>
+                                                                                            </userDefinedRuntimeAttribute>
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </view>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Partial Amount " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1x-WE-yOl">
@@ -4080,8 +4199,8 @@ Balance</string>
                                                             </stackView>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="gLP-5S-UIh">
-                                                        <rect key="frame" x="0.0" y="85" width="414" height="418.5"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="gLP-5S-UIh">
+                                                        <rect key="frame" x="0.0" y="135" width="414" height="94"/>
                                                         <subviews>
                                                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BFh-xV-LSI">
                                                                 <rect key="frame" x="14" y="-70" width="386" height="70"/>
@@ -4164,28 +4283,53 @@ Balance</string>
                                                                     </stackView>
                                                                 </subviews>
                                                             </stackView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Eo-Od-OGd" customClass="ButtonDesign" customModule="Qatar_Pay" customModuleProvider="target">
-                                                                <rect key="frame" x="14" y="0.0" width="386" height="44"/>
-                                                                <color key="backgroundColor" name="light_red"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQj-n1-jzS">
+                                                                <rect key="frame" x="14" y="0.0" width="386" height="20"/>
+                                                                <fontDescription key="fontDescription" name="ModeNine" family="ModeNine" pointSize="20"/>
+                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J7V-nE-qEH">
+                                                                <rect key="frame" x="14" y="50" width="386" height="44"/>
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" role="primary" translatesAutoresizingMaskIntoConstraints="NO" id="9Eo-Od-OGd" customClass="ButtonDesign" customModule="Qatar_Pay" customModuleProvider="target">
+                                                                        <rect key="frame" x="79" y="0.0" width="228" height="44"/>
+                                                                        <color key="backgroundColor" red="0.018118642269999999" green="0.0996626392" blue="0.37257221340000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="44" id="lz5-PD-EQE"/>
+                                                                        </constraints>
+                                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
+                                                                        <state key="normal" title="Pay">
+                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </state>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                <real key="value" value="10"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="saveAction:" destination="Sir-FB-WcA" eventType="touchUpInside" id="MTV-Ft-0KG"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoPayment" translatesAutoresizingMaskIntoConstraints="NO" id="2mO-rv-Db7">
+                                                                        <rect key="frame" x="109" y="10" width="68.5" height="24"/>
+                                                                    </imageView>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="44" id="lz5-PD-EQE"/>
+                                                                    <constraint firstItem="2mO-rv-Db7" firstAttribute="top" secondItem="9Eo-Od-OGd" secondAttribute="top" constant="10" id="Cj0-Na-yS3"/>
+                                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9Eo-Od-OGd" secondAttribute="trailing" id="LkW-0o-30e"/>
+                                                                    <constraint firstItem="2mO-rv-Db7" firstAttribute="width" secondItem="9Eo-Od-OGd" secondAttribute="width" multiplier="0.3" id="MSb-Kn-0t9"/>
+                                                                    <constraint firstItem="9Eo-Od-OGd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="J7V-nE-qEH" secondAttribute="leading" id="UmV-qC-VBh"/>
+                                                                    <constraint firstItem="9Eo-Od-OGd" firstAttribute="centerX" secondItem="J7V-nE-qEH" secondAttribute="centerX" id="bn7-I0-yqZ"/>
+                                                                    <constraint firstItem="2mO-rv-Db7" firstAttribute="bottom" secondItem="9Eo-Od-OGd" secondAttribute="bottom" constant="-10" id="tmT-8T-F6v"/>
+                                                                    <constraint firstItem="9Eo-Od-OGd" firstAttribute="top" secondItem="J7V-nE-qEH" secondAttribute="top" id="uhy-Lf-vca"/>
+                                                                    <constraint firstItem="2mO-rv-Db7" firstAttribute="leading" secondItem="9Eo-Od-OGd" secondAttribute="leading" constant="30" id="we4-lp-5hM"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="9Eo-Od-OGd" secondAttribute="bottom" id="ySz-hK-Nu5"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" title="SAVE">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                        <real key="value" value="10"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                                <connections>
-                                                                    <action selector="saveAction:" destination="Sir-FB-WcA" eventType="touchUpInside" id="MTV-Ft-0KG"/>
-                                                                </connections>
-                                                            </button>
-                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Lxy-sV-0WV">
-                                                                <rect key="frame" x="14" y="58" width="386" height="360.5"/>
+                                                            </view>
+                                                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Lxy-sV-0WV">
+                                                                <rect key="frame" x="14" y="94" width="386" height="0.0"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </tableView>
                                                         </subviews>
@@ -4200,7 +4344,6 @@ Balance</string>
                                             <constraint firstAttribute="bottom" secondItem="Hyw-An-C8V" secondAttribute="bottom" id="8NJ-CH-7U8"/>
                                             <constraint firstItem="Hyw-An-C8V" firstAttribute="leading" secondItem="p2t-iU-vFG" secondAttribute="leading" id="IdJ-RI-1f7"/>
                                             <constraint firstItem="Hyw-An-C8V" firstAttribute="centerX" secondItem="p2t-iU-vFG" secondAttribute="centerX" id="V2D-eE-A5b"/>
-                                            <constraint firstItem="Hyw-An-C8V" firstAttribute="height" secondItem="p2t-iU-vFG" secondAttribute="height" priority="750" id="hou-3L-OJc"/>
                                             <constraint firstItem="Hyw-An-C8V" firstAttribute="top" secondItem="p2t-iU-vFG" secondAttribute="top" id="u4f-sT-2gH"/>
                                         </constraints>
                                     </scrollView>
@@ -4212,18 +4355,23 @@ Balance</string>
                         <constraints>
                             <constraint firstItem="zMq-L9-9Cj" firstAttribute="bottom" secondItem="ppB-Uc-h6B" secondAttribute="bottom" id="45r-BX-mmy"/>
                             <constraint firstItem="alh-dY-3f3" firstAttribute="trailing" secondItem="ppB-Uc-h6B" secondAttribute="trailing" id="8Mv-SA-RrO"/>
+                            <constraint firstItem="9Eo-Od-OGd" firstAttribute="width" secondItem="ppB-Uc-h6B" secondAttribute="width" multiplier="0.55" id="EHf-yg-xuW"/>
                             <constraint firstItem="alh-dY-3f3" firstAttribute="leading" secondItem="NgX-Im-mzQ" secondAttribute="leading" id="Om6-NE-4fP"/>
                             <constraint firstAttribute="trailing" secondItem="zMq-L9-9Cj" secondAttribute="trailing" id="cL8-p6-zIe"/>
                             <constraint firstItem="alh-dY-3f3" firstAttribute="top" secondItem="NgX-Im-mzQ" secondAttribute="top" id="dIS-Kw-Y48"/>
                             <constraint firstItem="ewJ-2Y-coF" firstAttribute="bottom" secondItem="alh-dY-3f3" secondAttribute="bottom" constant="25" id="iO1-Ib-1CG"/>
                             <constraint firstItem="zMq-L9-9Cj" firstAttribute="leading" secondItem="NgX-Im-mzQ" secondAttribute="leading" id="iqo-hu-TVD"/>
                             <constraint firstItem="zMq-L9-9Cj" firstAttribute="top" secondItem="ppB-Uc-h6B" secondAttribute="top" id="k5k-bO-8r2"/>
-                            <constraint firstItem="alh-dY-3f3" firstAttribute="height" secondItem="NgX-Im-mzQ" secondAttribute="height" multiplier="0.35" id="l8C-Ra-BHJ"/>
+                            <constraint firstItem="alh-dY-3f3" firstAttribute="height" secondItem="NgX-Im-mzQ" secondAttribute="height" multiplier="0.55" id="l8C-Ra-BHJ"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="X8a-ZK-O0f"/>
                     <connections>
                         <outlet property="amountLabel" destination="NQj-n1-jzS" id="BhY-bq-ypG"/>
                         <outlet property="currentBalanceAmountLabel" destination="5iP-Vn-qu1" id="csD-uX-dkM"/>
+                        <outlet property="custNameLabel" destination="OFm-bP-4v4" id="L4t-SX-flV"/>
+                        <outlet property="custNumberLabel" destination="z6L-qE-dJl" id="8qe-Wd-qfE"/>
+                        <outlet property="dueBalanceLabel" destination="8k2-M1-j9U" id="5qz-iS-vkh"/>
                         <outlet property="fullAmountCheckBox" destination="iDe-vT-8OG" id="fpk-9R-75l"/>
                         <outlet property="groupNameLabel" destination="sai-PN-7EN" id="fPN-rV-Eni"/>
                         <outlet property="imageNavigationBG" destination="alh-dY-3f3" id="HPq-Bh-XuO"/>
@@ -4231,15 +4379,18 @@ Balance</string>
                         <outlet property="partialAmountCheckBox" destination="5ft-we-giX" id="tJg-lc-zdA"/>
                         <outlet property="partialAmountStackView" destination="BFh-xV-LSI" id="XnQ-hj-E6e"/>
                         <outlet property="partialAmountTextField" destination="JHA-ES-Csf" id="NFz-YU-Apk"/>
+                        <outlet property="paymentDueLabel" destination="cb2-6Z-o4X" id="Lci-Uc-mix"/>
                         <outlet property="recurringPaymentCheckBox" destination="WoN-dk-hS4" id="hrQ-Uw-mXB"/>
                         <outlet property="recurringPaymentStackView" destination="JiE-ps-RZM" id="dlo-aU-sgC"/>
+                        <outlet property="serviceNumberLabel" destination="yOX-ZH-H5c" id="s3j-77-6R6"/>
                         <outlet property="tableView" destination="Lxy-sV-0WV" id="Ni2-7U-Qqw"/>
                         <outlet property="titleLabel" destination="IaL-zB-sot" id="zq4-By-6q1"/>
+                        <outlet property="unbilledBalanceLabel" destination="Kzx-rc-p3m" id="Yaq-wu-Xt5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mfQ-oE-4zZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6677" y="4469"/>
+            <point key="canvasLocation" x="7586.9565217391309" y="4468.5267857142853"/>
         </scene>
         <!--Edit Name Number View Controller-->
         <scene sceneID="04S-8z-vXR">
@@ -4487,7 +4638,7 @@ Balance</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qmD-uL-IR2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8129" y="4469"/>
+            <point key="canvasLocation" x="9039.1304347826099" y="4468.5267857142853"/>
         </scene>
         <!--Qatar Cool View Controller-->
         <scene sceneID="EmL-Ng-Lk2">
@@ -5211,12 +5362,10 @@ PAYMENT</string>
                                                                                             <constraint firstItem="cI1-0t-6Xn" firstAttribute="top" secondItem="8cs-re-CZn" secondAttribute="top" id="eKm-bL-FL0"/>
                                                                                             <constraint firstAttribute="bottom" secondItem="cI1-0t-6Xn" secondAttribute="bottom" id="jcN-wU-4Gc"/>
                                                                                             <constraint firstItem="8rV-cn-kZa" firstAttribute="leading" secondItem="8cs-re-CZn" secondAttribute="leading" id="onh-Oh-zGt"/>
+                                                                                            <constraint firstAttribute="width" secondItem="8cs-re-CZn" secondAttribute="height" multiplier="1:1" id="xlh-d8-d1s"/>
                                                                                         </constraints>
                                                                                     </view>
                                                                                 </subviews>
-                                                                                <constraints>
-                                                                                    <constraint firstItem="8cs-re-CZn" firstAttribute="width" secondItem="8cs-re-CZn" secondAttribute="height" multiplier="1:1" id="xlh-d8-d1s"/>
-                                                                                </constraints>
                                                                             </stackView>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y3j-hP-Jo6">
                                                                                 <rect key="frame" x="16" y="84" width="346" height="1.5"/>
@@ -8614,6 +8763,9 @@ add number now!</string>
                                                                     </view>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJX-ld-AjL">
                                                                         <rect key="frame" x="253" y="0.0" width="161" height="40"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" secondItem="YJX-ld-AjL" secondAttribute="height" multiplier="205:51" id="001-dL-bI1"/>
+                                                                        </constraints>
                                                                         <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="16"/>
                                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <state key="normal" title="Add Number" backgroundImage="ic_add_number_phone">
@@ -8625,9 +8777,6 @@ add number now!</string>
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
-                                                                <constraints>
-                                                                    <constraint firstItem="YJX-ld-AjL" firstAttribute="width" secondItem="YJX-ld-AjL" secondAttribute="height" multiplier="205:51" id="001-dL-bI1"/>
-                                                                </constraints>
                                                             </stackView>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="paC-ia-r3s">
                                                                 <rect key="frame" x="0.0" y="54" width="414" height="440"/>
@@ -9107,6 +9256,9 @@ add number now!</string>
                                                                     </view>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bff-Nw-CCN">
                                                                         <rect key="frame" x="253" y="0.0" width="161" height="40"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" secondItem="Bff-Nw-CCN" secondAttribute="height" multiplier="205:51" id="rW4-RN-bff"/>
+                                                                        </constraints>
                                                                         <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="16"/>
                                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <state key="normal" title="Add Number" backgroundImage="ic_add_number_phone">
@@ -9118,9 +9270,6 @@ add number now!</string>
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
-                                                                <constraints>
-                                                                    <constraint firstItem="Bff-Nw-CCN" firstAttribute="width" secondItem="Bff-Nw-CCN" secondAttribute="height" multiplier="205:51" id="rW4-RN-bff"/>
-                                                                </constraints>
                                                             </stackView>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="asJ-GZ-GCJ">
                                                                 <rect key="frame" x="0.0" y="54" width="414" height="440"/>
@@ -9405,12 +9554,12 @@ PAYMENT</string>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vsf-qp-UxO" customClass="ButtonDesign" customModule="Qatar_Pay" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                                <color key="backgroundColor" red="0.2901960784" green="0.0078431372550000003" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="vsf-qp-UxO" secondAttribute="height" multiplier="1:1" id="gcg-dh-rYy"/>
                                                                 </constraints>
                                                                 <inset key="imageEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
-                                                                <state key="normal" image="ic_edit_addresses"/>
+                                                                <state key="normal" backgroundImage="edit_bill"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
@@ -9420,10 +9569,10 @@ PAYMENT</string>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K4t-Ud-Tna" customClass="ButtonDesign" customModule="Qatar_Pay" customModuleProvider="target">
                                                                 <rect key="frame" x="80" y="0.0" width="50" height="50"/>
-                                                                <color key="backgroundColor" red="0.2901960784" green="0.0078431372550000003" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                                                <state key="normal" image="deleteIcon"/>
+                                                                <state key="normal" backgroundImage="delete_bill"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
@@ -9433,12 +9582,10 @@ PAYMENT</string>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCA-VY-HFW" customClass="ButtonDesign" customModule="Qatar_Pay" customModuleProvider="target">
                                                                 <rect key="frame" x="160" y="0.0" width="50" height="50"/>
-                                                                <color key="backgroundColor" red="0.2901960784" green="0.0078431372550000003" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                                                <state key="normal">
-                                                                    <imageReference key="image" image="calendar" catalog="system" symbolScale="large"/>
-                                                                </state>
+                                                                <state key="normal" backgroundImage="calendar_bill"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
@@ -9448,12 +9595,10 @@ PAYMENT</string>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oav-xn-Gfh" customClass="ButtonDesign" customModule="Qatar_Pay" customModuleProvider="target">
                                                                 <rect key="frame" x="240" y="0.0" width="50" height="50"/>
-                                                                <color key="backgroundColor" red="0.2901960784" green="0.0078431372550000003" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                                                <state key="normal">
-                                                                    <imageReference key="image" image="timer.circle" catalog="system" symbolScale="large"/>
-                                                                </state>
+                                                                <state key="normal" backgroundImage="history_bill"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
@@ -9474,7 +9619,7 @@ PAYMENT</string>
                                         <rect key="frame" x="0.0" y="310.5" width="414" height="503.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="8Xv-Pj-mxI">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="504"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="129"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="roa-NW-ya8">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
@@ -9505,6 +9650,12 @@ PAYMENT</string>
                                                                                         </constraints>
                                                                                         <userDefinedRuntimeAttributes>
                                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isChecked" value="YES"/>
+                                                                                            <userDefinedRuntimeAttribute type="color" keyPath="checkedBorderColor">
+                                                                                                <color key="value" red="0.4823529411764706" green="0.15686274509803921" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="color" keyPath="checkmarkColor">
+                                                                                                <color key="value" red="0.4823529411764706" green="0.15686274509803921" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                            </userDefinedRuntimeAttribute>
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </view>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Amount " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZT-Vk-9YF">
@@ -9546,10 +9697,10 @@ PAYMENT</string>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="K7e-0f-cI4">
-                                                        <rect key="frame" x="0.0" y="85" width="414" height="419"/>
+                                                        <rect key="frame" x="0.0" y="85" width="414" height="44"/>
                                                         <subviews>
                                                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Cb0-3L-E38">
-                                                                <rect key="frame" x="14" y="-70" width="386" height="70"/>
+                                                                <rect key="frame" x="14" y="0.0" width="386" height="70"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Partial Amount " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqX-bg-UbB">
                                                                         <rect key="frame" x="0.0" y="0.0" width="386" height="18"/>
@@ -9602,7 +9753,7 @@ PAYMENT</string>
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ftw-iy-2lv">
-                                                                <rect key="frame" x="14" y="-20" width="386" height="20"/>
+                                                                <rect key="frame" x="14" y="0.0" width="386" height="20"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Axs-V3-qTc">
                                                                         <rect key="frame" x="119.5" y="0.0" width="147.5" height="20"/>
@@ -9628,28 +9779,48 @@ PAYMENT</string>
                                                                     </stackView>
                                                                 </subviews>
                                                             </stackView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgb-2g-1Iy" customClass="ButtonDesign" customModule="Qatar_Pay" customModuleProvider="target">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RBi-O4-gQ5">
                                                                 <rect key="frame" x="14" y="0.0" width="386" height="44"/>
-                                                                <color key="backgroundColor" name="light_red"/>
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" role="primary" translatesAutoresizingMaskIntoConstraints="NO" id="Qk8-lp-dcH" customClass="ButtonDesign" customModule="Qatar_Pay" customModuleProvider="target">
+                                                                        <rect key="frame" x="79" y="0.0" width="228" height="44"/>
+                                                                        <color key="backgroundColor" red="0.018118642269999999" green="0.0996626392" blue="0.37257221340000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="44" id="eAE-1L-YZX"/>
+                                                                        </constraints>
+                                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
+                                                                        <state key="normal" title="Pay">
+                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </state>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                <real key="value" value="10"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="saveAction:" destination="Sir-FB-WcA" eventType="touchUpInside" id="TW6-y2-rgl"/>
+                                                                            <action selector="saveAction:" destination="es0-dy-izi" eventType="touchUpInside" id="zVZ-3e-j2s"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoPayment" translatesAutoresizingMaskIntoConstraints="NO" id="z2E-CP-RnY">
+                                                                        <rect key="frame" x="109" y="10" width="68.5" height="24"/>
+                                                                    </imageView>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="44" id="E7k-3A-Vlv"/>
+                                                                    <constraint firstItem="z2E-CP-RnY" firstAttribute="bottom" secondItem="Qk8-lp-dcH" secondAttribute="bottom" constant="-10" id="20c-k7-TRu"/>
+                                                                    <constraint firstItem="Qk8-lp-dcH" firstAttribute="top" secondItem="RBi-O4-gQ5" secondAttribute="top" id="45N-L9-ZED"/>
+                                                                    <constraint firstItem="z2E-CP-RnY" firstAttribute="width" secondItem="Qk8-lp-dcH" secondAttribute="width" multiplier="0.3" id="J2d-RJ-iuq"/>
+                                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Qk8-lp-dcH" secondAttribute="trailing" id="cPO-nU-bry"/>
+                                                                    <constraint firstItem="z2E-CP-RnY" firstAttribute="leading" secondItem="Qk8-lp-dcH" secondAttribute="leading" constant="30" id="cYc-Qi-Uk7"/>
+                                                                    <constraint firstItem="Qk8-lp-dcH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="RBi-O4-gQ5" secondAttribute="leading" id="iQb-fn-KBP"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="Qk8-lp-dcH" secondAttribute="bottom" id="q1t-m7-Qw8"/>
+                                                                    <constraint firstItem="z2E-CP-RnY" firstAttribute="top" secondItem="Qk8-lp-dcH" secondAttribute="top" constant="10" id="vwU-1E-hhc"/>
+                                                                    <constraint firstItem="Qk8-lp-dcH" firstAttribute="centerX" secondItem="RBi-O4-gQ5" secondAttribute="centerX" id="wpM-Rz-hj0"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" title="SAVE">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                        <real key="value" value="10"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                                <connections>
-                                                                    <action selector="saveAction:" destination="es0-dy-izi" eventType="touchUpInside" id="KyO-f6-GRe"/>
-                                                                </connections>
-                                                            </button>
-                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="EiY-GM-7Qi">
-                                                                <rect key="frame" x="14" y="58" width="386" height="361"/>
+                                                            </view>
+                                                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="EiY-GM-7Qi">
+                                                                <rect key="frame" x="14" y="0.0" width="386" height="0.0"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </tableView>
                                                         </subviews>
@@ -9676,6 +9847,7 @@ PAYMENT</string>
                         <constraints>
                             <constraint firstItem="XNw-7X-g0Q" firstAttribute="top" secondItem="WbQ-bo-y1Q" secondAttribute="top" id="JP9-ug-dnb"/>
                             <constraint firstItem="kAq-YD-iB2" firstAttribute="bottom" secondItem="0r4-Ay-4Op" secondAttribute="bottom" id="KyU-je-cSF"/>
+                            <constraint firstItem="Qk8-lp-dcH" firstAttribute="width" secondItem="0r4-Ay-4Op" secondAttribute="width" multiplier="0.55" id="T9n-Op-Cct"/>
                             <constraint firstItem="XNw-7X-g0Q" firstAttribute="trailing" secondItem="0r4-Ay-4Op" secondAttribute="trailing" id="TNW-XI-Nbe"/>
                             <constraint firstItem="XNw-7X-g0Q" firstAttribute="leading" secondItem="WbQ-bo-y1Q" secondAttribute="leading" id="UhP-QQ-6ph"/>
                             <constraint firstItem="4G1-Bo-hLf" firstAttribute="bottom" secondItem="XNw-7X-g0Q" secondAttribute="bottom" constant="25" id="XXi-QA-qkz"/>
@@ -9887,7 +10059,7 @@ PAYMENT</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gFe-Gu-122" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8861" y="4469"/>
+            <point key="canvasLocation" x="9771.0144927536239" y="4468.5267857142853"/>
         </scene>
         <!--Qatar Cool Operations View Controller-->
         <scene sceneID="e9y-AR-SUF">
@@ -10011,12 +10183,12 @@ PAYMENT</string>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4y6-7O-Oiy" customClass="ButtonDesign" customModule="Qatar_Pay" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                                <color key="backgroundColor" red="0.2901960784" green="0.0078431372550000003" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="4y6-7O-Oiy" secondAttribute="height" multiplier="1:1" id="UXU-ME-cUx"/>
                                                                 </constraints>
                                                                 <inset key="imageEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
-                                                                <state key="normal" image="ic_edit_addresses"/>
+                                                                <state key="normal" backgroundImage="edit_bill"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
@@ -10026,10 +10198,10 @@ PAYMENT</string>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vh9-Ek-Nf5" customClass="ButtonDesign" customModule="Qatar_Pay" customModuleProvider="target">
                                                                 <rect key="frame" x="80" y="0.0" width="50" height="50"/>
-                                                                <color key="backgroundColor" red="0.2901960784" green="0.0078431372550000003" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                                                <state key="normal" image="deleteIcon"/>
+                                                                <state key="normal" backgroundImage="delete_bill"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
@@ -10039,12 +10211,10 @@ PAYMENT</string>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0xf-zB-bbA" customClass="ButtonDesign" customModule="Qatar_Pay" customModuleProvider="target">
                                                                 <rect key="frame" x="160" y="0.0" width="50" height="50"/>
-                                                                <color key="backgroundColor" red="0.2901960784" green="0.0078431372550000003" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                                                <state key="normal">
-                                                                    <imageReference key="image" image="calendar" catalog="system" symbolScale="large"/>
-                                                                </state>
+                                                                <state key="normal" backgroundImage="calendar_bill"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
@@ -10054,12 +10224,10 @@ PAYMENT</string>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jg7-qs-8xS" customClass="ButtonDesign" customModule="Qatar_Pay" customModuleProvider="target">
                                                                 <rect key="frame" x="240" y="0.0" width="50" height="50"/>
-                                                                <color key="backgroundColor" red="0.2901960784" green="0.0078431372550000003" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                                                <state key="normal">
-                                                                    <imageReference key="image" image="timer.circle" catalog="system" symbolScale="large"/>
-                                                                </state>
+                                                                <state key="normal" backgroundImage="history_bill"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
@@ -10111,6 +10279,12 @@ PAYMENT</string>
                                                                                         </constraints>
                                                                                         <userDefinedRuntimeAttributes>
                                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isChecked" value="YES"/>
+                                                                                            <userDefinedRuntimeAttribute type="color" keyPath="checkedBorderColor">
+                                                                                                <color key="value" red="0.4823529411764706" green="0.15686274509803921" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="color" keyPath="checkmarkColor">
+                                                                                                <color key="value" red="0.4823529411764706" green="0.15686274509803921" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                            </userDefinedRuntimeAttribute>
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </view>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Amount " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQS-Fm-BiE">
@@ -10132,6 +10306,12 @@ PAYMENT</string>
                                                                                         </constraints>
                                                                                         <userDefinedRuntimeAttributes>
                                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isChecked" value="NO"/>
+                                                                                            <userDefinedRuntimeAttribute type="color" keyPath="checkedBorderColor">
+                                                                                                <color key="value" red="0.4823529411764706" green="0.15686274509803921" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="color" keyPath="checkmarkColor">
+                                                                                                <color key="value" red="0.4823529411764706" green="0.15686274509803921" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                            </userDefinedRuntimeAttribute>
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </view>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Partial Amount " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLg-nQ-YMg">
@@ -10235,26 +10415,47 @@ PAYMENT</string>
                                                                     </stackView>
                                                                 </subviews>
                                                             </stackView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PnJ-fu-lgb" customClass="ButtonDesign" customModule="Qatar_Pay" customModuleProvider="target">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PmO-04-SvS">
                                                                 <rect key="frame" x="14" y="0.0" width="386" height="44"/>
-                                                                <color key="backgroundColor" name="light_red"/>
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" role="primary" translatesAutoresizingMaskIntoConstraints="NO" id="BJ3-mv-9iV" customClass="ButtonDesign" customModule="Qatar_Pay" customModuleProvider="target">
+                                                                        <rect key="frame" x="79" y="0.0" width="228" height="44"/>
+                                                                        <color key="backgroundColor" red="0.018118642269999999" green="0.0996626392" blue="0.37257221340000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="44" id="hW2-qQ-M6W"/>
+                                                                        </constraints>
+                                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
+                                                                        <state key="normal" title="Pay">
+                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </state>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                <real key="value" value="10"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="saveAction:" destination="Sir-FB-WcA" eventType="touchUpInside" id="ZzC-Hy-Umm"/>
+                                                                            <action selector="saveAction:" destination="txv-sS-YGA" eventType="touchUpInside" id="eay-PT-hhO"/>
+                                                                            <action selector="saveAction:" destination="es0-dy-izi" eventType="touchUpInside" id="wNZ-mi-Bkn"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoPayment" translatesAutoresizingMaskIntoConstraints="NO" id="P07-XC-fXN">
+                                                                        <rect key="frame" x="109" y="10" width="68.5" height="24"/>
+                                                                    </imageView>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="44" id="BsY-ku-MRn"/>
+                                                                    <constraint firstItem="P07-XC-fXN" firstAttribute="bottom" secondItem="BJ3-mv-9iV" secondAttribute="bottom" constant="-10" id="0By-sd-kdo"/>
+                                                                    <constraint firstItem="P07-XC-fXN" firstAttribute="top" secondItem="BJ3-mv-9iV" secondAttribute="top" constant="10" id="0QS-4X-qkP"/>
+                                                                    <constraint firstItem="BJ3-mv-9iV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PmO-04-SvS" secondAttribute="leading" id="0hM-SP-qLH"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="BJ3-mv-9iV" secondAttribute="bottom" id="6Np-Wb-Vl0"/>
+                                                                    <constraint firstItem="P07-XC-fXN" firstAttribute="leading" secondItem="BJ3-mv-9iV" secondAttribute="leading" constant="30" id="AQS-JJ-eK3"/>
+                                                                    <constraint firstItem="P07-XC-fXN" firstAttribute="width" secondItem="BJ3-mv-9iV" secondAttribute="width" multiplier="0.3" id="aGn-Lv-gBv"/>
+                                                                    <constraint firstItem="BJ3-mv-9iV" firstAttribute="top" secondItem="PmO-04-SvS" secondAttribute="top" id="kvl-hl-G9q"/>
+                                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BJ3-mv-9iV" secondAttribute="trailing" id="pVh-1j-9cj"/>
+                                                                    <constraint firstItem="BJ3-mv-9iV" firstAttribute="centerX" secondItem="PmO-04-SvS" secondAttribute="centerX" id="qya-eI-3ZZ"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" title="SAVE">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                        <real key="value" value="10"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                                <connections>
-                                                                    <action selector="saveAction:" destination="txv-sS-YGA" eventType="touchUpInside" id="ie9-eB-FKF"/>
-                                                                </connections>
-                                                            </button>
+                                                            </view>
                                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3TW-Dg-3fM">
                                                                 <rect key="frame" x="14" y="58" width="386" height="360.5"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -10288,6 +10489,7 @@ PAYMENT</string>
                             <constraint firstItem="d9j-fp-piv" firstAttribute="trailing" secondItem="bFY-9J-vFC" secondAttribute="trailing" id="hzp-Bh-Op1"/>
                             <constraint firstAttribute="trailing" secondItem="ble-fa-eY5" secondAttribute="trailing" id="i5G-uv-MNZ"/>
                             <constraint firstItem="ble-fa-eY5" firstAttribute="bottom" secondItem="bFY-9J-vFC" secondAttribute="bottom" id="pa5-3j-HPh"/>
+                            <constraint firstItem="BJ3-mv-9iV" firstAttribute="width" secondItem="bFY-9J-vFC" secondAttribute="width" multiplier="0.55" id="uM1-Hi-eEB"/>
                             <constraint firstItem="ble-fa-eY5" firstAttribute="top" secondItem="bFY-9J-vFC" secondAttribute="top" id="w23-uv-m7n"/>
                             <constraint firstItem="awU-ze-TNa" firstAttribute="bottom" secondItem="d9j-fp-piv" secondAttribute="bottom" constant="25" id="xHb-lF-juO"/>
                         </constraints>
@@ -10796,6 +10998,7 @@ PAYMENT</string>
         </scene>
     </scenes>
     <resources>
+        <image name="LogoPayment" width="2908" height="1853"/>
         <image name="bg_add_kahramaa_bills" width="1242" height="502"/>
         <image name="bg_add_phone_bills" width="1242" height="502"/>
         <image name="bg_btn_qmobile" width="312" height="113"/>
@@ -10809,10 +11012,12 @@ PAYMENT</string>
         <image name="bg_qatar_cool" width="1125" height="598"/>
         <image name="bg_qmobile" width="1242" height="637"/>
         <image name="bg_vodafone_phone" width="1125" height="598"/>
-        <image name="calendar" catalog="system" width="128" height="107"/>
-        <image name="deleteIcon" width="512" height="512"/>
+        <image name="calendar_bill" width="99" height="99"/>
+        <image name="delete_bill" width="99" height="99"/>
+        <image name="edit_bill" width="99" height="99"/>
         <image name="edit_icon_black" width="32" height="32"/>
         <image name="gearshape" catalog="system" width="128" height="123"/>
+        <image name="history_bill" width="99" height="100"/>
         <image name="ic_add_kahramaa" width="416" height="102"/>
         <image name="ic_add_number_phone" width="416" height="102"/>
         <image name="ic_add_qatar_cool" width="416" height="102"/>
@@ -10825,7 +11030,6 @@ PAYMENT</string>
         <image name="ic_create_group_qatar_cool" width="193" height="193"/>
         <image name="ic_credit_card_white" width="96" height="101"/>
         <image name="ic_debit_card_payAndGo" width="67" height="60"/>
-        <image name="ic_edit_addresses" width="60" height="61"/>
         <image name="ic_edit_qmobile" width="53" height="53"/>
         <image name="ic_empty_numbers_kahramaa" width="169" height="161"/>
         <image name="ic_go_create_group" width="72" height="58"/>
@@ -10833,7 +11037,6 @@ PAYMENT</string>
         <image name="ic_wallet_balance" width="52" height="52"/>
         <image name="logo_qatar_cool" width="644" height="378"/>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <image name="timer.circle" catalog="system" width="128" height="123"/>
         <image name="trash" catalog="system" width="117" height="128"/>
         <namedColor name="cart_qatar_crescent_red">
             <color red="0.85500001907348633" green="0.19599999487400055" blue="0.17299999296665192" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -10856,9 +11059,6 @@ PAYMENT</string>
         <namedColor name="light_gray">
             <color red="0.58799999952316284" green="0.58799999952316284" blue="0.58799999952316284" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="light_red">
-            <color red="0.55699998140335083" green="0.0" blue="0.20399999618530273" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="my_red">
             <color red="0.7369999885559082" green="0.10599999874830246" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -10866,7 +11066,7 @@ PAYMENT</string>
             <color red="1" green="0.62400001287460327" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="very_dark_blue">
-            <color red="0.0" green="0.27799999713897705" blue="0.5220000147819519" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.27843137254901962" blue="0.52156862745098043" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

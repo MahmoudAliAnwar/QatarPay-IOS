@@ -20,6 +20,8 @@ struct PaymentRequestDetails: Codable {
     var amount             : Double = 0.0
     var platForm           : String = "IOS"
     var scheduledDate      : String = ""
+    var IsLanguageId       : Int = 1
+    var IsShared           : Bool = false
     
     enum CodingKeys: String, CodingKey {
         case paymentRequestID = "paymentRequestID"
@@ -32,6 +34,8 @@ struct PaymentRequestDetails: Codable {
         case amount = "amount"
         case platForm = "platForm"
         case scheduledDate = "scheduledDate"
+        case IsLanguageId = "IsLanguageId"
+        case IsShared = "IsShared"
     }
     
     init(from decoder: Decoder) throws {
@@ -46,6 +50,8 @@ struct PaymentRequestDetails: Codable {
         amount = try container.decodeIfPresent(Double.self, forKey: .amount) ?? 0.0
         platForm = try container.decodeIfPresent(String.self, forKey: .platForm) ?? ""
         scheduledDate = try container.decodeIfPresent(String.self, forKey: .scheduledDate) ?? ""
+        IsShared = try container.decodeIfPresent(Bool.self, forKey: .IsShared) ?? false
+        IsLanguageId = try container.decodeIfPresent(Int.self, forKey: .IsLanguageId) ?? 1
     }
     
     init() {
@@ -80,6 +86,8 @@ struct PaymentRequestPhoneBillParams : Codable {
    var amount             : Double = 0
    var platForm           : String = "IOS"
    var scheduledDate      : String = ""
+   var IsLanguageId       : Int = 1
+   var IsShared           : Bool = false
     
     enum CodingKeys: String, CodingKey {
         case operatorID = "operatorID"
@@ -90,6 +98,8 @@ struct PaymentRequestPhoneBillParams : Codable {
         case amount = "amount"
         case platForm = "platForm"
         case scheduledDate = "scheduledDate"
+        case IsLanguageId = "IsLanguageId"
+        case IsShared = "IsShared"
     }
     
     init(from decoder: Decoder) throws {
@@ -101,10 +111,28 @@ struct PaymentRequestPhoneBillParams : Codable {
         amount = try container.decodeIfPresent(Double.self, forKey: .amount) ?? 0.0
         platForm = try container.decodeIfPresent(String.self, forKey: .platForm) ?? ""
         scheduledDate = try container.decodeIfPresent(String.self, forKey: .scheduledDate) ?? ""
+        IsShared = try container.decodeIfPresent(Bool.self, forKey: .IsShared) ?? false
+        IsLanguageId = try container.decodeIfPresent(Int.self, forKey: .IsLanguageId) ?? 1
     }
     
     init() {
         
+    }
+    
+    
+    var json: [String: Any] {
+        return [
+               "OperatorID": operatorID ,
+               "GroupDetails": groupDetails.map({$0.json})  ,
+               "IsFullAmount": isFullAmount ,
+               "IsRecurringPayment": isRecurringPayment ,
+               "IsPartialAmount": isPartialAmount ,
+               "PlatForm": "IOS",
+               "ScheduledDate": scheduledDate ,
+               "IsLanguageId": IsLanguageId,
+               "Amount": amount,
+               "IsShared": IsShared
+        ]
     }
 }
 

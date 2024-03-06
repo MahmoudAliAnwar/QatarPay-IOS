@@ -72,6 +72,14 @@ struct BaseResponse: Mappable, Decodable {
     var validationURL : String?
     var paymentLink   : String?
     
+    /// ApplePay
+    var platformSessionID: String?
+    var sessionID: String?
+    var uuid: String?
+    var paymentRequestID:  Int?
+    var referenceNo: String?
+    var paymentToken: String?
+    
     var _serviceCharge : Double {
         get {
             return self.serviceCharge ?? 0
@@ -190,6 +198,14 @@ struct BaseResponse: Mappable, Decodable {
         self.totalAmount        <- map["TotalAmount"]
         self.validationURL      <- map["ValidationURL"]
         self.paymentLink        <- map["PaymentLink"]
+        
+        
+        self.platformSessionID  <- map["PlatformSessionID"]
+        self.sessionID          <- map["SessionID"]
+        self.uuid               <- map["UUID"]
+        self.paymentRequestID   <- map["PaymentRequestID"]
+        self.referenceNo        <- map["ReferenceNo"]
+        
         
         self.isSubscribed       <- map["IsSubscribed"]
         self.subscriptionFee    <- map["SubscriptionFee"]

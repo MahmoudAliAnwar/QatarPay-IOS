@@ -62,6 +62,7 @@ let EXTERNAL_PAYMENT_MOBILE = BASE_URL + "api/PaymentRequest/ExternalPaymentMobi
 let REQUEST_MONEY_EMAIL     = BASE_URL + "api/NoqoodyUser/NoqsTransferTopupRequest"
 let REQUEST_MONEY_QPAN      = BASE_URL + "api/NoqoodyUser/NoqsTransferTopupRequestviaQPAN"
 let REQUEST_MONEY_QR        = BASE_URL + "api/NoqoodyUser/NoqsTransferTopupRequestviaQRCode"
+let TRANSACTION_RECENT_LIST = BASE_URL + "api/NoqoodyUser/GetRecentTransactionList"
 
 // MARK: - PAYMENT REQUESTS
 
@@ -525,7 +526,11 @@ func getProcessTokenizedPaymentURL(amount: Double , cardID : Int) -> String {
 let PROCESS_TOKENIZED_PAYMENT_QR           = BASE_URL + "api/SystemSettings/ProcessTokenizedPayment_QR"
 let GET_TOKENIZED_CARD_DETAILS             = BASE_URL + "api/Tokenized/GetTokenizedCardDetails"
 let SET_DEFAULT_CARD_TOKENIZED = BASE_URL + "api/Tokenized/SetDefaultCard_Tokenized?Card_ID="
+let PROCESS_TOKENIZED_PAYMENT = BASE_URL + "api/SystemSettings/ProcessTokenizedPaymentviaServices"
 fileprivate let DELETE_PAMENT_CARD         = BASE_URL + "api/NoqoodyUser/DeletePaymentCard/?ID="
+let CREAT_SESSION_APPLE_PAY = BASE_URL + "api/SystemSettings/CreateSessionviaServices"
+let PROCESS_SESSION_PAYMENT_APPLE_PAY = "api/SystemSettings/ProcessSessionPaymentviaServices"
+let PROCESS_WITHOUT_TOKENIZED_PAYMENT = BASE_URL + "api/SystemSettings/GetPaymentLinksviaServices"
 
 func deleteTokenizedPamentCardURL(ID: Int) -> String {
     return DELETE_PAMENT_CARD + "\(ID)"

@@ -13,6 +13,7 @@ class PhoneBillsViewController: PhoneBillsController {
     @IBOutlet weak var containerViewDesign: ViewDesign!
     
     var numbers = [String]()
+    var serviceID: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,11 +58,13 @@ extension PhoneBillsViewController {
 
     @IBAction func ooredooAction(_ sender: UIButton) {
         let vc = self.getStoryboardView(PhoneOoredooViewController.self)
+        vc.serviceID = self.serviceID
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
     @IBAction func vodafoneAction(_ sender: UIButton) {
         let vc = self.getStoryboardView(PhoneVodafoneViewController.self)
+        vc.serviceID = self.serviceID
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

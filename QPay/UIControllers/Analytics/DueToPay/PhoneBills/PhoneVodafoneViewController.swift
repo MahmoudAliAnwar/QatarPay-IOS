@@ -25,6 +25,7 @@ class PhoneVodafoneViewController: PhoneBillsController {
     @IBOutlet weak var paymentButton: UIButton!
     
     var groups = [GroupWithNumbers<PhoneNumber>]()
+    var serviceID: Int?
     
     private let colors: [UIColor] = [
         .systemIndigo,
@@ -114,29 +115,32 @@ extension PhoneVodafoneViewController {
         
         let groupDetails = self.selectedNumbers.compactMap({ GroupDetails(groupID: $0._groupID, number: [$0._number]) })
         
+        let paymentVC = PaymentVC()
+        
         var paymentRequestPhoneBillParams          = PaymentRequestPhoneBillParams()
         paymentRequestPhoneBillParams.operatorID   = 2
         paymentRequestPhoneBillParams.groupDetails = groupDetails
         paymentRequestPhoneBillParams.isFullAmount = true
         paymentRequestPhoneBillParams.amount       = self.total
         
-        self.requestProxy.requestService()?.savePaymentRequestPhoneBill(paymentRequestPhoneBillParams: paymentRequestPhoneBillParams, { response in
-            guard let resp = response else {
-                self.showSnackMessage("Something went wrong")
-                return
-            }
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + loadingViewDismissDelay) {
-                guard resp._success else {
-                    self.showErrorMessage(resp._message)
-                    return
-                }
-                
-                let vc = self.getStoryboardView(ConfirmPinCodeViewController.self)
-                vc.paymentViaBillResponse = resp
-                self.present(vc, animated: true)
-            }
-        })
+        paymentRequestPhoneBillParams.isPartialAmount    = false
+      
+        paymentVC.amountToPay = self.total
+        let processTokenized = ProcessTokenizedModel(Amount: self.total, ServiceID: self.serviceID, IsBillPayment: true, BillPaymentData: paymentRequestPhoneBillParams)
+        paymentVC.processTokenized = processTokenized
+        //        paymentVC.number = number
+        paymentVC.isPaymentRequest = true
+        paymentVC.typeOfwallet = .phoneBill
+        let navPaymentVC = UINavigationController(rootViewController: paymentVC)
+        navPaymentVC.isNavigationBarHidden = true
+        navPaymentVC.modalPresentationStyle = .overFullScreen
+        
+//        paymentVC.paymentSuccess = {[weak self] in
+//            self?.navigationController?.popViewController(animated: true)
+//        }no add here
+
+        self.present(navPaymentVC, animated: true)
+        
     }
 }
 
@@ -223,6 +227,7 @@ extension PhoneVodafoneViewController: UICollectionViewDelegate, UICollectionVie
 //            let number = section.list[indexPath.row-1]
             
             let vc = self.getStoryboardView(PhoneBillOperationsViewController.self)
+            vc.serviceID = self.serviceID
             vc.phoneNumber = section._numbers[indexPath.row - 1]
             self.navigationController?.pushViewController(vc, animated: true)
         }

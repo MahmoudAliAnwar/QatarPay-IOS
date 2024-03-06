@@ -41,6 +41,7 @@ class KahramaaBillsViewController: KahramaaBillsController {
     private var startNumbersCount: Int = 0
     private var isSelectNumber: Bool = false
     private var selectedNumbers = [KahramaaNumber]()
+    var serviceID: Int?
 
     typealias ColorClosure = (section: Int, colorIndex: Int)
     var colorsDictionary: [ColorClosure] = []
@@ -152,31 +153,24 @@ extension KahramaaBillsViewController {
         paymentRequestPhoneBillParams.isFullAmount = true
         paymentRequestPhoneBillParams.amount       = self.total
         
-        self.requestProxy.requestService()?.savePaymentRequestkaharmaBill(paymentRequestPhoneBillParams: paymentRequestPhoneBillParams, { response in
-            guard let resp = response else {
-                self.showSnackMessage("Something went wrong")
-                return
-            }
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + loadingViewDismissDelay) {
-                guard resp._success else {
-                    self.showErrorMessage(resp._message)
-                    return
-                }
-                
-                let vc = self.getStoryboardView(ConfirmPinCodeViewController.self)
-                vc.paymentViaBillResponse = resp
-                self.present(vc, animated: true)
-            }
-        })
+        let paymentVC = PaymentVC()
         
-//        guard self.isSelectNumber == true else {
-//            self.showSnackMessage("Please, select number to continue")
-//            return
-//        }
-//        let vc = self.getStoryboardView(PayOnTheGoKahramaaViewController.self)
-//        vc.amount = self.total
-//        self.navigationController?.pushViewController(vc, animated: true)
+       
+        paymentRequestPhoneBillParams.operatorID   = self.groups.first?._numbers.first?.operatorID ?? 0
+        paymentRequestPhoneBillParams.isPartialAmount    = false
+      
+        paymentVC.amountToPay = self.total
+        let processTokenized = ProcessTokenizedModel(Amount: self.total, ServiceID: self.serviceID, IsBillPayment: true, BillPaymentData: paymentRequestPhoneBillParams)
+        paymentVC.processTokenized = processTokenized
+        //        paymentVC.number = number
+        paymentVC.isPaymentRequest = true
+        paymentVC.typeOfwallet = .khrmaBill
+        let navPaymentVC = UINavigationController(rootViewController: paymentVC)
+        navPaymentVC.isNavigationBarHidden = true
+        navPaymentVC.modalPresentationStyle = .overFullScreen
+        
+        self.present(navPaymentVC, animated: true)
+        
     }
 }
 
@@ -262,6 +256,7 @@ extension KahramaaBillsViewController: UICollectionViewDelegate, UICollectionVie
         }else {
             let vc = self.getStoryboardView(KahrmaBillOperationsViewController.self)
             vc.number = group._numbers[indexPath.row - 1]
+            vc.serviceID = self.serviceID
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

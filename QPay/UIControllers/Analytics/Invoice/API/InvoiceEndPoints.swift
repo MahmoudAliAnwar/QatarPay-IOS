@@ -38,6 +38,7 @@ extension InvoiceEndPoints: InvoiceURLRequestBuilder {
         switch self {
         case .login(let username, let password):
             return [
+                "response_type": "token",
                 "grant_type" : "password",
                 "username" : username,
                 "password" : password,

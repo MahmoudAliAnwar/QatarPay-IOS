@@ -15,13 +15,19 @@ struct KahramaaNumber : Mappable, SectionModelProtocol {
     var id : Int?
     var number : String?
     var qid : String?
-//    var Operator : String?
-//    var operatorID : Int?
+    var Operator : String?
+    var operatorID : Int?
     var subscriberName : String?
     var isActive : Bool?
     var groupName : String?
     var groupID : Int?
     var currentBill : Double?
+    var customerName: String?
+    var customerNo: String?
+    var paymentDueDate: String?
+    var totalOutstandingAmount: String?
+    var accountNumber: String?
+
     
     var isSelected: Bool = false
     
@@ -84,12 +90,17 @@ struct KahramaaNumber : Mappable, SectionModelProtocol {
         self.id <- map["KaharmaNumberID"]
         self.number <- map["KaharmaNumber"]
         self.qid <- map["QID"]
-//        self.Operator <- map["Operator"]
-//        self.operatorID <- map["OperatorID"]
+        self.Operator <- map["Operator"]
+        self.operatorID <- map["OperatorID"]
         self.subscriberName <- map["SubscriberName"]
         self.isActive <- map["IsActive"]
         self.groupName <- map["GroupName"]
         self.groupID <- map["GroupID"]
         self.currentBill <- map["CurrentBill"]
+        self.customerNo <- map["CustomerNo"]
+        self.customerName <- map["CustomerName"]
+        self.paymentDueDate <- map["PaymentDueDate"]
+        self.totalOutstandingAmount <- map["TotalOutstandingAmount"]
+        self.accountNumber <- map["AccountNumber"]
     }
 }

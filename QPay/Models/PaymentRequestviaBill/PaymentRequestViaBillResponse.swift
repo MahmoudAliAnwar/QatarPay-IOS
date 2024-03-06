@@ -20,6 +20,9 @@ struct PaymentRequestViaBillResponse : Mappable {
     var code           : String?
     var message        : String?
     var errors         : [String]?
+    var RemainingAmount: Double?
+    var BankingCharge  : Double?
+    var ServiceCharge  : Double?
     
     var _accessToken : String {
         get {
@@ -84,6 +87,9 @@ struct PaymentRequestViaBillResponse : Mappable {
         code           <- map["code"]
         message        <- map["message"]
         errors         <- map["errors"]
+        RemainingAmount <- map["RemainingAmount"]
+        ServiceCharge  <- map["ServiceCharge"]
+        BankingCharge  <- map["BankingCharge"]
     }
     
 }

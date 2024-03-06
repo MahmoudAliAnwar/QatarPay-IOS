@@ -22,6 +22,12 @@ struct QatarCoolNumber : Mappable, SectionModelProtocol {
     var groupName : String?
     var groupID : Int?
     var currentBill : Double?
+    var customerNo: String?
+    var customerName: String?
+    var paymentDueDate: String?
+    var totalOutstandingAmount: String?
+    var accountNumber: String?
+   
     
     var isSelected: Bool = false
     
@@ -90,5 +96,11 @@ struct QatarCoolNumber : Mappable, SectionModelProtocol {
         self.groupName <- map["GroupName"]
         self.groupID <- map["GroupID"]
         self.currentBill <- map["CurrentBill"]
+        self.customerNo <- map["CustomerNo"]
+        self.customerName <- map["CustomerName"]
+        self.paymentDueDate <- map["PaymentDueDate"]
+        self.totalOutstandingAmount <- map["TotalOutstandingAmount"]
+        self.accountNumber <- map["AccountNumber"]
+
     }
 }

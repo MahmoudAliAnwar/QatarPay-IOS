@@ -36,7 +36,20 @@ class PhoneBillOperationsViewController: ViewController {
     
     @IBOutlet weak var tableView                 : UITableView!
     
+    @IBOutlet weak var serviceNumberLabel        : UILabel!
+    
+    @IBOutlet weak var custNumberLabel        : UILabel!
+    
+    @IBOutlet weak var custNameLabel        : UILabel!
+    
+    @IBOutlet weak var dueBalanceLabel        : UILabel!
+    
+    @IBOutlet weak var unbilledBalanceLabel        : UILabel!
+    
+    @IBOutlet weak var paymentDueLabel        : UILabel!
+    
     var phoneNumber :  PhoneNumber?
+    var serviceID: Int?
     
     private var calendarType: CalendarType?
     private var status : PaymentStatus      = .fullAmount
@@ -152,8 +165,15 @@ extension PhoneBillOperationsViewController {
         }
         
         self.groupNameLabel.text   = data._subscriberName
-        self.numberGroupLabel.text = "\(data._number)"
-        self.amountLabel.text      = "QRA \(data._currentBill)"
+        self.numberGroupLabel.text = "\(data.QID ?? "")"
+        self.amountLabel.text      = "\(data._currentBill)"
+        self.custNameLabel.text    = ": \(data.customerName ?? "")"
+        self.custNumberLabel.text  = ": \(data.customerNo ?? "0")"
+        self.paymentDueLabel.text  = ": \(data.paymentDueDate ?? "")"
+        self.dueBalanceLabel.text = ": \(data.totalOutstandingAmount ?? "")"
+        self.unbilledBalanceLabel.text = ": \(data._currentBill)"
+        self.serviceNumberLabel.text = ": \(data._number )"
+        
     }
     
     func fetchData() {
@@ -226,25 +246,20 @@ extension PhoneBillOperationsViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    
     @IBAction func saveAction(_ sender: UIButton) {
         
         guard let number = self.phoneNumber else {
             self.showSnackMessage("Something went wrong")
             return
         }
-        
         var isPaymentRequest = true
-        let groupDetails = GroupDetails(groupID: number._groupID, number: [number._number])
-        
         var paymentRequestPhoneBillParams = PaymentRequestPhoneBillParams()
-        paymentRequestPhoneBillParams.operatorID         = number._operatorID
-        paymentRequestPhoneBillParams.groupDetails       = [groupDetails]
-        paymentRequestPhoneBillParams.isFullAmount       = self.status == .fullAmount
-        paymentRequestPhoneBillParams.isPartialAmount    = self.status == .partialAmount
-        
+        let paymentVC = PaymentVC()
+        var amountToPay: Double = number._currentBill
         if let partialAmount = self.partialAmountTextField.text,
            partialAmount.isNotEmpty {
-            paymentRequestPhoneBillParams.amount = Double(partialAmount) ?? 0.0
+            amountToPay = Double(partialAmount) ?? 0.0
         }
         
         if let calendarType = self.calendarType,
@@ -260,36 +275,68 @@ extension PhoneBillOperationsViewController {
             
             isPaymentRequest = false
         }
+        let groupDetails = GroupDetails(groupID: number._groupID, number: [number._number])
         
-        self.showLoadingView(self)
+       
+        paymentRequestPhoneBillParams.operatorID         = number._operatorID
+        paymentRequestPhoneBillParams.groupDetails       = [groupDetails]
+        paymentRequestPhoneBillParams.isFullAmount       = self.status == .fullAmount
+        paymentRequestPhoneBillParams.isPartialAmount    = self.status == .partialAmount
+        paymentRequestPhoneBillParams.amount = amountToPay
+       
+        paymentVC.amountToPay = amountToPay
+        let processTokenized = ProcessTokenizedModel(Amount: amountToPay, ServiceID: self.serviceID, IsBillPayment: true, BillPaymentData: paymentRequestPhoneBillParams)
+        paymentVC.processTokenized = processTokenized
+        //        paymentVC.number = number
+        paymentVC.isPaymentRequest = isPaymentRequest
+        paymentVC.typeOfwallet = .phoneBill
+        let navPaymentVC = UINavigationController(rootViewController: paymentVC)
+        navPaymentVC.isNavigationBarHidden = true
+        navPaymentVC.modalPresentationStyle = .overFullScreen
         
-        self.requestProxy.requestService()?.savePaymentRequestPhoneBill(paymentRequestPhoneBillParams: paymentRequestPhoneBillParams, { paymentRequestViaBillResponse in
-            self.hideLoadingView()
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + loadingViewDismissDelay) {
-                
-                guard let resp = paymentRequestViaBillResponse else {
-                    self.showSnackMessage("Something went wrong")
-                    return
-                }
-                
-                guard resp._success else {
-                    self.showErrorMessage(resp._message)
-                    return
-                }
-                
-                //            self.showSuccessMessage(resp._message)
-                
-                if isPaymentRequest {
-                    let vc = self.getStoryboardView(ConfirmPinCodeViewController.self)
-                    vc.paymentViaBillResponse = resp
-                    self.present(vc, animated: true)
-                    
-                } else {
-                    self.viewWillAppear(true)
-                }
-            }
-        })
+        // we need add here
+        paymentVC.paymentSuccess = {[weak self] in
+            self?.navigationController?.popViewController(animated: true)
+        }
+        
+        self.present(navPaymentVC, animated: true)
+        
+//        paymentVC.payByWalletClosure = {
+//           
+//            self.showLoadingView(self)
+//            
+////            self.requestProxy.requestService()?.savePaymentRequestPhoneBill(paymentRequestPhoneBillParams: paymentRequestPhoneBillParams, { paymentRequestViaBillResponse in
+////                self.hideLoadingView()
+////                
+////                DispatchQueue.main.asyncAfter(deadline: .now() + loadingViewDismissDelay) {
+////                    
+////                    guard let resp = paymentRequestViaBillResponse else {
+////                        self.showSnackMessage("Something went wrong")
+////                        return
+////                    }
+////                    
+////                    guard resp._success else {
+////                        self.showErrorMessage(resp._message)
+////                        return
+////                    }
+////                    
+////                    //            self.showSuccessMessage(resp._message)
+////                    
+////                    if isPaymentRequest {
+////                        let vc = self.getStoryboardView(ConfirmPinCodeViewController.self)
+////                        vc.paymentViaBillResponse = resp
+////                        vc.succesClosure = {
+////                            navPaymentVC.dismiss(animated: true)
+////                        }
+////                        self.present(vc, animated: true)
+////                        
+////                    } else {
+////                        navPaymentVC.dismiss(animated: true)
+////                        self.viewWillAppear(true)
+////                    }
+////                }
+////            })
+//        }
     }
 }
 

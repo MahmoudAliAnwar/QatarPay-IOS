@@ -305,6 +305,10 @@ enum RequestType: Int, CaseIterable {
     case getTokenizedCardDetails
     case deleteTokenizedPaymentCard
     case setDefaultCardTokenized
+    case processTokenizedPayment
+    case createSessionApplePay
+    case processSessionApplePay
+    case processWithoutTokenized
     
     // MARK: - PHONE BILL
     case editPhoneBillName

@@ -32,7 +32,20 @@ class KahrmaBillOperationsViewController: ViewController {
     
     @IBOutlet weak var tableView                 : UITableView!
     
+    @IBOutlet weak var serviceNumberLabel        : UILabel!
     
+    @IBOutlet weak var custNumberLabel        : UILabel!
+    
+    @IBOutlet weak var custNameLabel        : UILabel!
+    
+    @IBOutlet weak var dueBalanceLabel        : UILabel!
+    
+    @IBOutlet weak var unbilledBalanceLabel        : UILabel!
+    
+    @IBOutlet weak var paymentDueLabel        : UILabel!
+    
+   
+    var serviceID: Int?
     var number    :  KahramaaNumber?
     
     private var calendarType: CalendarType?
@@ -88,17 +101,18 @@ class KahrmaBillOperationsViewController: ViewController {
             return
         }
         
-        self.dispatchGroup.enter()
-        self.requestProxy.requestService()?.getPaymentRequestviaKahrmaBill(groupID: data._groupID,
-                                                                           mobileNumber: data._number, { paymentRequestVia in
-            guard let resp = paymentRequestVia else {
-                self.showSnackMessage("Something went wrong",messageStatus: .Error)
-                return
-            }
-            self.scheduleRequestsList = resp._scheduleRequests
-            self.tableView.reloadData()
-            self.dispatchGroup.leave()
-        })
+       
+//        self.dispatchGroup.enter()
+//        self.requestProxy.requestService()?.getPaymentRequestviaKahrmaBill(groupID: data._groupID,
+//                                                                           mobileNumber: data._number, { paymentRequestVia in
+//            guard let resp = paymentRequestVia else {
+//                self.showSnackMessage("Something went wrong",messageStatus: .Error)
+//                return
+//            }
+//            self.scheduleRequestsList = resp._scheduleRequests
+//            self.tableView.reloadData()
+//            self.dispatchGroup.leave()
+//        })
         self.dispatchGroup.notify(queue: .main) {
             self.hideLoadingView()
         }
@@ -147,6 +161,16 @@ extension KahrmaBillOperationsViewController {
         self.groupNameLabel.text   = data._subscriberName
         self.numberGroupLabel.text = "\(data._number)"
         self.amountLabel.text      = "QRA \(data._currentBill)"
+        
+//        self.groupNameLabel.text   = data._subscriberName
+//        self.numberGroupLabel.text = "\(data.qid ?? "")"
+//        self.amountLabel.text      = "\(data._currentBill)"
+//        self.custNameLabel.text    = ": \(data.customerName ?? "")"
+//        self.custNumberLabel.text  = ": \(data.customerNo ?? "0")"
+//        self.paymentDueLabel.text  = ": \(data.paymentDueDate ?? "")"
+//        self.dueBalanceLabel.text = ": \(data.totalOutstandingAmount ?? "")"
+//        self.unbilledBalanceLabel.text = ": \(data._currentBill)"
+//        self.serviceNumberLabel.text = ": \(data._number )"
     }
     
     func fetchData() {
@@ -226,18 +250,13 @@ extension KahrmaBillOperationsViewController {
             self.showSnackMessage("Something went wrong")
             return
         }
-        
         var isPaymentRequest = true
-        let groupDetails = GroupDetails(groupID: number._groupID, number: [number._number])
-        
         var paymentRequestPhoneBillParams = PaymentRequestPhoneBillParams()
-        paymentRequestPhoneBillParams.groupDetails       = [groupDetails]
-        paymentRequestPhoneBillParams.isFullAmount       = self.paymentStatus == .fullAmount
-        paymentRequestPhoneBillParams.isPartialAmount    = self.paymentStatus == .partialAmount
-        
+        let paymentVC = PaymentVC()
+        var amountToPay: Double = number._currentBill
         if let partialAmount = self.partialAmountTextField.text,
            partialAmount.isNotEmpty {
-            paymentRequestPhoneBillParams.amount = Double(partialAmount) ?? 0.0
+            amountToPay = Double(partialAmount) ?? 0.0
         }
         
         if let calendarType = self.calendarType,
@@ -253,36 +272,88 @@ extension KahrmaBillOperationsViewController {
             
             isPaymentRequest = false
         }
+        let groupDetails = GroupDetails(groupID: number._groupID, number: [number._number])
         
-        self.showLoadingView(self)
+       
+        paymentRequestPhoneBillParams.operatorID         = number.operatorID ?? 0
+        paymentRequestPhoneBillParams.groupDetails       = [groupDetails]
+        paymentRequestPhoneBillParams.isFullAmount       = self.paymentStatus == .fullAmount
+        paymentRequestPhoneBillParams.isPartialAmount    = self.paymentStatus == .partialAmount
+        paymentRequestPhoneBillParams.amount = amountToPay
+       
+        paymentVC.amountToPay = amountToPay
+        let processTokenized = ProcessTokenizedModel(Amount: amountToPay, ServiceID: self.serviceID, IsBillPayment: true, BillPaymentData: paymentRequestPhoneBillParams)
+        paymentVC.processTokenized = processTokenized
+        //        paymentVC.number = number
+        paymentVC.isPaymentRequest = isPaymentRequest
+        paymentVC.typeOfwallet = .khrmaBill
+        let navPaymentVC = UINavigationController(rootViewController: paymentVC)
+        navPaymentVC.isNavigationBarHidden = true
+        navPaymentVC.modalPresentationStyle = .overFullScreen
         
-        self.requestProxy.requestService()?.savePaymentRequestkaharmaBill(paymentRequestPhoneBillParams: paymentRequestPhoneBillParams, { paymentRequestViaBillResponse in
-            self.hideLoadingView()
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + loadingViewDismissDelay) {
-                
-                guard let resp = paymentRequestViaBillResponse else {
-                    self.showSnackMessage("Something went wrong")
-                    return
-                }
-                
-                guard resp._success else {
-                    self.showErrorMessage(resp._message)
-                    return
-                }
-                
-                //            self.showSuccessMessage(resp._message)
-                
-                if isPaymentRequest {
-                    let vc = self.getStoryboardView(ConfirmPinCodeViewController.self)
-                    vc.paymentViaBillResponse = resp
-                    self.present(vc, animated: true)
-                    
-                } else {
-                    self.viewWillAppear(true)
-                }
-            }
-        })
+        paymentVC.paymentSuccess = {[weak self] in
+            self?.navigationController?.popViewController(animated: true)
+        }
+
+        
+        self.present(navPaymentVC, animated: true)
+        
+//        var isPaymentRequest = true
+//        let groupDetails = GroupDetails(groupID: number._groupID, number: [number._number])
+//        
+//        var paymentRequestPhoneBillParams = PaymentRequestPhoneBillParams()
+//        paymentRequestPhoneBillParams.groupDetails       = [groupDetails]
+//        paymentRequestPhoneBillParams.isFullAmount       = self.paymentStatus == .fullAmount
+//        paymentRequestPhoneBillParams.isPartialAmount    = self.paymentStatus == .partialAmount
+//        
+//        if let partialAmount = self.partialAmountTextField.text,
+//           partialAmount.isNotEmpty {
+//            paymentRequestPhoneBillParams.amount = Double(partialAmount) ?? 0.0
+//        }
+//        
+//        if let calendarType = self.calendarType,
+//           calendarType == .saveDate {
+//            
+//            guard let date = self.selectedDate else {
+//                self.showSnackMessage("You should select date")
+//                return
+//            }
+//            
+//            paymentRequestPhoneBillParams.scheduledDate = date.server4DateToString()
+//            paymentRequestPhoneBillParams.isRecurringPayment = self.recurringPaymentCheckBox.isChecked
+//            
+//            isPaymentRequest = false
+//        }
+        
+//        self.showLoadingView(self)
+        
+//        self.requestProxy.requestService()?.savePaymentRequestkaharmaBill(paymentRequestPhoneBillParams: paymentRequestPhoneBillParams, { paymentRequestViaBillResponse in
+//            self.hideLoadingView()
+//            
+//            DispatchQueue.main.asyncAfter(deadline: .now() + loadingViewDismissDelay) {
+//                
+//                guard let resp = paymentRequestViaBillResponse else {
+//                    self.showSnackMessage("Something went wrong")
+//                    return
+//                }
+//                
+//                guard resp._success else {
+//                    self.showErrorMessage(resp._message)
+//                    return
+//                }
+//                
+//                //            self.showSuccessMessage(resp._message)
+//                
+//                if isPaymentRequest {
+//                    let vc = self.getStoryboardView(ConfirmPinCodeViewController.self)
+//                    vc.paymentViaBillResponse = resp
+//                    self.present(vc, animated: true)
+//                    
+//                } else {
+//                    self.viewWillAppear(true)
+//                }
+//            }
+//        })
     }
 }
 

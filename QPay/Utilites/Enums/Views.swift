@@ -24,6 +24,7 @@ enum Views: String, CaseIterable {
     case SuccessMessageViewController
     /// Error Message View
     case ErrorMessageViewController
+    case PaymentPopup
     
     // Auth Views
     case SignInViewController

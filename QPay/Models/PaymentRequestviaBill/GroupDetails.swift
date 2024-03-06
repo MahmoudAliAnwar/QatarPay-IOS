@@ -12,4 +12,13 @@ import UIKit
 struct GroupDetails : Codable {
     let groupID : Int?
     let number  : [String]?
+    
+    
+    var json : [String: Any] {
+        return [
+            "GroupID": groupID ??  0,
+            "Number": number ?? []
+          
+        ]
+    }
 }

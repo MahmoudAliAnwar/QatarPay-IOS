@@ -105,20 +105,34 @@ extension ViewController {
         self.present(alert, animated: true)
     }
     
-    func showSuccessMessage(_ message: String?) {
+    func showSuccessMessage(_ message: String?, closure: (()->())? = nil) {
         DispatchQueue.main.asyncAfter(deadline: .now() + loadingViewDismissDelay) {
             let vc = self.getStoryboardView(SuccessMessageViewController.self)
             vc.message = message
+            vc.closure = closure
             self.present(vc, animated: true)
         }
     }
     
-    func showErrorMessage(_ message: String? = nil) {
+    func showErrorMessage(_ message: String? = nil, buttonTitle: String? = "Try Again",closure: (()->())? = nil) {
         DispatchQueue.main.asyncAfter(deadline: .now() + loadingViewDismissDelay) {
             let vc = self.getStoryboardView(ErrorMessageViewController.self)
+            vc.closure = closure
+            vc.tryAgainTitle = buttonTitle
             if let msg = message {
                 vc.message = msg
             }
+            self.present(vc, animated: true)
+        }
+    }
+    
+    func showPaymentPopup(_ remingAmount: Double?, serviceAmount: Double?, bankAmount: Double? ,closure: (()->())? = nil) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + loadingViewDismissDelay) {
+            let vc = self.getStoryboardView(PaymentPopup.self)
+            vc.closure = closure
+            vc.remingAmount = remingAmount
+            vc.serviceAmount = serviceAmount
+            vc.bankAmount = bankAmount
             self.present(vc, animated: true)
         }
     }

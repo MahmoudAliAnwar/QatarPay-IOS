@@ -14,6 +14,9 @@ class NotificationsViewController: MainController {
     
     var notifications = [NotificationModel]()
 
+    var page: Int = 1
+    var stopFetch: Bool?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -229,13 +232,14 @@ extension NotificationsViewController {
         
         self.dispatchGroup.enter()
         
-        self.requestProxy.requestService()?.getNotificationList { (notifications) in
+        self.requestProxy.requestService()?.getNotificationList(page: self.page) { (notifications) in
                 // "2020-07-02T14:34:57.83"
                 
-                let arr = notifications ?? []
+            let arr = notifications?._list ?? []
                 
-                self.notifications.removeAll()
-                self.notifications = arr.reversed()
+//                self.notifications.removeAll()
+                self.notifications += arr.reversed()
+            self.stopFetch = self.notifications.count == notifications?.TotalRecords
                 
                 self.dispatchGroup.leave()
             }
@@ -244,7 +248,7 @@ extension NotificationsViewController {
             self.notificationsTable.reloadData()
         }
     }
-    
+   
     private func updateNotificationsStatusRequest() {
         
 //        let unReadNotifications = self.notifications.filter({ $0.isReadByUser == false })
@@ -254,5 +258,22 @@ extension NotificationsViewController {
 //            if status {
 //            }
 //        })
+    }
+}
+
+extension NotificationsViewController: UIScrollViewDelegate {
+  
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let position = scrollView.contentOffset.y
+        if position > (self.notificationsTable.contentSize.height-10-scrollView.frame.height) {
+            self.didReachLastIndex()
+        }
+        
+    }
+    func didReachLastIndex(){
+        if stopFetch  == false{
+            self.page += 1
+            notificationsRequest()
+        }
     }
 }

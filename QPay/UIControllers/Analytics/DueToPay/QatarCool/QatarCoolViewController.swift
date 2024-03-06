@@ -51,6 +51,7 @@ class QatarCoolViewController: QatarCoolController {
     }()
     
     private var total: Double = 0
+    var serviceID: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -143,29 +144,28 @@ extension QatarCoolViewController {
     @IBAction func paymentAction(_ sender: UIButton) {
         
         let groupDetails = self.selectedNumbers.compactMap({ GroupDetails(groupID: $0._groupID, number: [$0._number]) })
-        
+        let paymentVC = PaymentVC()
         var paymentRequestPhoneBillParams          = PaymentRequestPhoneBillParams()
+       
+        paymentRequestPhoneBillParams.operatorID   = self.groups.first?._numbers.first?.operatorID ?? 0
         paymentRequestPhoneBillParams.groupDetails = groupDetails
         paymentRequestPhoneBillParams.isFullAmount = true
         paymentRequestPhoneBillParams.amount       = self.total
         
-        self.requestProxy.requestService()?.savePaymentRequestQatarCoolBill(paymentRequestPhoneBillParams: paymentRequestPhoneBillParams, { response in
-            guard let resp = response else {
-                self.showSnackMessage("Something went wrong")
-                return
-            }
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + loadingViewDismissDelay) {
-                guard resp._success else {
-                    self.showErrorMessage(resp._message)
-                    return
-                }
-                
-                let vc = self.getStoryboardView(ConfirmPinCodeViewController.self)
-                vc.paymentViaBillResponse = resp
-                self.present(vc, animated: true)
-            }
-        })
+        paymentRequestPhoneBillParams.isPartialAmount    = false
+      
+        paymentVC.amountToPay = self.total
+        let processTokenized = ProcessTokenizedModel(Amount: self.total, ServiceID: self.serviceID, IsBillPayment: true, BillPaymentData: paymentRequestPhoneBillParams)
+        paymentVC.processTokenized = processTokenized
+       
+        paymentVC.isPaymentRequest = true
+        paymentVC.typeOfwallet = .qatarCoolBill
+        let navPaymentVC = UINavigationController(rootViewController: paymentVC)
+        navPaymentVC.isNavigationBarHidden = true
+        navPaymentVC.modalPresentationStyle = .overFullScreen
+        
+        self.present(navPaymentVC, animated: true)
+        
     }
 }
 
@@ -253,6 +253,7 @@ extension QatarCoolViewController: UICollectionViewDelegate, UICollectionViewDat
         }else {
             let vc = self.getStoryboardView(QatarCoolOperationsViewController.self)
             vc.number = group._numbers[indexPath.row - 1]
+            vc.serviceID = self.serviceID
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

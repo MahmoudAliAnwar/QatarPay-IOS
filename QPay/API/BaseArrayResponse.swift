@@ -20,6 +20,9 @@ struct BaseArrayResponse<T: Mappable>: Mappable {
     var grandTotal: Double?
     var list : [T]?
     
+    /// Notifiaction
+    var TotalRecords: Int?
+    
     var _success : Bool {
         get {
             return success ?? false
@@ -68,6 +71,7 @@ struct BaseArrayResponse<T: Mappable>: Mappable {
         self.errors  <- map["errors"]
         
         self.grandTotal <- map["GrandTotal"]
+        self.TotalRecords <- map["TotalRecords"]
         
         let key = self.getObjectKey()
         

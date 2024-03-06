@@ -14,10 +14,22 @@ class ConfirmRefillWalletViewController: MainController {
     @IBOutlet weak var containerViewDesign: ViewDesign!
     @IBOutlet weak var totalAmountLabel: UILabel!
     @IBOutlet weak var serviceChargeLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var firstLabel: UILabel!
+    
     
     var channel: Channel?
     var amount: Double?
     var object: BaseResponse?
+    
+    var response: PaymentRequestViaBillResponse?
+    var fromPaymentVC: Bool?
+   
+    var totalAmount: Double?
+    var payWithWallet: Bool?
+    var isTokenized: Bool?
+   
+    weak var delgate: PaymentProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,14 +63,25 @@ extension ConfirmRefillWalletViewController {
     }
     
     func fetchData() {
-        guard let resp = self.object else {
-            self.showSnackMessage("Something went wrong")
-            return
+        if fromPaymentVC  ?? false{
+            guard let amount =  payWithWallet ?? false ? response?.RemainingAmount: object?._baseAmount , let serviceCharge = payWithWallet ?? false ? response?.ServiceCharge: object?._serviceCharge , let bankCharge = payWithWallet ?? false ? response?.BankingCharge : 0.0 else{ return}
+            self.totalAmount = ((amount ) + (serviceCharge) + (bankCharge))
+            self.totalAmountLabel.text = self.totalAmount?.formatNumber()
+            self.serviceChargeLabel.text = "\(amount) QAR + \(bankCharge.formatNumber()) QAR Bank Charge+ \(serviceCharge.formatNumber()) QAR Service Charge"
+            
+            self.titleLabel.text = payWithWallet ?? true ?  "Top-up Wallet": "Review charges"
+            self.firstLabel.text = payWithWallet ?? true ? "Review Top-up details.": " Review charges details."
+            
+        }else{
+            guard let resp = self.object else {
+                self.showSnackMessage("Something went wrong")
+                return
+            }
+            
+            //        let service = resp.serviceCharge ?? 0.0
+            self.setServiceChargeLabel(resp._baseAmount, charge: resp._serviceCharge)
+            self.totalAmountLabel.text = (resp._baseAmount + resp._serviceCharge).formatNumber()
         }
-        
-        let service = resp.serviceCharge ?? 0.0
-        self.setServiceChargeLabel(resp._baseAmount, charge: resp._serviceCharge)
-        self.totalAmountLabel.text = (resp._baseAmount + resp._serviceCharge).formatNumber()
     }
 }
 
@@ -71,26 +94,35 @@ extension ConfirmRefillWalletViewController {
     }
     
     @IBAction func confirmAction(_ sender: UIButton) {
-        guard let refill = self.object else {
-            self.showSnackMessage("Something went wrong")
-            return
+        
+        if fromPaymentVC ?? false {
+            self.navigationController?.popViewController(animated: true)
+            self.delgate?.didTapConfirm(response: self.response, payWithWallet:  self.payWithWallet, baseResponse: self.object, isTokenized: self.isTokenized ?? false)
+           
+            
+        }else {
+            
+            guard let refill = self.object else {
+                self.showSnackMessage("Something went wrong")
+                return
+            }
+            
+            var url: URL?
+            
+            //        if let urlString = refill.validationURL?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+            //            url = URL(string: urlString)
+            //        }
+            
+            if let urlString = refill.paymentLink?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+                url = URL(string: urlString)
+            }
+            
+            guard let url = url else {
+                self.showSnackMessage("Missing URL")
+                return
+            }
+            self.openWebView(with: url)
         }
-        
-        var url: URL?
-        
-//        if let urlString = refill.validationURL?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-//            url = URL(string: urlString)
-//        }
-        
-        if let urlString = refill.paymentLink?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-            url = URL(string: urlString)
-        }
-        
-        guard let url = url else {
-            self.showSnackMessage("Missing URL")
-            return
-        }
-        self.openWebView(with: url)
     }
 }
 

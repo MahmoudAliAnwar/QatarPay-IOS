@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="DroidSansMerged-Regular.ttf">
+            <string>DroidSans</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="113" id="KGk-i7-Jjw" customClass="TokenizedPaymentCell" customModule="Qatar_Pay" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="113"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="113"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RKz-4s-HSH">
+                        <rect key="frame" x="0.0" y="5" width="320" height="50"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5zv-MR-zwH">
+                                <rect key="frame" x="5" y="10" width="310" height="30"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LUk-CU-WSD">
+                                        <rect key="frame" x="0.0" y="0.0" width="91" height="30"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="QP-CARD_Update" translatesAutoresizingMaskIntoConstraints="NO" id="nCK-0Z-AhP">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="nCK-0Z-AhP" secondAttribute="height" multiplier="2:2" id="Ml4-Wj-Rvw"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="751" text="Saved" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDc-iS-7AE">
+                                                <rect key="frame" x="40" y="0.0" width="40" height="30"/>
+                                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qbN-Nk-vaE">
+                                                <rect key="frame" x="90" y="0.0" width="1" height="30"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="1" id="kzu-fR-KuJ"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="jPq-6f-UJZ">
+                                        <rect key="frame" x="223.66666666666666" y="0.0" width="86.333333333333343" height="30"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_tok_icon" translatesAutoresizingMaskIntoConstraints="NO" id="xEu-4Q-yWM">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="xEu-4Q-yWM" secondAttribute="height" multiplier="2:2" id="Sub-zx-QTK"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qki-SM-XMJ">
+                                                <rect key="frame" x="50.000000000000028" y="0.0" width="36.333333333333343" height="30"/>
+                                                <fontDescription key="fontDescription" name="DroidSans" family="Droid Sans" pointSize="15"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.43372866510000002" green="0.11629235" blue="0.1999990344" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="5zv-MR-zwH" firstAttribute="top" secondItem="RKz-4s-HSH" secondAttribute="top" constant="10" id="1QW-Xd-swk"/>
+                            <constraint firstAttribute="trailing" secondItem="5zv-MR-zwH" secondAttribute="trailing" constant="5" id="9sS-ru-jvp"/>
+                            <constraint firstItem="5zv-MR-zwH" firstAttribute="leading" secondItem="RKz-4s-HSH" secondAttribute="leading" constant="5" id="Dyx-Al-7Y0"/>
+                            <constraint firstAttribute="height" constant="50" id="TVO-0M-Bf1"/>
+                            <constraint firstAttribute="bottom" secondItem="5zv-MR-zwH" secondAttribute="bottom" constant="10" id="Wmp-jA-MpC"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="RKz-4s-HSH" secondAttribute="trailing" id="IHu-MV-kqF"/>
+                    <constraint firstAttribute="bottom" secondItem="RKz-4s-HSH" secondAttribute="bottom" constant="5" id="XxI-6a-y99"/>
+                    <constraint firstItem="RKz-4s-HSH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="aqf-OE-Js9"/>
+                    <constraint firstItem="RKz-4s-HSH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="uqZ-jN-G9G"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="cardNumber" destination="Qki-SM-XMJ" id="074-oJ-tg5"/>
+                <outlet property="holderView" destination="RKz-4s-HSH" id="ECn-Me-T3O"/>
+            </connections>
+            <point key="canvasLocation" x="-64.122137404580144" y="44.014084507042256"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="QP-CARD_Update" width="64" height="38"/>
+        <image name="card_tok_icon" width="45" height="28"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

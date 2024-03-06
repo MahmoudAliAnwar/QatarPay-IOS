@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "delete_bill.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

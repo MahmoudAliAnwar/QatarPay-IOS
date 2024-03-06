@@ -14,6 +14,7 @@ struct Channel: Mappable {
     var id: Int?
     var name: String?
     var imageLocation: String?
+    var showInIOS: Bool?
     
     var _id: Int {
         get {
@@ -45,5 +46,6 @@ struct Channel: Mappable {
         self.id <- map["ID"]
         self.name <- map["ChannelName"]
         self.imageLocation <- map["ImageLocation"]
+        self.showInIOS <- map["ShowInIOS"]
     }
 }

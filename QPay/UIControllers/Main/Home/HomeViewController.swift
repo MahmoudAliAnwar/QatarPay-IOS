@@ -38,6 +38,7 @@ class HomeViewController: MainController {
     @IBOutlet weak var emptyTransactionsStack: UIStackView!
     
     @IBOutlet weak var viewAllButton: UIButton!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     private var transactions = [Transaction]()
     private var carouselActions = [CarouselActionModel]()
@@ -48,6 +49,8 @@ class HomeViewController: MainController {
     private var optionsPopupStatus: PopupStatus = .Hide
     private var noqsPopupStatus: PopupStatus = .Hide
     private var presentationContext: Context = .independentWindow
+    var cardsArray = [TokenizedCard]()
+    var balance: String?
     
     private enum Context {
         case independentWindow, controllerWindow, controller
@@ -109,37 +112,7 @@ class HomeViewController: MainController {
         
         self.isUserHasTransactions(false)
         
-        if let user = self.userProfile.getUser() {
-            
-            if let accountLevel = user.accountLevel {
-                let level = accountLevel.lowercased()
-                
-                if level == "maroon" {
-                    self.cardImageView.image = .ic_maroon_card_home
-                    
-                }else if level == "business" {
-                    self.cardImageView.image = .ic_blue_card_home
-                    
-                }else if level == "vip" {
-                    self.cardImageView.image = .ic_black_card_home
-                }
-            }
-            
-            if var code = user.userCode, code.isNotEmpty {
-                code.insert(separator: "  ", every: 4)
-                self.cardCodeLabel.text = code
-            }
-            
-            if let balance = user.loyalityBalance {
-                self.cardLoyalityPointsLabel.text = "\(balance) pts"
-            }
-            
-            // 8/24/2025 10:13:24 AM
-            if let expiry = user.qpanExpiry,
-               let serverDate = expiry.formatToDate("M/dd/yyyy hh:mm:ss a") {
-                self.cardExpiryLabel.text = serverDate.formatDate("MM/yy")
-            }
-        }
+       
         
         self.balanceRequest()
         self.transacionsRequest()
@@ -215,9 +188,13 @@ extension HomeViewController {
             })
         ]
         self.bottomBarCarousel.reloadData()
+        
+        self.collectionView.registerCell(FirstCell.identifier)
+        self.collectionView.registerCell(OtherCell.identifier)
     }
     
     func fetchData() {
+       
         self.requestProxy.requestService()?.getUserProfile { (myProfile) in
             guard let profile = myProfile else { return }
             self.emailLabel.text = profile._email
@@ -225,7 +202,7 @@ extension HomeViewController {
             let userName = "\(profile.fullName ?? "") \(profile.lastName ?? "")"
             self.nameLabel.text = userName
             self.cardUserNameLabel.text = userName.uppercased()
-            
+            self.getTokenizedListRequest()
             guard let imgUrl = profile.imageURL else { return }
             imgUrl.getImageFromURLString { (status, image) in
                 guard status else { return }
@@ -538,7 +515,8 @@ extension HomeViewController: RequestsDelegate {
     func requestStarted(request: RequestType) {
         if request == .validateMerchantQRCodePayment ||
             request == .getShopList ||
-            request == .getCVList
+            request == .getCVList ||
+            request == .getTokenizedCardDetails
         {
             showLoadingView(self)
         }
@@ -663,6 +641,23 @@ extension HomeViewController {
         }
     }
     
+    private func getTokenizedListRequest() {
+        
+        self.dispatchGroup.enter()
+        
+        
+        
+        self.requestProxy.requestService()?.getTokenizedCardDetails({ (cardsArray) in
+            guard let cardsArray = cardsArray else {return}
+        
+           
+            self.cardsArray = cardsArray
+            
+            self.collectionView.reloadData()
+            self.dispatchGroup.leave()
+        })
+    
+    }
     private func validateMerchantQRCodeWithAmountRequest(_ code: String, lastChar: String.Element) {
         self.requestProxy.requestService()?.validateMerchantQRCodeWithAmount(QRCodeData: code) { (validateObject) in
             guard var object = validateObject else {
@@ -767,6 +762,8 @@ extension HomeViewController {
                 return
             }
             self.balanceLabel.text = blnc.formatNumber()
+            self.balance = blnc.formatNumber()
+            self.collectionView.reloadData()
         }
     }
     
@@ -780,7 +777,7 @@ extension HomeViewController {
             self.isUserHasTransactions(self.transactions.isNotEmpty)
         }
         
-        self.requestProxy.requestService()?.transactionsList ( weakify { strong, list in
+        self.requestProxy.requestService()?.transactionsList (fromHome: true,weakify { strong, list in
             let arr = list ?? []
             
             try? strong.cacheManager?.storage?.removeObject(forKey: Transaction.reuseIdentifier)
@@ -821,8 +818,8 @@ extension HomeViewController {
     
     private func notificationsRequest() {
         
-        self.requestProxy.requestService()?.getNotificationList( weakify { strong, notifications in
-            let list = notifications ?? []
+        self.requestProxy.requestService()?.getNotificationList(page: 1,  weakify { strong, notifications in
+            let list = notifications?._list ?? []
             let mapList = list.filter({ $0.isReadByUser == false })
             
             strong.unreadNotificationsLabel.text = mapList.count > 99 ? "99+" : "\(mapList.count)"
@@ -868,4 +865,33 @@ extension HomeViewController {
         self.viewAllButton.isEnabled = status
         self.viewAllButton.setTitleColor(status ? .mLight_Red : .lightGray, for: .normal)
     }
+}
+
+
+extension HomeViewController: UICollectionViewDataSource ,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        self.cardsArray.count + 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.item == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FirstCell.identifier, for: indexPath) as! FirstCell
+            cell.configer(user: self.self.userProfile.getUser(), balance: self.balance)
+            
+            
+            return cell
+        }else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OtherCell.identifier, for: indexPath) as! OtherCell
+
+            cell.configer(card: self.cardsArray[indexPath.item - 1])
+            
+            
+            return cell
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width , height: collectionView.frame.height)
+    }
+    
 }

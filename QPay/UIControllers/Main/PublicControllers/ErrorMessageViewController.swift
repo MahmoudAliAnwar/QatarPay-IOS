@@ -12,9 +12,11 @@ class ErrorMessageViewController: ViewController {
     
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var errorImage  : UIImageView!
+    @IBOutlet weak var tryAgainButton: UIButton!
     
-
+    var closure: (()->())?
     var message: String?
+    var tryAgainTitle: String? = "Try Again"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,16 +28,17 @@ class ErrorMessageViewController: ViewController {
         super.viewWillAppear(animated)
         
         self.messageLabel.text = self.message ?? ""
+        self.tryAgainButton.setTitle(tryAgainTitle, for: .normal)
         self.errorImage.rotate()
     }
     
     @IBAction func closeAction(_ sender: UIButton) {
-        self.tryAgainAction(sender)
+        self.dismiss(animated: true)
     }
     
     @IBAction func tryAgainAction(_ sender: UIButton) {
         self.dismiss(animated: true) {
-            
+            self.closure?()
         }
     }
 }

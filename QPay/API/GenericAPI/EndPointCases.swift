@@ -88,7 +88,7 @@ enum EndPointCases {
 //    case getChannelList
 //    case getRefillCharge
 //    case paymentRequests
-    case getNotificationList
+    case getNotificationList(page: Int)
 //    case updateNotificationStatus
 //    case validateTransfer
 //    case getNotificationTypeList
@@ -391,8 +391,8 @@ extension EndPointCases: PEndpoint {
             
         case .transactionsList:
             return [:]
-        case .getNotificationList:
-            return [:]
+        case .getNotificationList(let page):
+            return ["PageNum": page]
         }
     }
 }

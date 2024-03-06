@@ -1422,7 +1422,7 @@ class RequestService {
     
     // MARK: - TRANSACTIONS LIST
     
-    func transactionsList(_ completion: @escaping CallArrayBack<Transaction>) {
+    func transactionsList(fromHome: Bool? = false,_ completion: @escaping CallArrayBack<Transaction>) {
         
         if self.requestsController.isConnectedToInternet() {
             if let delegate = self.delegate {
@@ -1432,8 +1432,8 @@ class RequestService {
             
             var headers: HTTPHeaders = self.requestsController.headers
             headers["Authorization"] = self.getToken()
-            
-            self.AlamofireManager.request(TRANSACTIONS_LIST, method: .get, parameters: params, headers: headers).validate().responseObject(queue: .main) { (response: DataResponse<BaseArrayResponse<Transaction>, AFError>) in
+            let url = fromHome ?? false ? TRANSACTION_RECENT_LIST: TRANSACTIONS_LIST
+            self.AlamofireManager.request(url, method: .get, parameters: params, headers: headers).validate().responseObject(queue: .main) { (response: DataResponse<BaseArrayResponse<Transaction>, AFError>) in
                 
                 guard response.response?.statusCode != 401 else {
                     self.delegate?.requestFinished(request: .transactionsList, result: .Failure(.Exception("401")))
@@ -1464,12 +1464,12 @@ class RequestService {
     
     // MARK: - NOTIFICATION LIST
     
-    func getNotificationList(_ completion: @escaping CallArrayBack<NotificationModel>) {
+    func getNotificationList(page: Int,_ completion: @escaping CallObjectBack<BaseArrayResponse<NotificationModel>>) {
         
         if self.requestsController.isConnectedToInternet() {
             self.delegate?.requestStarted(request: .getNotificationList)
             
-            let params: Parameters = [:]
+            let params: Parameters = ["PageNum": page]
             
             var headers: HTTPHeaders = self.requestsController.headers
             headers["Authorization"] = self.getToken()
@@ -1480,7 +1480,7 @@ class RequestService {
                 case .success(let baseResponse):
                     if baseResponse.success == true {
                         self.delegate?.requestFinished(request: .getNotificationList, result: .Success(baseResponse.list))
-                        completion(baseResponse.list)
+                        completion(baseResponse)
                         
                     }else {
                         self.delegate?.requestFinished(request: .getNotificationList, result: .Failure(.Exception(baseResponse._message)))
@@ -10018,6 +10018,156 @@ class RequestService {
         } // End Internet Check Status
     }
     
+    func processTokenizedPayment(paymentModel: ProcessTokenizedModel?,
+                                      _ completion : @escaping CallObjectBack<BaseResponse>) {
+        
+        if self.requestsController.isConnectedToInternet() {
+            self.delegate?.requestStarted(request: .processTokenizedPayment)
+            
+            let params: Parameters = ["Amount": paymentModel?.Amount ?? 0,
+                                      "ChannelID": paymentModel?.ChannelID ?? 0,
+                                      "ServiceID": paymentModel?.ServiceID ?? 0,
+                                      "IsBillPayment": paymentModel?.IsBillPayment ?? false,
+                                      "BillPaymentData": paymentModel?.BillPaymentData?.json ?? [],
+                                      "IsTokenized": paymentModel?.IsTokenized ?? false,
+                                      "TokenizedData": paymentModel?.TokenizedData?.json ?? []
+            ]
+        
+            
+           
+          
+            var headers: HTTPHeaders = self.requestsController.headers
+            headers["Authorization"] = self.getToken()
+
+            let url = paymentModel?.IsTokenized ?? false ? PROCESS_TOKENIZED_PAYMENT: PROCESS_WITHOUT_TOKENIZED_PAYMENT
+            self.AlamofireManager.request(url,
+                                          method     : .post,
+                                          parameters : params,
+                                          encoding: JSONEncoding.default,
+                                          headers    : headers)
+            .validate().responseObject(queue: .main) { (response: DataResponse<BaseResponse, AFError>) in
+                
+                switch response.result {
+                case .success(let baseResponse):
+                    if baseResponse.success == true {
+                        self.delegate?.requestFinished(request: .processTokenizedPayment, result: .Success(baseResponse))
+                        completion(baseResponse)
+                    } else {
+                        self.delegate?.requestFinished(request: .processTokenizedPayment, result: .Failure(.Exception(baseResponse._message)))
+                        completion(nil)
+                    }
+                    break
+                    
+                case .failure(let error):
+                    self.delegate?.requestFinished(request: .processTokenizedPayment, result: .Failure(.AlamofireError(error)))
+                    completion(nil)
+                    break
+                }
+            } // End Alamofire Response
+        } // End Internet Check Status
+    }
+
+    
+    // MARK: - ApplePay
+    
+    func createSessionApplePay(paymentModel: ProcessTokenizedModel?,
+                               _ completion : @escaping CallObjectBack<BaseResponse>){
+        
+        if self.requestsController.isConnectedToInternet() {
+            self.delegate?.requestStarted(request: .createSessionApplePay)
+            
+            let params: Parameters = ["Amount": paymentModel?.Amount ?? 0,
+                                      "ChannelID": paymentModel?.ChannelID ?? 0,
+                                      "ServiceID": paymentModel?.ServiceID ?? 0,
+                                      "IsBillPayment": paymentModel?.IsBillPayment ?? false,
+                                      "BillPaymentData": paymentModel?.BillPaymentData?.json ?? [],
+                                      "IsTokenized": paymentModel?.IsTokenized ?? false,
+                                      "TokenizedData": paymentModel?.TokenizedData?.json ?? [],
+                                      "IsPlatformApplePay": paymentModel?.IsPlatformApplePay ?? true
+            ]
+        
+            
+           
+          
+            var headers: HTTPHeaders = self.requestsController.headers
+            headers["Authorization"] = self.getToken()
+
+            
+            self.AlamofireManager.request(CREAT_SESSION_APPLE_PAY,
+                                          method     : .post,
+                                          parameters : params,
+                                          encoding: JSONEncoding.default,
+                                          headers    : headers)
+            .validate().responseObject(queue: .main) { (response: DataResponse<BaseResponse, AFError>) in
+                
+                switch response.result {
+                case .success(let baseResponse):
+                    if baseResponse.success == true {
+                        self.delegate?.requestFinished(request: .createSessionApplePay, result: .Success(baseResponse))
+                        completion(baseResponse)
+                    } else {
+                        self.delegate?.requestFinished(request: .createSessionApplePay, result: .Failure(.Exception(baseResponse._message)))
+                        completion(nil)
+                    }
+                    break
+                    
+                case .failure(let error):
+                    self.delegate?.requestFinished(request: .createSessionApplePay, result: .Failure(.AlamofireError(error)))
+                    completion(nil)
+                    break
+                }
+            } // End Alamofire Response
+        } // End Internet Check Status
+    }
+    
+    
+    func processSessionApplePay(paymentModel: BaseResponse?,
+                               _ completion : @escaping CallObjectBack<BaseResponse>){
+        
+        if self.requestsController.isConnectedToInternet() {
+            self.delegate?.requestStarted(request: .processSessionApplePay)
+            
+            let params: Parameters = [
+                "PaymentToken": paymentModel?.paymentToken ?? "",
+                "device": UIDevice.current.name,
+                "PlatformSessionID": paymentModel?.platformSessionID ?? "",
+                "IsPlatformApplePay":  true
+            ]
+        
+            
+           
+          
+            var headers: HTTPHeaders = self.requestsController.headers
+            headers["Authorization"] = self.getToken()
+
+            
+            self.AlamofireManager.request(PROCESS_SESSION_PAYMENT_APPLE_PAY,
+                                          method     : .post,
+                                          parameters : params,
+                                          encoding: JSONEncoding.default,
+                                          headers    : headers)
+            .validate().responseObject(queue: .main) { (response: DataResponse<BaseResponse, AFError>) in
+                
+                switch response.result {
+                case .success(let baseResponse):
+                    if baseResponse.success == true {
+                        self.delegate?.requestFinished(request: .processSessionApplePay, result: .Success(baseResponse))
+                        completion(baseResponse)
+                    } else {
+                        self.delegate?.requestFinished(request: .processSessionApplePay, result: .Failure(.Exception(baseResponse._message)))
+                        completion(nil)
+                    }
+                    break
+                    
+                case .failure(let error):
+                    self.delegate?.requestFinished(request: .processSessionApplePay, result: .Failure(.AlamofireError(error)))
+                    completion(nil)
+                    break
+                }
+            } // End Alamofire Response
+        } // End Internet Check Status
+    }
+    
     // MARK: - Get Payment Request Phone Bill
     
     func getPaymentRequestViaPhoneBill(operatorID   : Int,
@@ -11129,6 +11279,7 @@ class RequestService {
                                  verificationID : String,
                                  requestID      : [String],
                                  pinCode        : String,
+                                 billID         : [Int]?,
                                  _ completion: @escaping CallObjectBack<BaseObjectResponse<Beneficiary>>) {
         
         if self.requestsController.isConnectedToInternet() {
@@ -11139,7 +11290,7 @@ class RequestService {
                 "VerificationID" : verificationID,
                 "RequestID" : requestID,
                 "PinCode" : pinCode,
-                "Bill_ID" : []
+                "Bill_ID" : billID ?? []
             ]
             
             var headers: HTTPHeaders = self.requestsController.headers

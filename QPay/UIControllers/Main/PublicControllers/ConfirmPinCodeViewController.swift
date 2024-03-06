@@ -31,6 +31,8 @@ class ConfirmPinCodeViewController: ViewController {
     var validateObject: ValidateMerchantQRCode?
     var data: Any?
     var dataArray: [Any]?
+    var succesClosure: (()->())?
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -186,7 +188,8 @@ extension ConfirmPinCodeViewController {
                     presentingView is KahramaaBillsViewController        ||
                     presentingView is KahrmaBillOperationsViewController ||
                     presentingView is QatarCoolViewController            ||
-                    presentingView is QatarCoolOperationsViewController {
+                    presentingView is QatarCoolOperationsViewController  ||
+                    presentingView is PaymentVC{
             
             guard let response = self.paymentViaBillResponse else {
                 self.showSnackMessage("Something went wrong")
@@ -196,7 +199,7 @@ extension ConfirmPinCodeViewController {
             self.sendNoqsTransferPayment(pinCode,
                                          accessToken: response._accessToken,
                                          verificationID: response._verificationID,
-                                         requestID: response._requestID)
+                                         requestID: response._requestID, billID: [])
         } else {
 //            self.sendVerifyPin(pinCode) {
                 self.dismiss(animated: true) {
@@ -344,13 +347,15 @@ extension ConfirmPinCodeViewController {
     private func sendNoqsTransferPayment(_ code: String,
                                          accessToken    : String,
                                          verificationID : String,
-                                         requestID      : [String]) {
+                                         requestID      : [String],
+                                         billID         : [Int]?) {
         
         self.codeErrorLabel.isHidden = true
         self.requestProxy.requestService()?.noqsTransferBillPayment(accessToken: accessToken,
                                                                     verificationID: verificationID,
                                                                     requestID: requestID,
-                                                                    pinCode: code)
+                                                                    pinCode: code, 
+                                                                    billID: billID)
                                                                     { response in
             guard let resp = response else {
                 self.showSnackMessage("Something went wrong")
@@ -368,7 +373,9 @@ extension ConfirmPinCodeViewController {
                     return
                 }
                 self.closeView(true)
-                presentingView.showSuccessMessage(resp._message)
+                presentingView.showSuccessMessage(resp._message) {
+                    self.succesClosure?()
+                }
             }
         }
     }

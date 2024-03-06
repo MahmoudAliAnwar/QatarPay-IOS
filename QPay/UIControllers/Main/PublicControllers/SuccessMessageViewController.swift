@@ -13,6 +13,7 @@ class SuccessMessageViewController: ViewController {
     @IBOutlet weak var messageLabel: UILabel!
     
     var message: String?
+    var closure: (()->())?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +28,12 @@ class SuccessMessageViewController: ViewController {
     }
     
     @IBAction func closeAction(_ sender: UIButton) {
-        self.okAction(sender)
+        self.dismiss(animated: true)
     }
     
     @IBAction func okAction(_ sender: UIButton) {
         self.dismiss(animated: true) {
-            
+            self.closure?()
         }
     }
 }

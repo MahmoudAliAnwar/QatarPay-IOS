@@ -220,3 +220,6 @@ extension WebViewController: WKUIDelegate, WKNavigationDelegate {
 //        // Response "{\"success\":false,\"code\":\"BadRequest\",\"message\":\"Payment Failed \",\"errors\":[]}"
 //    }
 }
+
+extension WebViewController{
+}

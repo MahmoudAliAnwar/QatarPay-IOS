@@ -273,16 +273,19 @@ extension DashboardViewController: DashboardTableViewCellDelegate {
                 
             case .PhoneBills:
                 let vc = self.getStoryboardView(PhoneBillsViewController.self)
+                vc.serviceID = serviceID
                 self.navigationController?.pushViewController(vc, animated: true)
                 break
                 
             case .Kahramaa:
                 let vc = self.getStoryboardView(KahramaaBillsViewController.self)
+                vc.serviceID = serviceID
                 self.navigationController?.pushViewController(vc, animated: true)
                 break
                 
             case .QatarCool:
                 let vc = self.getStoryboardView(QatarCoolViewController.self)
+                vc.serviceID = serviceID
                 self.navigationController?.pushViewController(vc, animated: true)
                 break
                 
